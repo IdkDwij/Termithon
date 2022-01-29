@@ -31,6 +31,7 @@ exit (exits program)
 
 def cdCmd():
     print("sorry, the cd command doesnt update so no ")
+    main()
     '''
     path = input('Directory: ')
     if os.path.isdir(path) == True:
