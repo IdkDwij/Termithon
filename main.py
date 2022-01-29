@@ -1,6 +1,10 @@
 import os
+import subprocess
+import shlex
 
 # Made in python, with pycharm
+# thanks for green1490#2863 for helping me with arguments
+
 print('Termithon')
 idkdwij = '''
     I   D       K   K   D       W         W     I       J
@@ -10,25 +14,63 @@ idkdwij = '''
 print('The Python based terminal by' + idkdwij + 'it says idkdwij')
 print('The source is here')
 
+
+def listToString(s):
+    str1 = ""
+    for ele in s:
+        str1 += ele
+    return str1
+
+
 current_dir = os.getcwd()
+
 commands = '''ls (shows files in current directory)
+exit (exits program)
 '''
 
 
-class command:
-    def boot(self):
-        global cmd
-        cmd = input(current_dir + '>')
-        command().whatiscommand()
+def cdCmd():
+    print("sorry, the cd command doesnt update so no ")
+    '''
+    path = input('Directory: ')
+    if os.path.isdir(path) == True:
+        current_dir = args
+        global new_current_dir
+        new_current_dir = args
+        global newcurrdir
+        newcurrdir = True
+        main()
+    else:
+        print('wrong directory')
+        main()
+        '''
 
-    def whatiscommand(self):
-        if cmd == 'help':
-            print(commands)
-            command().boot()
 
-        if cmd == 'ls':
-            print(os.listdir(current_dir))
-            command().boot()
+def whatiscommand():
+    if cmd == 'help':
+        print(commands)
+        main()
+
+    elif cmd == 'ls':
+        print(os.listdir(current_dir))
+        main()
+
+    elif cmd == "cd":
+        global args
+        args = cmd
+        cdCmd()
+    elif cmd == 'exit':
+        exit()
+    else:
+        print('invalid')
+        main()
 
 
-command().boot()
+def main():
+    global cmd
+    cmd = input(current_dir + '>')
+    whatiscommand()
+
+
+lsdir = current_dir
+main()
