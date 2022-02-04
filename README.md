@@ -14,6 +14,8 @@ exit (Exits Termithron)
 getmac (Retrieves the Physical MAC Address of The Device)
 calc (A simple calculator)
 passgen (A very efficient password generator)
+getip (Retrieves the IP Address of your machine)
+getsysteminfo (Gets info about OS, CPU, etc)
 '''
 ```
 
