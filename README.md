@@ -1,6 +1,9 @@
 # Termithon
 Making a terminal based in python but its ass
 
-Features: Not Much
-1) ls
-2) help
+Features:
+ls (shows files in current directory)
+exit (exits program)
+ip (gives you your ip)
+hostname (gives you your computers id)
+user (gives the user your logged on)
