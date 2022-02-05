@@ -1,7 +1,7 @@
 import os
-import subprocess
 import shlex
-
+import socket
+import getpass
 # Made in python, with pycharm
 # thanks for green1490#2863 for helping me with arguments
 
@@ -12,8 +12,10 @@ idkdwij = '''
     I   D       K   K   D       W  W   W  W     I     J J
 '''
 print('The Python based terminal by' + idkdwij + 'it says idkdwij')
-print('The source is here')
+print('The source is here github.com/IDkDwij/termithon')
 
+hostname = socket.gethostname()
+ip = socket.gethostbyname(hostname)
 
 def listToString(s):
     str1 = ""
@@ -26,6 +28,9 @@ current_dir = os.getcwd()
 
 commands = '''ls (shows files in current directory)
 exit (exits program)
+ip (gives you your ip)
+hostname (gives you your computers id)
+user (gives the user your logged on)
 '''
 
 
@@ -62,6 +67,15 @@ def whatiscommand():
         cdCmd()
     elif cmd == 'exit':
         exit()
+    elif cmd == 'ip':
+        print(ip)
+        main()
+    elif cmd == 'hostname':
+        print(hostname)
+        main()
+    elif cmd == 'user':
+        print(getpass.getuser())
+        main()
     else:
         print('invalid')
         main()
