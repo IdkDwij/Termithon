@@ -10,7 +10,7 @@ user (gives the user your logged on)<br>
 mac (gives you your mac addresss)<br>
 ping (lets you ping a website)<br>
 
-#Usage
+# Usage<br>
 example for ping command<br>
 ```
 ping www.google.com
