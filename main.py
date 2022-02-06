@@ -33,6 +33,8 @@ exit (exits program)
 ip (gives you your ip)
 hostname (gives you your computers id)
 user (gives the user your logged on)
+mac (gives you your mac addresss)
+ping (lets you ping a website)
 '''
 
 
