@@ -1,8 +1,10 @@
 import os
-import shlex
 import socket
 import getpass
-# Made in python, with pycharm
+from uuid import getnode as get_mac
+mac = get_mac()
+# Made in python
+# collaborated with https://github.com/BigBoyTaco/ for this little update
 # thanks for green1490#2863 for helping me with arguments
 
 print('Termithon')
@@ -53,31 +55,43 @@ def cdCmd():
 
 
 def whatiscommand():
+    #help command
     if cmd == 'help':
         print(commands)
         main()
-
+    #ls command
     elif cmd == 'ls':
         print(os.listdir(current_dir))
         main()
-
+    #cd command
     elif cmd == "cd":
         global args
         args = cmd
         cdCmd()
+    #exit command
     elif cmd == 'exit':
         exit()
+    #ip command
     elif cmd == 'ip':
         print(ip)
         main()
+    #hostname command
     elif cmd == 'hostname':
         print(hostname)
         main()
+    #users command
     elif cmd == 'user':
         print(getpass.getuser())
         main()
+    #mac address command
+    elif cmd == "mac":
+        print(mac)
+        main(str(current_dir))
+    elif "ping" in cmd:
+        os.system(cmd)
+    #command not reconized
     else:
-        print('invalid')
+        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
         main()
 
 
