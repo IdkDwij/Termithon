@@ -88,7 +88,7 @@ def whatiscommand():
     #mac address command
     elif cmd == "mac":
         print(mac)
-        main(str(current_dir))
+        main()
     elif "ping" in cmd:
         os.system(cmd)
     #command not reconized
