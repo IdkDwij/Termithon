@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo?">
+
 # Termithon
 Making a terminal based in python but its ass
 
