@@ -91,9 +91,10 @@ def whatiscommand():
         main()
     elif "ping" in cmd:
         os.system(cmd)
+    elif cmd == "":
+        main()
     #command not reconized
     else:
-        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
         main()
 
 
@@ -103,5 +104,14 @@ def main():
     whatiscommand()
 
 
-lsdir = current_dir
+class Miscellaneous(cmds=cmd)
+    def __init__(self):
+        pass
+
+    def error(self):
+        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
+
+        
+
+
 main()
