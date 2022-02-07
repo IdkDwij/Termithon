@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" style="text-align:center;">
+<img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" style="  margin-left: auto;margin-right: auto;">
 
 # Termithon
 Making a terminal based in python but its ass
