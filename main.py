@@ -1,9 +1,9 @@
 import os
 import subprocess
 import shlex
+# Original 3 Libaries from Termitrhon 1
 import string
 from random import *
-import curses
 import time
 from random import randint
 import socket
@@ -11,14 +11,13 @@ import platform
 import subprocess
 import re
 import uuid
-import json
-import logging
 
 # Made in Python, with PyCharm and OnlineGDB
+# Compiled on desktop in Visual Studio 2019
 # Thanks for green1490#2863 for helping me with arguments
 # Edited by joalricha869 to expand code
 
-print('Termithon 2.0')
+print("="*40, "Termithron 2.0", "="*40)
 idkdwij = '''
     I   D       K   K   D       W         W     I       J
     I   D   D   K K     D  D    W    W    W     I   J   J
@@ -30,9 +29,9 @@ joalricha = '''
     J   O   O  AAAAA  L    RRRR   I  C     H  H  AAAAA
   JJJ    OOO   A   A  LLL  R   R  I   CCC  H  H  A   A
 '''
-print('The Python based terminal by' + idkdwij + 'it says idkdwij')
+print('The Python based terminal by:' + idkdwij + 'it says idkdwij tho')
 print(" ")
-print('Expanded by' + joalricha + 'it says joalricha')
+print('Expanded by:' + joalricha + 'it says joalricha')
 print(" ")
 print('The source is here')
 print("Type in 'help' for the command list.")
@@ -53,13 +52,27 @@ commands = '''dir (Shows files in current directory)
 cd (Go to specific directory in OS File System) (BETA STAGE DOESN'T WORK)
 exit (Exits Termithron)
 getmac (Retrieves the Physical MAC Address of The Device)
+getip (Gets IP Address of Device)
+getsysteminfo (Gets relevant system info)
 calc (A simple calculator)
 passgen (A very efficient password generator)
+ver (Reports Termithron Version)
 '''
 
+newHelp = '''dir (Shows files in current directory)
+cd (Go to specific directory in OS File System) (BETA STAGE DOESN'T WORK)
+exit (Exits Termithron)
+getmac (Retrieves the Physical MAC Address of The Device)
+getip (Gets IP Address of Device)
+getsysteminfo (Gets relevant system info)
+calc (A simple calculator)
+passgen (A very efficient password generator)
+ver (Reports Termithron Version)
+dev (Enables DEV Mode)
+'''
 
 def cdCmd():
-    print("This command sadly won't function in Python. Just here cuz it exists lol so no ")
+    print("Sorry, cd command doesn't update so no.")
     main()
     '''
     path = input('Directory: ')
@@ -74,6 +87,7 @@ def cdCmd():
         print('wrong directory')
         main()
         '''
+
 
 
 def whatiscommand():
@@ -106,8 +120,16 @@ def whatiscommand():
     elif cmd == 'getsysteminfo':
         getSystemInfo()
         main()
+    elif cmd == 'ver':
+        ver()
+        main()
+    elif cmd == "dev":
+        debugSecrets()
+    elif cmd == "devHelp":
+        devHelp()
+        main()
     else:
-        print('invalid')
+        print("Invalid Command or Syntax... Use the 'help' command for more info")
         main()
 
 
@@ -116,10 +138,29 @@ def main():
     cmd = input(current_dir + '>')
     whatiscommand()
 
+def ver():
+    print("Termithron 2.3 RELEASE_CANDIDATE_2   ! PRE-RELEASE VERSION OF TERMITHRON 2.0 !")
+    print("(C) 2022 joalricha869, idkDwij All Rights Reserved.")
+
+def debugSecrets():
+    print("EXPERIMENTIAL FEATURES AHEAD!")
+    print("These features are in development and are NOT complete. Some may work, some may not work at all.")
+    enableDevMode = input("ENABLE EXPERIMENTAL FEATURES? ")
+    if enableDevMode == "yes":
+        print("Experminental Features Enabled. NEW COMMAND: devHelp")
+        main()
+    else:
+        print("No changes were made to the Terminal.")
+        main()
+
 def getmac():
     import re, uuid
     print ("The MAC address of this Device is : ", end="")
     print (':'.join(re.findall('..', '%012x' % uuid.getnode())))
+
+def devHelp():
+    print(newHelp)
+
 
 def calc():
     def add(x, y):
