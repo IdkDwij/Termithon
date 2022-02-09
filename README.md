@@ -33,7 +33,6 @@ ver (Reports Termithron Version)
 '''
 ```
 
-## LOGO
 
 
 ## Contributing
