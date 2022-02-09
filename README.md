@@ -1,4 +1,4 @@
-# Termithron 2.0
+# Termithron 3.0
 
 Making a terminal based in Python 3.10.1 but way more improved.
 
@@ -16,19 +16,27 @@ Just a few...
 ```bash
 '''
 dir (Shows files in current directory)
-cd (Go to specific directory in OS File System) (BETA STAGE WILL NOT WORK)
 exit (Exits Termithron)
-getmac (Retrieves the Physical MAC Address of The Device)
+ip (Gives you your IP)
+hostname (Gives you your Computer's ID)
+mac (Retrieves the Physical MAC Address of The Device)
+ping (lets you ping a website)
 calc (A simple calculator)
 passgen (A very efficient password generator)
-getip (Retrieves the IP Address of your machine)
-getsysteminfo (Gets info about OS, CPU, etc)
+sysinfo (Gets relevant system info)
+test (Tests Termithron Sample Command)
+mp3search (Searches your File System for mp3 files)
+mp4search (Searches your File System for mp4 files)
+pysearch (Searches your File System for py files)
+docxsearch (Searches your File System for docx files)
+mailgen (Generates dummy E-Mail Addresses)
+ver (Reports Termithron Version)
 '''
 ```
 
 ## LOGO
 
-![LOGO](https://user-images.githubusercontent.com/83835381/152459680-27e93f50-2e66-400f-b8f8-2b90bed492a7.gif)
+![LOGO](https://github.com/joalricha869/Termithon-3.0/blob/main/new%20logo.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
