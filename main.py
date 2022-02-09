@@ -1,10 +1,12 @@
+from __future__ import division
 import os
 import socket
 import getpass
 from uuid import getnode as get_mac
 mac = get_mac()
 import string
-from random import *
+import random
+from random import choice
 import time
 from random import randint
 import socket
@@ -12,6 +14,12 @@ import platform
 import subprocess
 import re
 import uuid
+import fnmatch
+import csv
+import math
+import signal
+import sys
+import itertools
 # Made in python
 # collaborated with https://github.com/BigBoyTaco/ for this little update
 # Made in Python, with PyCharm and OnlineGDB
@@ -59,12 +67,19 @@ ping (lets you ping a website)
 calc (A simple calculator)
 passgen (A very efficient password generator)
 sysinfo (Gets relevant system info)
+test (Tests Termithron Sample Command)
+mp3search (Searches your File System for mp3 files)
+mp4search (Searches your File System for mp4 files)
+pysearch (Searches your File System for py files)
+docxsearch (Searches your File System for docx files)
+mailgen (Generates dummy E-Mail Addresses)
 ver (Reports Termithron Version)
 '''
 
 def cdCmd():
     print("sorry, the cd command doesnt update so no ")
     main()
+    # Someone help on this code pls.
     '''
     path = input('Directory: ')
     if os.path.isdir(path) == True:
@@ -121,6 +136,24 @@ def whatiscommand():
     elif cmd == "ver":
         ver()
         main()
+    elif cmd == "test":
+        testFunc()
+        main()
+    elif cmd == "mp3search":
+        mp3search()
+        main()
+    elif cmd == "mp4search":
+        mp3search()
+        main()
+    elif cmd == "pysearch":
+        pysearch()
+        main()
+    elif cmd == "docxsearch":
+        docxsearch()
+        main()
+    elif cmd == "mailgen":
+        mailGen()
+        main()
     else:
         error()
 
@@ -131,7 +164,7 @@ def main():
     whatiscommand()
 
 def ver():
-    print("Termithron 2.3")
+    print("Termithron BETA 3.0 Codename: PyTermi3")
     print("(C) 2022 joalricha869, idkDwij All Rights Reserved.")
 
 def getSystemInfo():
@@ -209,7 +242,52 @@ def error():
     print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
     main()
 
-        
+def testFunc():
+    print("If this command works, then your Termithron is fine.")
 
+def mp3search():
+    rootPath = '/'
+    pattern = '*.mp3'
+    
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print( os.path.join(root, filename))
+def mp4search():
+    rootPath = '/'
+    pattern = '*.mp4'
+    
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print( os.path.join(root, filename))
+def pysearch():
+    rootPath = '/'
+    pattern = '*.py'
+    
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print( os.path.join(root, filename))
+def docxsearch():
+    rootPath = '/'
+    pattern = '*.docx'
+    
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print( os.path.join(root, filename))
+
+def mailGen():
+    extensions = ['com']
+    domains = ['gmail','yahoo','comcast','verizon','charter','hotmail','outlook','frontier','icloud','yandex']
+    characters = string.ascii_letters + string.digits
+    winext = extensions[random.randint(0,len(extensions)-1)]
+    windom = domains[random.randint(0,len(domains)-1)]
+    acclen = random.randint(1,20)
+    winacc = ''.join(choice(characters) for _ in range(acclen))
+    finale = winacc + "@" + windom + "." + winext
+    print("Your Generated E-Mail Address is: ",finale)
+    again = input("Generate another address? ")
+    if again == "yes":
+        mailGen()
+    else:
+        main()
 
 main()
