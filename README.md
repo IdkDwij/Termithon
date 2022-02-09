@@ -4,7 +4,6 @@ Making a terminal based in Python 3.10.1 but way more improved.
 
 # Original Repo of Termithron 1 (_idkDwij_)
 
-![Icon](https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico)
 
 
 Access the Original Repo [HERE](https://github.com/IdkDwij/Termithon)
@@ -36,7 +35,6 @@ ver (Reports Termithron Version)
 
 ## LOGO
 
-![LOGO](https://github.com/joalricha869/Termithon-3.0/blob/main/new%20logo.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -49,7 +47,6 @@ Original Termithron 1 (_Make sure to check out his new update!_) Credit to [idkD
 
 Expansion to Termithron 2.0 (_Check out the new version!_) Credit to [idkDwij](https://github.com/IdkDwij) and [joalricha869](https://github.com/joalricha869)
 
-Icon Design by [idkDwij](https://github.com/IdkDwij)
 
 New Update to Termithron 1.1 Credit to [idkDwij](https://github.com/IdkDwij) and [BigBoyTaco](https://github.com/BigBoyTaco/)
 
