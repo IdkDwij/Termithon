@@ -1,23 +1,20 @@
-# Termithron 3.0
+# PyPrompt
 
-Making a terminal based in Python 3.10.1 but way more improved.
-
-# Original Repo of Termithron 1 (_idkDwij_)
+Making a terminal based in Python 3.10.1
 
 
-
-Access the Original Repo [HERE](https://github.com/IdkDwij/Termithon)
+Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
 ## Features:
 
-Just a few...
+Many...
 
 ```bash
 '''
 dir (Shows files in current directory)
 exit (Exits Termithron)
 ip (Gives you your IP)
-hostname (Gives you your Computer's ID)
+hostname (Gives you your Computers ID)
 mac (Retrieves the Physical MAC Address of The Device)
 ping (lets you ping a website)
 calc (A simple calculator)
@@ -40,14 +37,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-# Credits
-
-Original Termithron 1 (_Make sure to check out his new update!_) Credit to [idkDwij](https://github.com/IdkDwij)
-
-Expansion to Termithron 2.0 (_Check out the new version!_) Credit to [idkDwij](https://github.com/IdkDwij) and [joalricha869](https://github.com/joalricha869)
-
-
-New Update to Termithron 1.1 Credit to [idkDwij](https://github.com/IdkDwij) and [BigBoyTaco](https://github.com/BigBoyTaco/)
 
 ## License
 [GNU General Public License 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
