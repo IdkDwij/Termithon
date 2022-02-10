@@ -21,13 +21,6 @@ import signal
 import sys
 import itertools
 
-# Made in python
-# collaborated with https://github.com/BigBoyTaco/ for this little update
-# Made in Python, with PyCharm and OnlineGDB
-# Compiled on desktop in Visual Studio 2019
-# Thanks for green1490#2863 for helping me with arguments
-# Edited by joalricha869 to expand code
-
 print("="*40, "Termithron 2.0", "="*40)
 idkdwij = '''
     I   D       K   K   D       W         W     I       J
@@ -42,7 +35,7 @@ joalricha = '''
 '''
 print('The Python based terminal by:' + idkdwij + 'it says idkdwij tho https://github.com/IdkDwij')
 print(" ")
-print('Expanded by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
+print('Expanded by:' + joalricha + 'it says joalricha https://github.com/joalricha869 (This is idkdwij he is copying my termithon code and his reason is "ITS A EXPANSION" and i told him to stop he doesnt)')
 print('edited by https://github.com/BigBoyTaco')
 print(" ")
 print('The source is here')
@@ -81,25 +74,6 @@ commands = '''dir (Shows files in current directory)
 15. ver (Reports Termithron Version)
 '''
 
-#cd command (work in progress)
-def cdCmd():
-    print("sorry, the cd command doesnt update so no ")
-    main()
-    # Someone help on this code pls.
-    '''
-    path = input('Directory: ')
-    if os.path.isdir(path) == True:
-        current_dir = args
-        global new_current_dir
-        new_current_dir = args
-        global newcurrdir
-        newcurrdir = True
-        main()
-    else:
-        print('wrong directory')
-        main()
-        '''
-
 #what command was requested
 def whatiscommand():
     #help command
@@ -110,11 +84,6 @@ def whatiscommand():
     elif cmd == 'dir':
         print(os.listdir(current_dir))
         main()
-    #cd command
-    elif cmd == "cd":
-        global args
-        args = cmd
-        cdCmd()
     #exit command
     elif cmd == 'exit':
         exit()
@@ -130,10 +99,6 @@ def whatiscommand():
     #get mac adress
     elif cmd == "mac":
         getmac()
-        main()
-    #ping
-    elif "ping" in cmd:
-        os.system(cmd)
         main()
     #calculator
     elif cmd == "calc":
