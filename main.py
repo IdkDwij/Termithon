@@ -21,22 +21,17 @@ import signal
 import sys
 import itertools
 
-print("="*40, "Termithron 2.0", "="*40)
-idkdwij = '''
-    I   D       K   K   D       W         W     I       J
-    I   D   D   K K     D  D    W    W    W     I   J   J
-    I   D       K   K   D       W  W   W  W     I     J J
-'''
+print("="*40, "PyPrompt", "="*40)
+
 joalricha = '''
     J    OOO    AAA   L    RRRR   I   CCC  H  H   AAA
     J   O   O  A   A  L    R   R  I  C     HHHH  A   A
     J   O   O  AAAAA  L    RRRR   I  C     H  H  AAAAA
   JJJ    OOO   A   A  LLL  R   R  I   CCC  H  H  A   A
 '''
-print('The Python based terminal by:' + idkdwij + 'it says idkdwij tho https://github.com/IdkDwij')
-print(" ")
-print('Expanded by:' + joalricha + 'it says joalricha https://github.com/joalricha869 (This is idkdwij he is copying my termithon code and his reason is "ITS A EXPANSION" and i told him to stop he doesnt)')
-print('edited by https://github.com/BigBoyTaco')
+
+print('Expanded by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
+print('Thanks to https://github.com/BigBoyTaco for help')
 print(" ")
 print('The source is here')
 print("Type in 'help' for the command list.")
@@ -56,22 +51,22 @@ def listToString(s):
         str1 += ele
     return str1
 
-commands = '''dir (Shows files in current directory)
-1. exit (Exits Termithron)
-2. ip (Gives you your IP)
-3. hostname (Gives you your Computer's ID)
-4. mac (Retrieves the Physical MAC Address of The Device)
-5. ping (lets you ping a website)
-6. calc (A simple calculator)
-7. passgen (A very efficient password generator)
-8. sysinfo (Gets relevant system info)
-9. test (Tests Termithron Sample Command)
-10. mp3search (Searches your File System for mp3 files)
-11. mp4search (Searches your File System for mp4 files)
-12. pysearch (Searches your File System for py files)
-13. docxsearch (Searches your File System for docx files)
-14. mailgen (Generates dummy E-Mail Addresses)
-15. ver (Reports Termithron Version)
+commands = '''1. dir (Shows files in current directory)
+2. exit (Exits the terminal)
+3. ip (Gives you your IP)
+4. hostname (Gives you your Computer's ID)
+5. mac (Retrieves the Physical MAC Address of The Device)
+6. ping (lets you ping a website)
+7. calc (A simple calculator)
+8. passgen (A very efficient password generator)
+9. sysinfo (Gets relevant system info)
+10. test (Tests Termithron Sample Command)
+11. mp3search (Searches your File System for mp3 files)
+12. mp4search (Searches your File System for mp4 files)
+14. pysearch (Searches your File System for py files)
+15. docxsearch (Searches your File System for docx files)
+16. mailgen (Generates dummy E-Mail Addresses)
+17. ver (Reports Software Version)
 '''
 
 #what command was requested
@@ -149,8 +144,8 @@ def main():
     whatiscommand()
 #version function
 def ver():
-    print("Termithron BETA 3.0 Codename: PyTermi3")
-    print("(C) 2022 joalricha869, idkDwij All Rights Reserved.")
+    print("PyPrompt BETA 1 Codename: PyTermi")
+    print("(C) 2022 joalricha869, All Rights Reserved.")
 #system information function
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
