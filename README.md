@@ -11,7 +11,7 @@ hostname (gives you your computers id)<br>
 user (gives the user your logged on)<br>
 mac (gives you your mac addresss)<br>
 ping (lets you ping a website)<br>
-
+inspace (2 out of 100 chance of surviving)
 # Usage<br>
 example for ping command<br>
 ```
