@@ -40,69 +40,58 @@ ping (lets you ping a website)
 '''
 
 
-def cdCmd():
-    print("sorry, the cd command doesnt update so no ")
-    main()
-    '''
-    path = input('Directory: ')
-    if os.path.isdir(path) == True:
-        current_dir = args
-        global new_current_dir
-        new_current_dir = args
-        global newcurrdir
-        newcurrdir = True
-        main()
-    else:
-        print('wrong directory')
-        main()
-        '''
+
+def main(current_dir):
+    global cmd
+    cmd = input(current_dir + '>')
+    whatiscommand(current_dir)
 
 
-def whatiscommand():
+def whatiscommand(current_dir):
     #help command
     if cmd == 'help':
         print(commands)
-        main()
+        main(current_dir)
     #ls command
     elif cmd == 'ls':
         print(os.listdir(current_dir))
-        main()
+        main(current_dir)
     #cd command
-    elif cmd == "cd":
-        global args
-        args = cmd
-        cdCmd()
+    elif "cd" in cmd:
+        args = cmd.split()
+        if os.path.isdir(args[1]) == True:
+            current_dir = args[1]
+            main(current_dir)
+        else:
+            print('The system cannot find the path specified. \n')
+            main(current_dir)
     #exit command
     elif cmd == 'exit':
         exit()
     #ip command
     elif cmd == 'ip':
         print(ip)
-        main()
+        main(current_dir)
     #hostname command
     elif cmd == 'hostname':
         print(hostname)
-        main()
+        main(current_dir)
     #users command
     elif cmd == 'user':
         print(getpass.getuser())
-        main()
+        main(current_dir)
     #mac address command
     elif cmd == "mac":
         print(mac)
-        main()
+        main(current_dir)
     elif "ping" in cmd:
         os.system(cmd)
     elif cmd == "":
-        main()
+        main(current_dir)
     else:
         Miscellaneous.commands(self=None)
 
 
-def main():
-    global cmd
-    cmd = input(current_dir + '>')
-    whatiscommand()
 
 
 
@@ -118,10 +107,10 @@ class Miscellaneous():
             print("You Died")
         else:
             print('You survived')
-        main()
+        main(current_dir)
     def error(self):
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
-        main()
+        main(current_dir)
 
 
-main()
+main(current_dir)
