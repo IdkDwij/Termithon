@@ -1,7 +1,9 @@
-import os
-import socket
 import getpass
+import os
+import random
+import socket
 from uuid import getnode as get_mac
+
 mac = get_mac()
 # Made in python
 # collaborated with https://github.com/BigBoyTaco/ for this little update
@@ -93,9 +95,8 @@ def whatiscommand():
         os.system(cmd)
     elif cmd == "":
         main()
-    #command not reconized
     else:
-        main()
+        Miscellaneous.commands(self=None)
 
 
 def main():
@@ -104,14 +105,23 @@ def main():
     whatiscommand()
 
 
-class Miscellaneous(cmds=cmd)
-    def __init__(self):
-        pass
 
+class Miscellaneous():
+    def commands(self):
+        if cmd == 'inspace':
+            Miscellaneous.emulation(self=None)
+        else:
+            Miscellaneous.error(self=None)
+    def emulation(self):
+        chance = random.randint(1,100)
+        if chance > 2:
+            print("You Died")
+        else:
+            print('You survived')
+        main()
     def error(self):
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
-
-        
+        main()
 
 
 main()
