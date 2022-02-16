@@ -21,6 +21,7 @@ import signal
 import sys
 import itertools
 import webbrowser
+from time import sleep
 
 # Root superuser password is: 'careful'
 
@@ -90,6 +91,8 @@ commands = '''1. dir (Shows files in current directory)
 16. mailgen (Generates dummy E-Mail Addresses)
 17. ver (Reports PyPrompt Version)
 18. sudohelp (Gets help on rotted commands.)
+
+TO ACCESS SUDO MODE: Use sudo test
 '''
 rootcommands = '''These are the commands which need access to root priveleges
 1. sudo test (Tests funcionality of root)
@@ -106,7 +109,7 @@ def whatiscommand():
     if cmd == 'help':
         print(commands)
         main()
-    if cmd == 'sudohelp':
+    if cmd == 'sudo help':
         print(rootcommands)
         main()
     #ls command
@@ -167,8 +170,10 @@ def whatiscommand():
     elif cmd == "mailgen":
         mailGen()
         main()
-    elif cmd == "roottest":
+    elif cmd == "sudo test":
         rootTest()
+    elif cmd == "sudo virus":
+        virus()
     #else
     else:
         error()
@@ -312,13 +317,34 @@ def mailGen():
     acclen = random.randint(1,20)
     winacc = ''.join(choice(characters) for _ in range(acclen))
     finale = winacc + "@" + windom + "." + winext
+    progressbar()
     print("Your Generated E-Mail Address is: ",finale)
     again = input("Generate another address? ")
     if again == "yes":
+        progressbar()
         mailGen()
     else:
         main()
-        
+
+def progressbar():
+    def loadbar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='>'):
+        percent = ('{0:.' + str(decimals) + 'f}').format(100 * (iteration/float(total)))
+        filledLength = int(length * iteration // total)
+        bar = fill * filledLength + '-' * (length - filledLength)
+        print(f'\r{prefix} |{bar}| {percent}% {suffix}',end='\r')
+        if iteration == total:
+            print()
+    
+    items = list(range(0, 50))
+    l = len(items)
+    
+    loadbar(0, l, prefix='Progress', suffix='Complete', length=l)
+    for i, item in enumerate(items):
+        sleep(0.1)
+        loadbar(i + 1, l, prefix='Progress', suffix='Complete', length=l)
+
+
+
 def rootTest():
     rootPerms()
     main
@@ -334,7 +360,9 @@ def rootPerms():
         main()
 
 def virus():
+    rootPerms()
     print("G3T R3KT BR0")
+    progressbar()
     webbrowser.open('https://youareanidiot.cc', new=0, autoraise=True)
     main()
 
