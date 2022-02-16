@@ -125,7 +125,7 @@ def whatiscommand(current_dir):
             os.system(cmd)
             main(current_dir)
         else:
-            os,system(cmd)
+            os.system(cmd)
             main(current_dir)
     elif cmd == "":
         main(current_dir)
