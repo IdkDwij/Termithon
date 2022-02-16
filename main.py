@@ -44,6 +44,10 @@ mac (gives you your mac addresss)
 ping (lets you ping a website)
 python3 (full python3 support [only if you have python3 installed])
 cd (change current working directory)
+del (windows delete command)
+mkdir (windows make folder command)
+echo (echo something or create something)
+clear (clear terminal)
 
 For more help go to github.com/IDkDwij/termithon
 '''
@@ -99,7 +103,19 @@ def whatiscommand(current_dir):
      #clear command
     elif cmd == "clear":
         os.system('cls||clear')
-        main(current_dir
+        main(current_dir)
+    elif "mkdir" in cmd:
+        os.system(cmd)
+        main(current_dir)
+        
+    elif "del" in cmd:
+        os.system(cmd)
+        main(current_dir)
+        
+    elif "echo" in cmd:
+        os.system(cmd)
+        main(current_dir)
+        
     #python command
     elif 'python3' in cmd:
         global PY_warning_said
