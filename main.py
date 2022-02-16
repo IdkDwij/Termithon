@@ -20,7 +20,6 @@ print('The source is here github.com/IDkDwij/termithon')
 
 #setup
 PY_warning_said = bool(False)
-gateway = str(NULL)
 #get hostname
 hostname = socket.gethostname()
 #gets users ip addresss
@@ -48,7 +47,6 @@ del (windows delete command)
 mkdir (windows make folder command)
 echo (echo something or create something)
 clear (clear terminal)
-
 For more help go to github.com/IDkDwij/termithon
 '''
 
@@ -100,6 +98,7 @@ def whatiscommand(current_dir):
     #ping command
     elif "ping" in cmd:
         os.system(cmd)
+        main()
      #clear command
     elif cmd == "clear":
         os.system('cls||clear')
