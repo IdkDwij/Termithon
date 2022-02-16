@@ -18,7 +18,12 @@ idkdwij = '''
 print('The Python based terminal by' + idkdwij + 'it says idkdwij')
 print('The source is here github.com/IDkDwij/termithon')
 
+#setup
+PY_warning_said = bool(False)
+gateway = str(NULL)
+#get hostname
 hostname = socket.gethostname()
+#gets users ip addresss
 ip = socket.gethostbyname(hostname)
 
 def listToString(s):
@@ -37,6 +42,10 @@ hostname (gives you your computers id)
 user (gives the user your logged on)
 mac (gives you your mac addresss)
 ping (lets you ping a website)
+python3 (full python3 support [only if you have python3 installed])
+cd (change current working directory)
+
+For more help go to github.com/IDkDwij/termithon
 '''
 
 
@@ -84,10 +93,24 @@ def whatiscommand(current_dir):
     elif cmd == "mac":
         print(mac)
         main(current_dir)
+    #ping command
     elif "ping" in cmd:
         os.system(cmd)
+     #clear command
     elif cmd == "clear":
-        print("\n\n\n\n\n")
+        os.system('cls||clear')
+        main(current_dir
+    #python command
+    elif 'python3' in cmd:
+        global PY_warning_said
+        if PY_warning_said == False:
+            print('warning, this reqires python3 to be installed')
+            PY_warning_said = True
+            os.system(cmd)
+            main(current_dir)
+        else:
+            os,system(cmd)
+            main(current_dir)
     elif cmd == "":
         main(current_dir)
     else:
@@ -111,7 +134,7 @@ class Miscellaneous():
             print('You survived')
         main(current_dir)
     def error(self):
-        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
+        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
         main(current_dir)
 
 
