@@ -86,6 +86,8 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif "ping" in cmd:
         os.system(cmd)
+    elif cmd == "clear":
+        print("\n\n\n\n\n")
     elif cmd == "":
         main(current_dir)
     else:
