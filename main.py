@@ -98,7 +98,7 @@ def whatiscommand(current_dir):
     #ping command
     elif "ping" in cmd:
         os.system(cmd)
-        main()
+        main(current_dir)
      #clear command
     elif cmd == "clear":
         os.system('cls||clear')
