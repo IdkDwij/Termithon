@@ -19,6 +19,8 @@ print('The Python based terminal by' + idkdwij + 'it says idkdwij')
 print('The source is here github.com/IDkDwij/termithon')
 
 #setup
+global current_dir
+
 PY_warning_said = bool(False)
 #get hostname
 hostname = socket.gethostname()
@@ -53,10 +55,11 @@ For more help go to github.com/IDkDwij/termithon
 
 
 def main(current_dir):
+    global old_dir
+    old_dir = current_dir
     global cmd
     cmd = input(current_dir + '>')
     whatiscommand(current_dir)
-
 
 def whatiscommand(current_dir):
     #help command
@@ -70,9 +73,14 @@ def whatiscommand(current_dir):
     #cd command
     elif "cd" in cmd:
         args = cmd.split()
+        old_dir = current_dir
         if os.path.isdir(args[1]) == True:
-            current_dir = args[1]
-            main(current_dir)
+            new_dir = args[1]
+            main(new_dir)
+        elif os.path.isdir(old_dir + '\\' + args[1]):
+            new_dir = old_dir + '\\' + args[1]
+            current_dir = new_dir
+            main(new_dir)
         else:
             print('The system cannot find the path specified. \n')
             main(current_dir)
