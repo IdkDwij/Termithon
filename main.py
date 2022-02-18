@@ -49,6 +49,8 @@ del (windows delete command)
 mkdir (windows make folder command)
 echo (echo something or create something)
 clear (clear terminal)
+curl (the curl command)
+
 For more help go to github.com/IDkDwij/termithon
 '''
 
@@ -70,8 +72,13 @@ def whatiscommand(current_dir):
     elif cmd == 'ls':
         print(os.listdir(current_dir))
         main(current_dir)
+    elif 'curl' in cmd:
+        os.system(cmd)
+        main(current_dir)
     #cd command
     elif "cd" in cmd:
+        if cmd == "cd":
+            main(current_dir)
         args = cmd.split()
         old_dir = current_dir
         if os.path.isdir(args[1]) == True:
