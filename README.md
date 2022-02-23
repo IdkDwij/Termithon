@@ -1,8 +1,8 @@
 <img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
 
 # Termithon
-Making a terminal based in python but its ass
-# EXEs in Releases
+Making a terminal based in python but its ass<br>
+EXE in Releases
 
 Features:<br>
 exit (exits program)<br>
