@@ -17,3 +17,7 @@ example for ping command<br>
 ```
 ping www.google.com
 ```
+Esample for cd command<br>
+```
+cd C:\
+```
