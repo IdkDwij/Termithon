@@ -2,6 +2,7 @@
 
 # Termithon
 Making a terminal based in python but its ass
+# EXEs in Releases
 
 Features:<br>
 exit (exits program)<br>
