@@ -19,11 +19,12 @@ echo (echo something or create something)<br>
 clear (clear terminal)<br>
 curl (the curl command)<br>
 # Usage<br>
-example for ping command<br>
+example for commands<br>
 ```
 ping www.google.com
-```
-example for cd command<br>
-```
+mkdir foldername
+del filename
+echo hihi
+python3 (requires python3)
 cd C:\
 ```
