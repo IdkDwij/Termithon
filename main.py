@@ -113,13 +113,17 @@ commands = '''
 15. docxsearch (Searches your File System for docx files)
 16. mailgen (Generates dummy E-Mail Addresses)
 17. ver (Reports PyPrompt Version)
-18. sudohelp (Gets help on rotted commands.)
+18. sudo help (Gets help on rotted commands.)
+19. cls (Clears screen)
+20. mkdir (Creates a folder)
+21. del (deletes a file or directory)
 
-TO ACCESS SUDO MODE: Use sudo test
+TO ACCESS SUDO MODE: Use sudo
 '''
 rootcommands = '''These are the commands which need access to root priveleges
-1. sudo test (Tests funcionality of root)
+1. sudo (Tests funcionality of root)
 2. sudo virus (Minimalistic virus in Python)
+3. sudo -v (Reports sudo version)
 '''
 def rootwhatiscommand():
     if rootcmd == 'sudo test':
@@ -193,10 +197,20 @@ def whatiscommand():
     elif cmd == "mailgen":
         mailGen()
         main()
-    elif cmd == "sudo test":
-        rootTest()
+    elif cmd == "cls":
+        clear()
+    elif cmd == "sudo":
+        rootPerms()
     elif cmd == "sudo virus":
         virus()
+    elif cmd == "sudo -v":
+        print("sudo version 1.9.9")
+    elif "mkdir" in cmd:
+        os.system(cmd)
+        main()
+    elif "del" in cmd:
+        os.system(cmd)
+        main(current_dir)
     #else
     else:
         error()
@@ -287,6 +301,10 @@ def getip():
         st.close()
     return IP
 
+
+def clear():
+    os.system('cls||clear')
+    main()
 #error function
 def error():
     if(cmd == ""):
@@ -368,10 +386,6 @@ def progressbar():
 
 
 
-def rootTest():
-    rootPerms()
-    main
-
 def rootPerms():
     rootconf = input("'" + str(cmd) + "'" + " Requires priveleges to the root superuser. Enter Password: ")
     if rootconf == "careful":
@@ -388,5 +402,8 @@ def virus():
     progressbar()
     webbrowser.open('https://youareanidiot.cc', new=0, autoraise=True)
     main()
+
+
+
 
 main()
