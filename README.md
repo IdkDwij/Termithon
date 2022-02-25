@@ -11,22 +11,36 @@ Many...
 
 ```bash
 '''
-dir (Shows files in current directory)
-exit (Exits Termithron)
-ip (Gives you your IP)
-hostname (Gives you your Computers ID)
-mac (Retrieves the Physical MAC Address of The Device)
-ping (lets you ping a website)
-calc (A simple calculator)
-passgen (A very efficient password generator)
-sysinfo (Gets relevant system info)
-test (Tests Termithron Sample Command)
-mp3search (Searches your File System for mp3 files)
-mp4search (Searches your File System for mp4 files)
-pysearch (Searches your File System for py files)
-docxsearch (Searches your File System for docx files)
-mailgen (Generates dummy E-Mail Addresses)
-ver (Reports Termithron Version)
+ _______        _______                                       _     ____  ____        __           
+|_   __ \      |_   __ \                                     / |_  |_   ||   _|      [  |          
+  | |__) |_   __ | |__) |_ .--.   .--.   _ .--..--.  _ .--. `| |-'   | |__| |  .---.  | | _ .--.   
+  |  ___/[ \ [  ]|  ___/[ `/'`\]/ .'`\ \[ `.-. .-. |[ '/'`\ \| |     |  __  | / /__\\ | |[ '/'`\ \ 
+ _| |_    \ '/ /_| |_    | |    | \__. | | | | | | | | \__/ || |,   _| |  | |_| \__., | | | \__/ | 
+|_____| [\_:  /|_____|  [___]    '.__.' [___||__||__]| ;.__/ \__/  |____||____|'.__.'[___]| ;.__/  
+         \__.'                                      [__|                                 [__|      
+1. dir (Shows files in current directory)
+2. exit (Exits the terminal)
+3. ip (Gives you your IP)
+4. hostname (Gives you your Computer's ID)
+5. mac (Retrieves the Physical MAC Address of The Device)
+6. ping (lets you ping a website *not for now tho*) 
+7. calc (A simple calculator)
+8. passgen (A very efficient password generator)
+9. sysinfo (Gets relevant system info)
+10. test (Tests PyPrompt Sample Command)
+11. mp3search (Searches your File System for mp3 files)
+12. mp4search (Searches your File System for mp4 files)
+14. pysearch (Searches your File System for py files)
+15. docxsearch (Searches your File System for docx files)
+16. mailgen (Generates dummy E-Mail Addresses)
+17. ver (Reports PyPrompt Version)
+18. sudo help (Gets help on rotted commands.)
+19. cls (Clears screen)
+20. mkdir (Creates a folder)
+21. del (deletes a file or directory) ONLY WORKS ON WINDOWS
+22. rm (deletes a file or directory) ONLY WORKS ON LINUX OR MACOS
+
+TO ACCESS SUDO MODE: Use sudo
 '''
 ```
 
