@@ -22,11 +22,8 @@ import sys
 import itertools
 import webbrowser
 from time import sleep
-
 # Root superuser password is: 'careful'
-
 print("="*40, "PyPrompt", "="*40)
-
 joalricha = '''
     _             _      _      _            ___    __ ___  
    (_)           | |    (_)    | |          / _ \  / // _ \ 
@@ -38,7 +35,6 @@ joalricha = '''
  |__/                                                       
 
 '''
-
 taco = '''
 
   ____  _       ____           _______              
@@ -51,7 +47,6 @@ taco = '''
           |___/             |___/                   
 
 '''
-
 dwij = '''
 
   _     _ _    _____           _ _ 
@@ -64,7 +59,6 @@ dwij = '''
                               |__/ 
 
 '''
-
 print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
 print(" ")
 print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
@@ -74,21 +68,13 @@ print(" ")
 print('The source is here')
 print("Type in 'help' for the command list.")
 print("")
-
-#setup
-#gets hostname
 hostname = socket.gethostname()
-#gets mac address
-mac = get_mac()
-#gets current directory
 current_dir = os.getcwd()
-
 def listToString(s):
     str1 = ""
     for ele in s:
         str1 += ele
     return str1
-
 commands = '''
  _______        _______                                       _     ____  ____        __           
 |_   __ \      |_   __ \                                     / |_  |_   ||   _|      [  |          
@@ -114,14 +100,16 @@ commands = '''
 16. mailgen (Generates dummy E-Mail Addresses)
 17. ver (Reports PyPrompt Version)
 18. sudo help (Gets help on rotted commands.)
-19. cls (Clears screen)
+19. clear (Clears screen)
 20. mkdir (Creates a folder)
-21. del (deletes a file or directory)
+21. del (deletes a file or directory) ONLY WORKS ON WINDOWS
+22. rm (deletes a file or directory) ONLY WORKS ON LINUX OR MACOS
+23. loadbarTest (Tests the loadbar)
 
 TO ACCESS SUDO MODE: Use sudo
 '''
 rootcommands = '''These are the commands which need access to root priveleges
-1. sudo (Tests funcionality of root)
+1. sudo (USE THIS TO ACCESS root)
 2. sudo virus (Minimalistic virus in Python)
 3. sudo -v (Reports sudo version)
 '''
@@ -130,74 +118,57 @@ def rootwhatiscommand():
         rootTest()
     elif rootcmd == 'sudo virus':
         virus()
-#what command was requested
 def whatiscommand():
-    #help command
     if cmd == 'help':
         print(commands)
         main()
     if cmd == 'sudo help':
         print(rootcommands)
         main()
-    #ls command
     elif cmd == 'dir':
         print(os.listdir(current_dir))
         main()
-    #exit command
     elif cmd == 'exit':
         exit()
-    #ip command
     elif cmd == 'ip':
         print("Your IP Address is " + getip())
         main()
-    #hostname command
     elif cmd == 'hostname':
         uname = platform.uname()
         print(hostname)
         main()
-    #get mac adress
     elif cmd == "mac":
         getmac()
         main()
-    #calculator
     elif cmd == "calc":
         calc()
-    #password genorator
     elif cmd == "passgen":
         passGen()
-    #system information
     elif cmd == "sysinfo":
         getSystemInfo()
         main()
-    #version
     elif cmd == "ver":
         ver()
         main()
-    #test
     elif cmd == "test":
         testFunc()
         main()
-    #mp3 file searh
     elif cmd == "mp3search":
         mp3search()
         main()
-    #mp4 file search
     elif cmd == "mp4search":
         mp3search()
         main()
-    #python file search
     elif cmd == "pysearch":
         pysearch()
         main()
-    #word doc search
     elif cmd == "docxsearch":
         docxsearch()
         main()
-    #email genorator
     elif cmd == "mailgen":
         mailGen()
         main()
-    elif cmd == "cls":
+    elif cmd == "clear":
         clear()
     elif cmd == "sudo":
         rootPerms()
@@ -208,28 +179,28 @@ def whatiscommand():
     elif "mkdir" in cmd:
         os.system(cmd)
         main()
+    elif "rm" in cmd:
+        os.system(cmd)
+        main()
     elif "del" in cmd:
         os.system(cmd)
-        main(current_dir)
-    #else
+        main()
+    elif "loadbarTest" in cmd:
+        progressbar()
+        main()
     else:
         error()
-
-#define functions
 def main():
     global cmd
     cmd = input(current_dir + '>')
     whatiscommand()
-
 def rootmain():
     global rootcmd
     rootcmd = input('<Logged in as Root> ' + current_dir + '>')
     rootwhatiscommand()
-#version function
 def ver():
-    print("PyPrompt BETA 4 Codename: PyTermi")
+    print("PyPrompt 1.01 Release")
     print("(C) 2022 joalricha869, All Rights Reserved.")
-#system information function
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
     uname = platform.uname()
@@ -240,7 +211,6 @@ def getSystemInfo():
     print(f"Machine: {uname.machine}")
     print(f"Processor: {uname.processor}")
     print("System Info Retrieved!")
-#calculator function
 def calc():
     def add(x, y):
         return x + y
@@ -274,7 +244,6 @@ def calc():
             else:
                 print("Invalid Input")
                 main()
-#password genorator function
 def passGen():
         characters = string.ascii_letters + string.punctuation  + string.digits
         password =  "".join(choice(characters) for x in range(randint(8, 16)))
@@ -284,12 +253,10 @@ def passGen():
             passGen()
         else:
             main()
-#mac address function
 def getmac():
     import re, uuid
     print ("The MAC address of this Device is : ", end="")
     print (':'.join(re.findall('..', '%012x' % uuid.getnode())))
-#get ip function
 def getip():
     st = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:       
@@ -300,12 +267,9 @@ def getip():
     finally:
         st.close()
     return IP
-
-
 def clear():
     os.system('cls||clear')
     main()
-#error function
 def error():
     if(cmd == ""):
         main()
@@ -313,42 +277,32 @@ def error():
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
         print("For more help go to: https://github.com/joalricha869/PyPrompt or https://github.com/IdkDwij/Termithon")
         main()
-#test function
 def testFunc():
     print("If this command works, then your PyPrompt is fine... maybe")
-#mp3 search function
 def mp3search():
     rootPath = '/'
     pattern = '*.mp3'
-    
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print( os.path.join(root, filename))
-#mp4 search function
 def mp4search():
     rootPath = '/'
     pattern = '*.mp4'
-    
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print( os.path.join(root, filename))
-#py search function
 def pysearch():
     rootPath = '/'
     pattern = '*.py'
-    
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print( os.path.join(root, filename))
-#word doc search
 def docxsearch():
     rootPath = '/'
     pattern = '*.docx'
-    
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print( os.path.join(root, filename))
-#email genorator
 def mailGen():
     extensions = ['com']
     domains = ['gmail','yahoo','comcast','verizon','charter','hotmail','outlook','frontier','icloud','yandex']
@@ -366,7 +320,6 @@ def mailGen():
         mailGen()
     else:
         main()
-
 def progressbar():
     def loadbar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='>'):
         percent = ('{0:.' + str(decimals) + 'f}').format(100 * (iteration/float(total)))
@@ -375,7 +328,6 @@ def progressbar():
         print(f'\r{prefix} |{bar}| {percent}% {suffix}',end='\r')
         if iteration == total:
             print()
-    
     items = list(range(0, 50))
     l = len(items)
     
@@ -383,9 +335,6 @@ def progressbar():
     for i, item in enumerate(items):
         sleep(0.1)
         loadbar(i + 1, l, prefix='Progress', suffix='Complete', length=l)
-
-
-
 def rootPerms():
     rootconf = input("'" + str(cmd) + "'" + " Requires priveleges to the root superuser. Enter Password: ")
     if rootconf == "careful":
@@ -395,15 +344,11 @@ def rootPerms():
         print("Wrong password, try again by running your root command")
         print("You are now back in normal mode. ")
         main()
-
 def virus():
     rootPerms()
     print("G3T R3KT BR0")
     progressbar()
     webbrowser.open('https://youareanidiot.cc', new=0, autoraise=True)
     main()
-
-
-
 
 main()
