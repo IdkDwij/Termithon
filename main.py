@@ -28,26 +28,41 @@ from time import sleep
 print("="*40, "PyPrompt", "="*40)
 
 joalricha = '''
-    J    OOO    AAA   L    RRRR   I   CCC  H  H   AAA
-    J   O   O  A   A  L    R   R  I  C     HHHH  A   A
-    J   O   O  AAAAA  L    RRRR   I  C     H  H  AAAAA
-  JJJ    OOO   A   A  LLL  R   R  I   CCC  H  H  A   A
+    _             _      _      _            ___    __ ___  
+   (_)           | |    (_)    | |          / _ \  / // _ \ 
+    _  ___   __ _| |_ __ _  ___| |__   __ _| (_) |/ /| (_) |
+   | |/ _ \ / _` | | '__| |/ __| '_ \ / _` |> _ <| '_ \__, |
+   | | (_) | (_| | | |  | | (__| | | | (_| | (_) | (_) |/ / 
+   | |\___/ \__,_|_|_|  |_|\___|_| |_|\__,_|\___/ \___//_/  
+  _/ |                                                      
+ |__/                                                       
+
 '''
 
 taco = '''
-TTTTTTT  AAA     CCCC   OOOO
-   T    A   A   C      O    O
-   T    AAAAA   C      O    O
-   T    A   A   C      O    O
-   T    A   A    CCCC   OOOO
+
+  ____  _       ____           _______              
+ |  _ \(_)     |  _ \         |__   __|             
+ | |_) |_  __ _| |_) | ___  _   _| | __ _  ___ ___  
+ |  _ <| |/ _` |  _ < / _ \| | | | |/ _` |/ __/ _ \ 
+ | |_) | | (_| | |_) | (_) | |_| | | (_| | (_| (_) |
+ |____/|_|\__, |____/ \___/ \__, |_|\__,_|\___\___/ 
+           __/ |             __/ |                  
+          |___/             |___/                   
+
 '''
 
 dwij = '''
-IIIIIII DDDD  K  K  DDDD   W        W IIIIIII  JJJJJ
-   I    D   D K K   D   D  W        W    I       J
-   I    D   D KK    D   D   W   W  W     I       J
-   I    D   D K  K  D   D   W  W W W     I       J
-IIIIIII DDDD  K   K DDDD    WW    WW  IIIIIII  JJJ
+
+  _     _ _    _____           _ _ 
+ (_)   | | |  |  __ \         (_|_)
+  _  __| | | _| |  | |_      ___ _ 
+ | |/ _` | |/ / |  | \ \ /\ / / | |
+ | | (_| |   <| |__| |\ V  V /| | |
+ |_|\__,_|_|\_\_____/  \_/\_/ |_| |
+                               _/ |
+                              |__/ 
+
 '''
 
 print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
@@ -74,7 +89,15 @@ def listToString(s):
         str1 += ele
     return str1
 
-commands = '''1. dir (Shows files in current directory)
+commands = '''
+ _______        _______                                       _     ____  ____        __           
+|_   __ \      |_   __ \                                     / |_  |_   ||   _|      [  |          
+  | |__) |_   __ | |__) |_ .--.   .--.   _ .--..--.  _ .--. `| |-'   | |__| |  .---.  | | _ .--.   
+  |  ___/[ \ [  ]|  ___/[ `/'`\]/ .'`\ \[ `.-. .-. |[ '/'`\ \| |     |  __  | / /__\\ | |[ '/'`\ \ 
+ _| |_    \ '/ /_| |_    | |    | \__. | | | | | | | | \__/ || |,   _| |  | |_| \__., | | | \__/ | 
+|_____| [\_:  /|_____|  [___]    '.__.' [___||__||__]| ;.__/ \__/  |____||____|'.__.'[___]| ;.__/  
+         \__.'                                      [__|                                 [__|      
+1. dir (Shows files in current directory)
 2. exit (Exits the terminal)
 3. ip (Gives you your IP)
 4. hostname (Gives you your Computer's ID)
