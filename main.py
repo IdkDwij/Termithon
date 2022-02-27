@@ -15,7 +15,16 @@ idkdwij = '''
     I   D   D   K K     D  D    W    W    W     I   J   J
     I   D       K   K   D       W  W   W  W     I     J J
 '''
+bigboytaco = '''  ____  _       ____           _______              
+ |  _ \(_)     |  _ \         |__   __|             
+ | |_) |_  __ _| |_) | ___  _   _| | __ _  ___ ___  
+ |  _ <| |/ _` |  _ < / _ \| | | | |/ _` |/ __/ _ \ 
+ | |_) | | (_| | |_) | (_) | |_| | | (_| | (_| (_) |
+ |____/|_|\__, |____/ \___/ \__, |_|\__,_|\___\___/ 
+           __/ |             __/ |                  
+          |___/             |___/   '''
 print('The Python based terminal by' + idkdwij + 'it says idkdwij')
+print("IRL Friend/ 2nd devloper" + bigboytaco)
 print('The source is here github.com/IDkDwij/termithon')
 
 #setup
@@ -50,7 +59,6 @@ mkdir (windows make folder command)
 echo (echo something or create something)
 clear (clear terminal)
 curl (the curl command)
-
 For more help go to github.com/IDkDwij/termithon
 '''
 
@@ -64,6 +72,7 @@ def main(current_dir):
     whatiscommand(current_dir)
 
 def whatiscommand(current_dir):
+    args = cmd.split()
     #help command
     if cmd == 'help':
         print(commands)
@@ -79,7 +88,6 @@ def whatiscommand(current_dir):
     elif "cd" in cmd:
         if cmd == "cd":
             main(current_dir)
-        args = cmd.split()
         old_dir = current_dir
         if os.path.isdir(args[1]) == True:
             new_dir = args[1]
