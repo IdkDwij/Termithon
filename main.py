@@ -1,25 +1,13 @@
 #imports
 from __future__ import division
 import os
-import socket
-import getpass
-from uuid import getnode as get_mac
 import string
 import random
-from random import choice
-import time
-from random import randint
 import socket
+from random import choice
+from random import randint
 import platform
-import subprocess
-import re
-import uuid
 import fnmatch
-import csv
-import math
-import signal
-import sys
-import itertools
 import webbrowser
 from time import sleep
 # Root superuser password is: 'careful'
@@ -88,7 +76,7 @@ commands = '''
 3. ip (Gives you your IP)
 4. hostname (Gives you your Computer's ID)
 5. mac (Retrieves the Physical MAC Address of The Device)
-6. ping (lets you ping a website *not for now tho*) 
+6. ping (lets you ping a website UPDATE: NOW ADDED!) 
 7. calc (A simple calculator)
 8. passgen (A very efficient password generator)
 9. sysinfo (Gets relevant system info)
@@ -105,19 +93,37 @@ commands = '''
 21. del (deletes a file or directory) ONLY WORKS ON WINDOWS
 22. rm (deletes a file or directory) ONLY WORKS ON LINUX OR MACOS
 23. loadbarTest (Tests the loadbar)
+24. diskpart (Opens up the real diskpart) ONLY WORKS ON WINDOWS
+25. format (Formats a drive) ONLY WORKS ON WINDOWS
+26. history (Shows all your command history) ONLY WORKS ON LINUX OR MACOS
+27. hash (Displays program locations) ONLY WORKS ON LINUX OR MACOS
+28. color (Changes the color of text) ONLY WORKS ON WINDOWS
+29. intro (Displays initial text)
+30. py (Opens up the Python shell, REQUIRES PYTHON TO BE INSTALLED!) ONLY WORKS ON WINDOWS
+31. python (Alternate solution to the 'py' command) ONLY WORKS ON WINDOWS
+32. python3 (Opens the Python shell, REQUIRES PYTHON 3 TO BE INSTALLED!) ONLY WORKS ON LINUX
+33. pip (Opens up pip) REQUIRES PYTHON AND PIP TO BE INSTALLED!
+34. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
+35. apt (Command used to install package dependencies) ONLY WORKS ON LINUX
+36. git (Opens up git, REQUIRES GIT TO BE INSTALLED!) 
 
 TO ACCESS SUDO MODE: Use sudo
+
+ALSO, TO RUN THE SUDO COMMANDS AFTER ENTERING PASSWORD, JUST TYPE THE COMMAND BUT WITHOUT THE 'sudo' KEYWORD
 '''
 rootcommands = '''These are the commands which need access to root priveleges
 1. sudo (USE THIS TO ACCESS root)
 2. sudo virus (Minimalistic virus in Python)
 3. sudo -v (Reports sudo version)
+4. sudo bitcoinminer (A Bitcoin miner)
 '''
 def rootwhatiscommand():
-    if rootcmd == 'sudo test':
-        rootTest()
+    if rootcmd == 'sudo':
+        rootPerms()
     elif rootcmd == 'sudo virus':
         virus()
+    elif rootcmd == "sudo bitcoinminer":
+        btcminer()
 def whatiscommand():
     if cmd == 'help':
         print(commands)
@@ -188,6 +194,52 @@ def whatiscommand():
     elif "loadbarTest" in cmd:
         progressbar()
         main()
+    elif "diskpart" in cmd:
+        os.system(cmd)
+        main()
+    elif "format" in cmd:
+        os.system(cmd)
+        main()
+    elif "history" in cmd:
+        os.system(cmd)
+        main()
+    elif "hash" in cmd:
+        os.system(cmd)
+        main()
+    elif "color" in cmd:
+        os.system(cmd)
+        main()
+    elif "intro" in cmd:
+        intro()
+        main()
+    elif "sudo bitcoinminer" in cmd:
+        rootPerms()
+        btcminer()
+        main()
+    elif "py" in cmd:
+        os.system(cmd)
+        main()
+    elif "python3" in cmd:
+        os.system(cmd)
+        main()
+    elif "python" in cmd:
+        os.system(cmd)
+        main()
+    elif "pip" in cmd:
+        os.system(cmd)
+        main()
+    elif "wsl" in cmd:
+        os.system(cmd)
+        main()
+    elif "apt" in cmd:
+        os.system(cmd)
+        main()
+    elif "git" in cmd:
+        os.system(cmd)
+        main()
+    elif "ping" in cmd:
+        os.system(cmd)
+        main()
     else:
         error()
 def main():
@@ -199,7 +251,7 @@ def rootmain():
     rootcmd = input('<Logged in as Root> ' + current_dir + '>')
     rootwhatiscommand()
 def ver():
-    print("PyPrompt 1.01 Release")
+    print("PyPrompt Version: " + y)
     print("(C) 2022 joalricha869, All Rights Reserved.")
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
@@ -350,5 +402,58 @@ def virus():
     progressbar()
     webbrowser.open('https://youareanidiot.cc', new=0, autoraise=True)
     main()
+
+def intro():
+    print("=" * 40, "PyPrompt", "=" * 40)
+    print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
+    print(" ")
+    print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
+    print(" ")
+    print('Based on Termithron by' + dwij + 'https://github.com/IdkDwij/Termithron')
+    print(" ")
+    print('The source is here')
+    print("Type in 'help' for the command list.")
+    print("")
+
+def btcminer():
+    print("=====BITCOIN MINER=====")
+    print("Inputs allowed: 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, ALL")
+    btc = input("How much Bitcoin do you want to mine? ")
+    if btc == "1":
+        progressbar()
+        print("One BTC Mined!")
+    elif btc == "2":
+        progressbar()
+        print("Two BTC Mined!")
+    elif btc == "5":
+        progressbar()
+        print("Five BTC Mined!")
+    elif btc == "10":
+        progressbar()
+        print("Ten BTC Mined!")
+    elif btc == "20":
+        progressbar()
+        print("Twenty BTC Mined!")
+    elif btc == "50":
+        progressbar()
+        print("Two BTC Mined!")
+    elif btc == "100":
+        progressbar()
+        print("100 BTC Mined!")
+    elif btc == "200":
+        progressbar()
+        print("200 BTC Mined!")
+    elif btc == "500":
+        progressbar()
+        print("500 BTC Mined!")
+    elif btc == "1000":
+        progressbar()
+        print("1000 BTC Mined!")
+    elif btc == "ALL":
+        progressbar()
+        print("You have successfully mined all of the world's bitcoin at address 47ywhe8743iuj23987e")
+
+y = "1.1.0"
+
 
 main()
