@@ -1,8 +1,10 @@
 import getpass
 import os
+from platform import python_compiler
 import random
 import socket
 from uuid import getnode as get_mac
+import time
 
 mac = get_mac()
 # Made in python
@@ -164,6 +166,11 @@ def whatiscommand(current_dir):
             os.system(cmd)
             main(current_dir)
     elif cmd == "":
+        main(current_dir)
+    elif 'pip' in cmd:
+        print('warning python must be installed to use this commnad')
+        time.sleep(1)
+        os.system(cmd)
         main(current_dir)
     else:
         Miscellaneous.commands(self=None)
