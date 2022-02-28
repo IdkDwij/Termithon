@@ -29,7 +29,8 @@ print('The source is here github.com/IDkDwij/termithon')
 
 #setup
 global current_dir
-
+global echo_on
+echo_on = False
 PY_warning_said = bool(False)
 #get hostname
 hostname = socket.gethostname()
@@ -54,15 +55,13 @@ mac (gives you your mac addresss)
 ping (lets you ping a website)
 python3 (full python3 support [only if you have python3 installed])
 cd (change current working directory)
-del (windows delete command)
-mkdir (windows make folder command)
-echo (echo something or create something)
+del (deletes file)
+mkdir (creates folder)
+echo (echo something or create something [not currently working])
 clear (clear terminal)
 curl (the curl command)
 For more help go to github.com/IDkDwij/termithon
 '''
-
-
 
 def main(current_dir):
     global old_dir
@@ -70,7 +69,6 @@ def main(current_dir):
     global cmd
     cmd = input(current_dir + '>')
     whatiscommand(current_dir)
-
 def whatiscommand(current_dir):
     args = cmd.split()
     #help command
@@ -86,14 +84,16 @@ def whatiscommand(current_dir):
         main(current_dir)
     #cd command
     elif "cd" in cmd:
+        args.remove('cd')
+        args = ' '.join(args)
         if cmd == "cd":
             main(current_dir)
         old_dir = current_dir
-        if os.path.isdir(args[1]) == True:
-            new_dir = args[1]
-            main(new_dir)
-        elif os.path.isdir(old_dir + '\\' + args[1]):
-            new_dir = old_dir + '\\' + args[1]
+        if os.path.isdir(args) == True:
+            current_dir = args
+            main(args)
+        elif os.path.isdir(old_dir + '\\' + args):
+            new_dir = old_dir + '\\' + args
             current_dir = new_dir
             main(new_dir)
         else:
@@ -127,16 +127,29 @@ def whatiscommand(current_dir):
         os.system('cls||clear')
         main(current_dir)
     elif "mkdir" in cmd:
-        os.system(cmd)
+        try:
+            os.makedirs(args[1])
+        except:
+            os.makedirs(current_dir + args[1])
         main(current_dir)
-        
     elif "del" in cmd:
-        os.system(cmd)
+        try:
+            os.remove(args[1])
+        except:
+            os.remove(current_dir + args[1])
         main(current_dir)
-        
-    elif "echo" in cmd:
-        os.system(cmd)
+    elif cmd == 'echo':
+        if(echo_on == False):
+            echo_on =True
+            print('echo is on')
+        elif(echo_on == True):
+            echo_on = False
+            print('echo is off')
+        else:
+            print('error, echo failed')
         main(current_dir)
+    elif('echo' in cmd):
+        print('this does not work atm')
         
     #python command
     elif 'python3' in cmd:
@@ -153,11 +166,6 @@ def whatiscommand(current_dir):
         main(current_dir)
     else:
         Miscellaneous.commands(self=None)
-
-
-
-
-
 class Miscellaneous():
     def commands(self):
         if cmd == 'inspace':
@@ -174,6 +182,4 @@ class Miscellaneous():
     def error(self):
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
         main(current_dir)
-
-
 main(current_dir)
