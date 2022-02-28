@@ -29,7 +29,7 @@ Many...
 3. ip (Gives you your IP)
 4. hostname (Gives you your Computer's ID)
 5. mac (Retrieves the Physical MAC Address of The Device)
-6. ping (lets you ping a website *not for now tho*) 
+6. ping (lets you ping a website UPDATE: NOW ADDED!) 
 7. calc (A simple calculator)
 8. passgen (A very efficient password generator)
 9. sysinfo (Gets relevant system info)
@@ -41,10 +41,25 @@ Many...
 16. mailgen (Generates dummy E-Mail Addresses)
 17. ver (Reports PyPrompt Version)
 18. sudo help (Gets help on rotted commands.)
-19. cls (Clears screen)
+19. clear (Clears screen)
 20. mkdir (Creates a folder)
 21. del (deletes a file or directory) ONLY WORKS ON WINDOWS
 22. rm (deletes a file or directory) ONLY WORKS ON LINUX OR MACOS
+23. loadbarTest (Tests the loadbar)
+24. diskpart (Opens up the real diskpart) ONLY WORKS ON WINDOWS
+25. format (Formats a drive) ONLY WORKS ON WINDOWS
+26. history (Shows all your command history) ONLY WORKS ON LINUX OR MACOS
+27. hash (Displays program locations) ONLY WORKS ON LINUX OR MACOS
+28. color (Changes the color of text) ONLY WORKS ON WINDOWS
+29. intro (Displays initial text)
+30. py (Opens up the Python shell, REQUIRES PYTHON TO BE INSTALLED!) ONLY WORKS ON WINDOWS
+31. python (Alternate solution to the 'py' command) ONLY WORKS ON WINDOWS
+32. python3 (Opens the Python shell, REQUIRES PYTHON 3 TO BE INSTALLED!) ONLY WORKS ON LINUX
+33. pip (Opens up pip) REQUIRES PYTHON AND PIP TO BE INSTALLED!
+34. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
+35. apt (Command used to install package dependencies) ONLY WORKS ON LINUX
+36. git (Opens up git, REQUIRES GIT TO BE INSTALLED!) 
+TO ACCESS SUDO MODE: Use sudo
 
 TO ACCESS SUDO MODE: Use sudo
 '''
