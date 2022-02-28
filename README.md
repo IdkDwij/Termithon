@@ -60,8 +60,6 @@ Many...
 35. apt (Command used to install package dependencies) ONLY WORKS ON LINUX
 36. git (Opens up git, REQUIRES GIT TO BE INSTALLED!) 
 TO ACCESS SUDO MODE: Use sudo
-
-TO ACCESS SUDO MODE: Use sudo
 '''
 ```
 
