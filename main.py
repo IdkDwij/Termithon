@@ -1,3 +1,4 @@
+from ast import arg
 import getpass
 import os
 from platform import python_compiler
@@ -5,6 +6,9 @@ import random
 import socket
 from uuid import getnode as get_mac
 import time
+import colorama
+from colorama import Fore
+
 
 mac = get_mac()
 # Made in python
@@ -63,6 +67,8 @@ mkdir (creates folder)
 echo (echo something or create something [not currently working])
 clear (clear terminal)
 curl (the curl command)
+
+
 For more help go to github.com/IDkDwij/termithon
 '''
 
@@ -70,9 +76,11 @@ def main(current_dir):
     global old_dir
     old_dir = current_dir
     global cmd
-    cmd = input(current_dir + '>')
+    cmd = input(Fore.BLUE + current_dir + '>')
     whatiscommand(current_dir)
+
 def whatiscommand(current_dir):
+    print(Fore.WHITE)
     args = cmd.split()
     #help command
     if cmd == 'help':
@@ -85,6 +93,9 @@ def whatiscommand(current_dir):
     elif 'curl' in cmd:
         os.system(cmd)
         main(current_dir)
+    #start command
+    elif "start" in cmd:
+        os.system(cmd)
     #cd command
     elif "cd" in cmd:
         args.remove('cd')
@@ -141,18 +152,11 @@ def whatiscommand(current_dir):
         except:
             os.remove(current_dir + args[1])
         main(current_dir)
-    elif cmd == 'echo':
-        if(echo_on == False):
-            echo_on =True
-            print('echo is on')
-        elif(echo_on == True):
-            echo_on = False
-            print('echo is off')
-        else:
-            print('error, echo failed')
+    elif 'echo' in cmd:
+        args.remove('echo')
+        args = ' '.join(args)
+        print(args)
         main(current_dir)
-    elif('echo' in cmd):
-        print('this does not work atm')
         
     #python command
     elif 'python3' in cmd:
