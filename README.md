@@ -12,6 +12,7 @@ EXE in Releases
 https://youtu.be/Nc0YpPV8k-E
 
 Features:<br>
+ls (shows files in current directory)<br>
 exit (exits program)<br>
 ip (gives you your ip)<br>
 hostname (gives you your computers id)<br>
@@ -19,12 +20,14 @@ user (gives the user your logged on)<br>
 mac (gives you your mac addresss)<br>
 ping (lets you ping a website)<br>
 python3 (full python3 support [only if you have python3 installed])<br>
+pip (python pip command)<br>
 cd (change current working directory)<br>
-del (windows delete command)<br>
-mkdir (windows make folder command)<br>
-echo (echo something or create something)<br>
+del (deletes file)<br>
+mkdir (creates folder)<br>
+echo (echo something or create something [not currently working])<br>
 clear (clear terminal)<br>
 curl (the curl command)<br>
+start (run something)<br>
 # Usage<br>
 example for commands<br>
 ```
