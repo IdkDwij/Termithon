@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
 
 # Required Packages
-Auto Installed when on first time run
+Auto installs if needed
 1. Colorama
 
 
