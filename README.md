@@ -118,6 +118,3 @@ Please make sure to update tests as appropriate.
 ## License
 [GNU General Public License 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-
-
-# Checkout Retardthron!!!!!!!!!!!!1
