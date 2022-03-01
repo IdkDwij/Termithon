@@ -85,7 +85,7 @@ def main(current_dir):
     global old_dir
     old_dir = current_dir
     global cmd
-    cmd = input(Fore.GREEN + curr_user + Fore.BLUE + "~" + current_dir + Fore.WHITE + '$')
+    cmd = input(Fore.GREEN + curr_user + "@" + hostname + Fore.BLUE + " /~" + current_dir + Fore.WHITE + '$')
     whatiscommand(current_dir)
 
 def whatiscommand(current_dir):
