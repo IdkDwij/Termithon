@@ -2,6 +2,7 @@
 
 # Required Packages
 Auto Installed when on first time run
+1. Colorama
 
 
 # Termithon
