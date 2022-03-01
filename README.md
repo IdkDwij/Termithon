@@ -1,9 +1,8 @@
 <img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
 
-#Required Packages
-```
-pip install colorama
-```
+# Required Packages
+Auto Installed when on first time run
+
 
 # Termithon
 Making a terminal based in python but its ass<br>
