@@ -10,7 +10,6 @@ import platform
 import fnmatch
 import webbrowser
 from time import sleep
-# Root superuser password is: 'careful'
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
@@ -87,7 +86,7 @@ commands = '''
 15. docxsearch (Searches your File System for docx files)
 16. mailgen (Generates dummy E-Mail Addresses)
 17. ver (Reports PyPrompt Version)
-18. sudo help (Gets help on rotted commands.)
+18. sudo (This uses the REAL sudo mode.) ONLY WORKS ON LINUX OR WSL
 19. clear (Clears screen)
 20. mkdir (Creates a folder)
 21. del (deletes a file or directory) ONLY WORKS ON WINDOWS
@@ -105,31 +104,17 @@ commands = '''
 33. pip (Opens up pip) REQUIRES PYTHON AND PIP TO BE INSTALLED!
 34. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
 35. apt (Command used to install package dependencies) ONLY WORKS ON LINUX
-36. git (Opens up git, REQUIRES GIT TO BE INSTALLED!) 
-
-TO ACCESS SUDO MODE: Use sudo
-
-ALSO, TO RUN THE SUDO COMMANDS AFTER ENTERING PASSWORD, JUST TYPE THE COMMAND BUT WITHOUT THE 'sudo' KEYWORD
+36. git (Opens up git, REQUIRES GIT TO BE INSTALLED!)
+37. bash (Launches the bash terminal) ONLY WORKS ON LINUX OR WINDOWS (with wsl)
+38. csh (Launches the C shell; REQUIRES csh to be installed) ONLY WORKS ON LINUX OR THE WSL
+39. zsh (Launches the Z shell; REQUIRES zsh to be installed) ONLY WORKS ON LINUX OR THE WSL
+40. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed) ONLY WORKS ON LINUX
+41. su (Enable or disable the sudo command) ONLY WORKS ON LINUX OR WSL
 '''
-rootcommands = '''These are the commands which need access to root priveleges
-1. sudo (USE THIS TO ACCESS root)
-2. sudo virus (Minimalistic virus in Python)
-3. sudo -v (Reports sudo version)
-4. sudo bitcoinminer (A Bitcoin miner)
-'''
-def rootwhatiscommand():
-    if rootcmd == 'sudo':
-        rootPerms()
-    elif rootcmd == 'sudo virus':
-        virus()
-    elif rootcmd == "sudo bitcoinminer":
-        btcminer()
+
 def whatiscommand():
     if cmd == 'help':
         print(commands)
-        main()
-    if cmd == 'sudo help':
-        print(rootcommands)
         main()
     elif cmd == 'dir':
         print(os.listdir(current_dir))
@@ -176,12 +161,6 @@ def whatiscommand():
         main()
     elif cmd == "clear":
         clear()
-    elif cmd == "sudo":
-        rootPerms()
-    elif cmd == "sudo virus":
-        virus()
-    elif cmd == "sudo -v":
-        print("sudo version 1.9.9")
     elif "mkdir" in cmd:
         os.system(cmd)
         main()
@@ -240,16 +219,30 @@ def whatiscommand():
     elif "ping" in cmd:
         os.system(cmd)
         main()
+    elif "bash" in cmd:
+        os.system(cmd)
+        main()
+    elif "csh" in cmd:
+        os.system(cmd)
+        main()
+    elif "zsh" in cmd:
+        os.system(cmd)
+        main()
+    elif "unrar" in cmd:
+        os.system(cmd)
+        main()
+    elif "sudo" in cmd:
+        os.system(cmd)
+        main()
+    elif "su" in cmd:
+        os.system(cmd)
+        main()
     else:
         error()
 def main():
     global cmd
     cmd = input(current_dir + '>')
     whatiscommand()
-def rootmain():
-    global rootcmd
-    rootcmd = input('<Logged in as Root> ' + current_dir + '>')
-    rootwhatiscommand()
 def ver():
     print("PyPrompt Version: " + y)
     print("(C) 2022 joalricha869, All Rights Reserved.")
@@ -387,21 +380,6 @@ def progressbar():
     for i, item in enumerate(items):
         sleep(0.1)
         loadbar(i + 1, l, prefix='Progress', suffix='Complete', length=l)
-def rootPerms():
-    rootconf = input("'" + str(cmd) + "'" + " Requires priveleges to the root superuser. Enter Password: ")
-    if rootconf == "careful":
-        print("Logged as root.")
-        rootmain()
-    else:
-        print("Wrong password, try again by running your root command")
-        print("You are now back in normal mode. ")
-        main()
-def virus():
-    rootPerms()
-    print("G3T R3KT BR0")
-    progressbar()
-    webbrowser.open('https://youareanidiot.cc', new=0, autoraise=True)
-    main()
 
 def intro():
     print("=" * 40, "PyPrompt", "=" * 40)
@@ -415,45 +393,7 @@ def intro():
     print("Type in 'help' for the command list.")
     print("")
 
-def btcminer():
-    print("=====BITCOIN MINER=====")
-    print("Inputs allowed: 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, ALL")
-    btc = input("How much Bitcoin do you want to mine? ")
-    if btc == "1":
-        progressbar()
-        print("One BTC Mined!")
-    elif btc == "2":
-        progressbar()
-        print("Two BTC Mined!")
-    elif btc == "5":
-        progressbar()
-        print("Five BTC Mined!")
-    elif btc == "10":
-        progressbar()
-        print("Ten BTC Mined!")
-    elif btc == "20":
-        progressbar()
-        print("Twenty BTC Mined!")
-    elif btc == "50":
-        progressbar()
-        print("Two BTC Mined!")
-    elif btc == "100":
-        progressbar()
-        print("100 BTC Mined!")
-    elif btc == "200":
-        progressbar()
-        print("200 BTC Mined!")
-    elif btc == "500":
-        progressbar()
-        print("500 BTC Mined!")
-    elif btc == "1000":
-        progressbar()
-        print("1000 BTC Mined!")
-    elif btc == "ALL":
-        progressbar()
-        print("You have successfully mined all of the world's bitcoin at address 47ywhe8743iuj23987e")
-
-y = "1.1.0"
+y = "1.2.1"
 
 
 main()
