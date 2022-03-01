@@ -6,8 +6,14 @@ import random
 import socket
 from uuid import getnode as get_mac
 import time
-import colorama
-from colorama import Fore
+try:
+    import colorama
+    from colorama import Fore
+except:
+    print("package not found, installing packages")
+    os.system("pip install colorama")
+    import colorama
+    from colorama import Fore
 
 
 mac = get_mac()
@@ -61,13 +67,14 @@ user (gives the user your logged on)
 mac (gives you your mac addresss)
 ping (lets you ping a website)
 python3 (full python3 support [only if you have python3 installed])
+pip (python pip command)
 cd (change current working directory)
 del (deletes file)
 mkdir (creates folder)
 echo (echo something or create something [not currently working])
 clear (clear terminal)
 curl (the curl command)
-
+start (run something)
 
 For more help go to github.com/IDkDwij/termithon
 '''
