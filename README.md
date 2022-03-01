@@ -1,5 +1,10 @@
 <img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
 
+#Required Packages
+```
+pip install colorama
+```
+
 # Termithon
 Making a terminal based in python but its ass<br>
 EXE in Releases
