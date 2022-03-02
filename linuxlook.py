@@ -123,11 +123,11 @@ def whatiscommand(current_dir, cur_color):
         old_dir = current_dir
         if os.path.isdir(args) == True:
             current_dir = args
-            main(args)
+            main(args,cur_color)
         elif os.path.isdir(old_dir + '\\' + args):
             new_dir = old_dir + '\\' + args
             current_dir = new_dir
-            main(new_dir)
+            main(new_dir,cur_color)
         else:
             print('The system cannot find the path specified. \n')
             main(current_dir, cur_color)
@@ -190,32 +190,32 @@ def whatiscommand(current_dir, cur_color):
     elif cmd == "":
         main(current_dir, cur_color)
     elif  "color" in cmd:
-        color(cur_color)
+        color(current_dir,cur_color)
     elif 'pip' in cmd:
         print('warning python must be installed to use this commnad')
         time.sleep(1)
         os.system(cmd)
         main(current_dir, cur_color)
     else:
-        Miscellaneous.commands(cur_color)
+        Miscellaneous.commands(current_dir,cur_color)
 class Miscellaneous():
-    def commands(cur_color):
+    def commands(current_dir,cur_color):
         if cmd == 'inspace':
-            Miscellaneous.emulation(cur_color)
+            Miscellaneous.emulation(current_dir,cur_color)
         else:
-            Miscellaneous.error(cur_color)
-    def emulation(cur_color):
+            Miscellaneous.error(current_dir,cur_color)
+    def emulation(current_dir,cur_color):
         chance = random.randint(1,100)
         if chance > 2:
             print("You Died")
         else:
             print('You survived')
         main(current_dir, cur_color)
-    def error(cur_color):
+    def error(current_dir,cur_color):
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
         main(current_dir, cur_color)
 
-def color(cur_color):
+def color(current_dir,cur_color):
     args = cmd.split()
     if cmd == "color":
         print('''       0 = Black       8 = Gray
