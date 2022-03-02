@@ -92,10 +92,10 @@ def main(current_dir, cur_color):
     global old_dir
     old_dir = current_dir
     global cmd
-    cmd = input(Fore.GREEN + curr_user + "@" + hostname + Fore.LIGHTBLUE_EX + " \\~" + current_dir + Fore.WHITE + '$ ' + cur_color)
-    whatiscommand(current_dir)
+    cmd = input(Fore.GREEN + curr_user + "@" + hostname + Fore.LIGHTBLUE_EX + " ~\\" + current_dir + Fore.WHITE + '$ ' + cur_color)
+    whatiscommand(current_dir, cur_color=cur_color)
 
-def whatiscommand(current_dir):
+def whatiscommand(current_dir, cur_color):
     args = cmd.split()
     #help command
     if cmd == 'help':
@@ -194,9 +194,9 @@ def whatiscommand(current_dir):
         os.system(cmd)
         main(current_dir, cur_color=cur_color)
     else:
-        Miscellaneous.commands(self=None)
+        Miscellaneous.commands(self=None,cur_color=cur_color)
 class Miscellaneous():
-    def commands(self):
+    def commands(self,cur_color):
         if cmd == 'inspace':
             Miscellaneous.emulation(self=None)
         else:
@@ -209,7 +209,7 @@ class Miscellaneous():
             print('You survived')
         main(current_dir, cur_color=cur_color)
     def error(self):
-        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
+        print(cur_color + "'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
         main(current_dir, cur_color=cur_color)
 
 def color(cur_color):
@@ -218,11 +218,11 @@ def color(cur_color):
         print('''            0 = Black       8 = Gray
             1 = Blue        9 = Light Blue
             2 = Green       A = Light Green
-            3 = Aqua        B = Light Aqua
+            3 = Aqua        
             4 = Red         C = Light Red
             5 = Purple      D = Light Purple
             6 = Yellow      E = Light Yellow
-            7 = White       F = Bright White''')
+            7 = White       ''')
     elif args[1] == "1":
         cur_color = Fore.BLUE
     elif args[1] == "2":
@@ -232,7 +232,7 @@ def color(cur_color):
     elif args[1] == "4":
         cur_color = Fore.RED
     elif args[1] == "5":
-        cur_color = Fore.RED
+        cur_color = Fore.MAGENTA
     elif args[1] == "6":
         cur_color = Fore.YELLOW
     elif args[1] == "7":
@@ -243,5 +243,16 @@ def color(cur_color):
         cur_color = Fore.LIGHTBLUE_EX
     elif args[1] == "0":
         cur_color = Fore.BLACK
+    elif args[1].lower() == "a":
+        cur_color = Fore.BLUE
+    elif args[1].lower() == "c":
+        cur_color = Fore.LIGHTRED_EX
+    elif args[1].lower() == "d":
+        cur_color = Fore.LIGHTMAGENTA_EX
+    elif args[1].lower() == "e":
+        cur_color = Fore.LIGHTYELLOW_EX
+    elif args[1].lower() == "f":
+        cur_color = Fore.LIGHTGREEN_EX
+    print(cur_color)
     main(current_dir,cur_color=cur_color)
 main(current_dir, cur_color=cur_color)
