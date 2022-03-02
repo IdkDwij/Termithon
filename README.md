@@ -38,6 +38,8 @@ Many...
 15. clear (Clears screen)
 16. loadbarTest (Tests the loadbar)
 17. intro (Displays initial text)
+18. sqrt (Enter a number and it will calculate the square root)
+19. date (Displays date)
 
 
    \  |        |  |   _)       |         |     _|               
@@ -72,6 +74,7 @@ Many...
 9. zsh (Launches the Z shell; REQUIRES zsh to be installed) ONLY WORKS ON LINUX OR WSL
 10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed) ONLY WORKS ON LINUX OR WSL
 11. su (Enable or disable the sudo command) ONLY WORKS ON LINUX OR WSL
+12. cat (Creates a blank file) ONLY WORKS ON LINUX OR WSL
 
  __          ___           _                     _    _      _       
  \ \        / (_)         | |                   | |  | |    | |      
@@ -91,6 +94,7 @@ Many...
 6. python (Alternate solution to the 'py' command) ONLY WORKS ON WINDOWS
 7. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
 8. cmd (Opens the Command Prompt) ONLY WORKS ON WINDOWS
+9. ipconfig (Gives info about your IPV4 or IPV6 address, ip address, mac address) ONLY WORKS ON WINDOWS!
 
                         ____   _____   _    _      _       
                        / __ \ / ____| | |  | |    | |      
