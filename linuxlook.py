@@ -10,16 +10,19 @@ try:
     import colorama
     from colorama import Fore
 except:
-    print("package not found, installing packages")
+    print("Colorama package not found, installing Colorama")
     os.system("pip install colorama")
-    import colorama
-    from colorama import Fore
+    print('Termithon restart required')
+    print('closing in 5 seconds')
+    time.sleep(5)
+    exit()
 
 
 mac = get_mac()
 # Made in python
 # collaborated with https://github.com/BigBoyTaco/ for this little update
 # thanks for green1490#2863 for helping me with arguments
+os.system('cls||clear')
 print(Fore.MAGENTA)
 print('Termithon')
 print(Fore.LIGHTCYAN_EX)
@@ -83,7 +86,7 @@ echo (echo something or create something [not currently working])
 clear (clear terminal)
 curl (the curl command)
 start (run something)
-
+color (change text color)
 For more help go to github.com/IDkDwij/termithon
 '''
 cur_color = Fore.WHITE
@@ -92,22 +95,22 @@ def main(current_dir, cur_color):
     global old_dir
     old_dir = current_dir
     global cmd
-    cmd = input(Fore.GREEN + curr_user + "@" + hostname + Fore.LIGHTBLUE_EX + " ~\\" + current_dir + Fore.WHITE + '$ ' + cur_color)
-    whatiscommand(current_dir, cur_color=cur_color)
+    cmd = input(Fore.GREEN + curr_user + "@" + hostname + Fore.LIGHTBLUE_EX + " ~\\ " + current_dir + cur_color + '$ ')
+    whatiscommand(current_dir,cur_color)
 
 def whatiscommand(current_dir, cur_color):
     args = cmd.split()
     #help command
     if cmd == 'help':
         print(commands)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #ls command
     elif cmd == 'ls':
         print(os.listdir(current_dir))
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     elif 'curl' in cmd:
         os.system(cmd)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #start command
     elif "start" in cmd:
         os.system(cmd)
@@ -116,7 +119,7 @@ def whatiscommand(current_dir, cur_color):
         args.remove('cd')
         args = ' '.join(args)
         if cmd == "cd":
-            main(current_dir, cur_color=cur_color)
+            main(current_dir, cur_color)
         old_dir = current_dir
         if os.path.isdir(args) == True:
             current_dir = args
@@ -127,51 +130,51 @@ def whatiscommand(current_dir, cur_color):
             main(new_dir)
         else:
             print('The system cannot find the path specified. \n')
-            main(current_dir, cur_color=cur_color)
+            main(current_dir, cur_color)
     #exit command
     elif cmd == 'exit':
         exit()
     #ip command
     elif cmd == 'ip':
         print(ip)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #hostname command
     elif cmd == 'hostname':
         print(hostname)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #users command
     elif cmd == 'user':
         print(curr_user())
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #mac address command
     elif cmd == "mac":
         print(mac)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     #ping command
     elif "ping" in cmd:
         os.system(cmd)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
      #clear command
     elif cmd == "clear":
         os.system('cls||clear')
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     elif "mkdir" in cmd:
         try:
             os.makedirs(args[1])
         except:
             os.makedirs(current_dir + args[1])
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     elif "del" in cmd:
         try:
             os.remove(args[1])
         except:
             os.remove(current_dir + args[1])
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     elif 'echo' in cmd:
         args.remove('echo')
         args = ' '.join(args)
         print(args)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
         
     #python command
     elif 'python3' in cmd:
@@ -180,49 +183,58 @@ def whatiscommand(current_dir, cur_color):
             print('warning, this reqires python3 to be installed')
             PY_warning_said = True
             os.system(cmd)
-            main(current_dir, cur_color=cur_color)
+            main(current_dir, cur_color)
         else:
             os.system(cmd)
-            main(current_dir, cur_color=cur_color)
+            main(current_dir, cur_color)
     elif cmd == "":
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     elif  "color" in cmd:
         color(cur_color)
     elif 'pip' in cmd:
         print('warning python must be installed to use this commnad')
         time.sleep(1)
         os.system(cmd)
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
     else:
-        Miscellaneous.commands(self=None,cur_color=cur_color)
+        Miscellaneous.commands(cur_color)
 class Miscellaneous():
-    def commands(self,cur_color):
+    def commands(cur_color):
         if cmd == 'inspace':
-            Miscellaneous.emulation(self=None)
+            Miscellaneous.emulation(cur_color)
         else:
-            Miscellaneous.error(self=None)
-    def emulation(self):
+            Miscellaneous.error(cur_color)
+    def emulation(cur_color):
         chance = random.randint(1,100)
         if chance > 2:
             print("You Died")
         else:
             print('You survived')
-        main(current_dir, cur_color=cur_color)
-    def error(self):
-        print(cur_color + "'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
-        main(current_dir, cur_color=cur_color)
+        main(current_dir, cur_color)
+    def error(cur_color):
+        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
+        main(current_dir, cur_color)
 
 def color(cur_color):
     args = cmd.split()
-    if args[1] == "help":
+    if cmd == "color":
+        print('''       0 = Black       8 = Gray
+        1 = Blue        9 = Light Blue
+        2 = Green       A = Light Green
+        3 = Aqua        B = Light Aqua
+        4 = Red         C = Light Red
+        5 = Purple      D = Light Purple
+        6 = Yellow      E = Light Yellow
+        7 = White       F = Bright White''')
+    elif args[1] == "help":
         print('''            0 = Black       8 = Gray
             1 = Blue        9 = Light Blue
             2 = Green       A = Light Green
-            3 = Aqua        
+            3 = Aqua        B = Light Aqua
             4 = Red         C = Light Red
             5 = Purple      D = Light Purple
             6 = Yellow      E = Light Yellow
-            7 = White       ''')
+            7 = White       F = Bright White''')
     elif args[1] == "1":
         cur_color = Fore.BLUE
     elif args[1] == "2":
@@ -232,7 +244,7 @@ def color(cur_color):
     elif args[1] == "4":
         cur_color = Fore.RED
     elif args[1] == "5":
-        cur_color = Fore.MAGENTA
+        cur_color = Fore.RED
     elif args[1] == "6":
         cur_color = Fore.YELLOW
     elif args[1] == "7":
@@ -253,6 +265,6 @@ def color(cur_color):
         cur_color = Fore.LIGHTYELLOW_EX
     elif args[1].lower() == "f":
         cur_color = Fore.LIGHTGREEN_EX
-    print(cur_color)
-    main(current_dir,cur_color=cur_color)
-main(current_dir, cur_color=cur_color)
+    main(current_dir,cur_color)
+
+main(current_dir, cur_color)
