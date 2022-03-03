@@ -264,7 +264,7 @@ def color(current_dir,cur_color):
     elif args[1].lower() == "e":
         cur_color = Fore.LIGHTYELLOW_EX
     elif args[1].lower() == "f":
-        cur_color = Fore.LIGHTGREEN_EX
+        cur_color = Fore.LIGHTWHITE_EX
     main(current_dir,cur_color)
 
 main(current_dir, cur_color)
