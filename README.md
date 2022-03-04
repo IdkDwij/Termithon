@@ -2,7 +2,7 @@
 
 Making a terminal based in Python 3.10.1
 
-### Engine based on Termithron
+### Engine based on Termithron by Dwij
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
@@ -75,6 +75,11 @@ Many...
 10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed) ONLY WORKS ON LINUX OR WSL
 11. su (Enable or disable the sudo command) ONLY WORKS ON LINUX OR WSL
 12. cat (Creates a blank file) ONLY WORKS ON LINUX OR WSL
+13. java (Runs a .jar file; REQUIRES JAVA TO BE INSTALLED!)
+14. i386 (Runs bash in 386 Compatibility Mode)
+15. touch (Make a file)
+16. kill (Terminate a process)
+17. alias (Create a custom command) 
 
  __          ___           _                     _    _      _       
  \ \        / (_)         | |                   | |  | |    | |      
@@ -108,6 +113,12 @@ Many...
 1. brew (The homebrew command) ONLY WORKS ON MACOS
 2. softwareupdate (Checks for either macOS updates or software updates) ONLY WORKS ON MACOS
 3. airport (Manage Apple AirPort) MIGHT REQUIRE zsh...   REQUIRES MACOS
+
+
+
+ALL UNIX + WINDOWS COMMANDS CAN BE RUN THROUGH PYPROMPT SHELL
+
+Help info will be updated every update!
 '''
 ```
 
