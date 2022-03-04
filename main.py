@@ -120,13 +120,18 @@ commands = '''
 3. history (Shows all your command history) ONLY WORKS ON LINUX OR WSL
 4. hash (Displays program locations) ONLY WORKS ON LINUX OR WSL
 5. python3 (Opens the Python shell, REQUIRES PYTHON 3 TO BE INSTALLED!) ONLY WORKS ON LINUX OR WSL
-6. apt (Command used to install package dependencies) ONLY WORKS ON LINUX OR WSL
-7. bash (Launches the bash terminal) ONLY WORKS ON LINUX OR WINDOWS (with wsl)
-8. csh (Launches the C shell; REQUIRES csh to be installed) ONLY WORKS ON LINUX OR WSL
-9. zsh (Launches the Z shell; REQUIRES zsh to be installed) ONLY WORKS ON LINUX OR WSL
-10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed) ONLY WORKS ON LINUX OR WSL
-11. su (Enable or disable the sudo command) ONLY WORKS ON LINUX OR WSL
-12. cat (Creates a blank file) ONLY WORKS ON LINUX OR WSL
+6. apt (Command used to install package dependencies)
+7. bash (Launches the bash terminal)
+8. csh (Launches the C shell; REQUIRES csh to be installed)
+9. zsh (Launches the Z shell; REQUIRES zsh to be installed)
+10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed)
+11. su (Enable or disable the sudo command)
+12. cat (Creates a blank file)
+13. java (Runs a .jar file; REQUIRES JAVA TO BE INSTALLED!)
+14. i386 (Runs bash in 386 Compatiblity Mode)
+15. touch (Make a file)
+16. kill (Terminate a process)
+17. alias (Create a custom command)
 
  __          ___           _                     _    _      _       
  \ \        / (_)         | |                   | |  | |    | |      
@@ -160,6 +165,17 @@ commands = '''
 1. brew (The homebrew command) ONLY WORKS ON MACOS
 2. softwareupdate (Checks for either macOS updates or software updates) ONLY WORKS ON MACOS
 3. airport (Manage Apple AirPort) MIGHT REQUIRE zsh...   REQUIRES MACOS
+
+
+  _   _          _      _       _ 
+ | | | |_ __  __| |__ _| |_ ___| |
+ | |_| | '_ \/ _` / _` |  _/ -_)_|
+  \___/| .__/\__,_\__,_|\__\___(_)
+       |_|                        
+
+CUSTOM COMMANDS WITH 'alias' can now be run via the PyPrompt shell!
+Any other command can now be run in PyPrompt shell!
+
 '''
 
 def whatiscommand():
@@ -241,10 +257,6 @@ def whatiscommand():
     elif "intro" in cmd:
         intro()
         main()
-    elif "sudo bitcoinminer" in cmd:
-        rootPerms()
-        btcminer()
-        main()
     elif "py" in cmd:
         os.system(cmd)
         main()
@@ -310,6 +322,28 @@ def whatiscommand():
         main()
     elif "date" in cmd:
         date()
+        main()
+    elif "java" in cmd:
+        os.system(cmd)
+        main()
+    elif "i386" in cmd:
+        os.system(cmd)
+        main()
+    elif "touch" in cmd:
+        os.system(cmd)
+        main()
+    elif "kill" in cmd:
+        os.system(cmd)
+        main()
+    elif "alias" in cmd:
+        os.system(cmd)
+        main()
+    elif "ssh" in cmd:
+        os.system(cmd)
+        main()
+    elif str(cmd) in cmd:
+        print("IF THIS ISN'T A CUSTOM COMMAND OR A PROGRAM IN THE RESPECTIVE OPERATING SYSTEM SHELL, IT WON'T WORK!")
+        os.system(cmd)
         main()
     else:
         error()
@@ -480,7 +514,8 @@ def date():
     print("Today's date is:", d2)
     main()
 
-y = "1.2.2.1"
+y = "1.3"
 
 
 main()
+
