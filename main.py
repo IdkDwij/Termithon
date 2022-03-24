@@ -8,9 +8,37 @@ from random import choice
 from random import randint
 import platform
 import fnmatch
-import webbrowser
+import subprocess
+import argparse
+import time
 from time import sleep
-import cmath
+try:
+    import googletrans
+    from googletrans import Translator
+except:
+    print("WARNING! Package Install Can't Operate Under Restricted Proxy...")
+    print("Googletrans Package Not Found")
+    print("Installing now...")
+    os.system("pip install googletrans")
+    print("If error thrown, update your Python or reinstall.")
+    time.sleep(3)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 5 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 4 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 3 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 2 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 1 Second")
+    time.sleep(1)
+    exit()
+
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
@@ -53,7 +81,7 @@ print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
 print(" ")
 print('Based on Termithron by' + dwij + 'https://github.com/IdkDwij/Termithron')
 print(" ")
-print('The source is here')
+print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
 print("")
 hostname = socket.gethostname()
@@ -92,89 +120,11 @@ commands = '''
 17. intro (Displays initial text)
 18. sqrt (Enter a number and it will calculate the square root)
 19. date (Displays date)
+20. wifipassword (Gets your wifi password) (MIGHT NOT BE COMPATIBLE WITH Python 3.8 or earlier.)
+21. translator (Usage: translator -s <source_lang> -d <destination_lang>) (MIGHT NOT BE COMAtiBLE WITH Python 3.8 or earlier.)
+22. installer (DEBUG Command to check installation of 'translate' module)
 
-
-   \  |        |  |   _)       |         |     _|               
-  |\/ |  |  |  |   _|  |  _ \  |   _` |   _|   _| _ \   _| ` \  
- _|  _| \_,_| _| \__| _| .__/ _| \__,_| \__| _| \___/ _| _|_|_| 
-                        _|                                      
-
-1. git (Opens up git, REQUIRES GIT TO BE INSTALLED!)
-2. pip (Opens up pip) REQUIRES PYTHON AND PIP TO BE INSTALLED!
-3. dir (Shows files in current directory)
-4. exit (Exits the terminal)
-5. mkdir (Creates a folder)
-
-
-  _      _                    _    _      _       
- | |    (_)                  | |  | |    | |      
- | |     _ _ __  _   ___  __ | |__| | ___| |_ __  
- | |    | | '_ \| | | \ \/ / |  __  |/ _ \ | '_ \ 
- | |____| | | | | |_| |>  <  | |  | |  __/ | |_) |
- |______|_|_| |_|\__,_/_/\_\ |_|  |_|\___|_| .__/ 
-                                           | |    
-                                           |_|    
-                                           
-1. sudo (This uses the REAL sudo mode.) ONLY WORKS ON LINUX OR WSL
-2. rm (deletes a file or directory) ONLY WORKS ON LINUX OR WSL
-3. history (Shows all your command history) ONLY WORKS ON LINUX OR WSL
-4. hash (Displays program locations) ONLY WORKS ON LINUX OR WSL
-5. python3 (Opens the Python shell, REQUIRES PYTHON 3 TO BE INSTALLED!) ONLY WORKS ON LINUX OR WSL
-6. apt (Command used to install package dependencies)
-7. bash (Launches the bash terminal)
-8. csh (Launches the C shell; REQUIRES csh to be installed)
-9. zsh (Launches the Z shell; REQUIRES zsh to be installed)
-10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed)
-11. su (Enable or disable the sudo command)
-12. cat (Creates a blank file)
-13. java (Runs a .jar file; REQUIRES JAVA TO BE INSTALLED!)
-14. i386 (Runs bash in 386 Compatiblity Mode)
-15. touch (Make a file)
-16. kill (Terminate a process)
-17. alias (Create a custom command)
-
- __          ___           _                     _    _      _       
- \ \        / (_)         | |                   | |  | |    | |      
-  \ \  /\  / / _ _ __   __| | _____      _____  | |__| | ___| |_ __  
-   \ \/  \/ / | | '_ \ / _` |/ _ \ \ /\ / / __| |  __  |/ _ \ | '_ \ 
-    \  /\  /  | | | | | (_| | (_) \ V  V /\__ \ | |  | |  __/ | |_) |
-     \/  \/   |_|_| |_|\__,_|\___/ \_/\_/ |___/ |_|  |_|\___|_| .__/ 
-                                                              | |    
-                                                              |_|    
-
-
-1. del (deletes a file or directory) ONLY WORKS ON WINDOWS
-2. diskpart (Opens up the real diskpart) ONLY WORKS ON WINDOWS
-3. format (Formats a drive) ONLY WORKS ON WINDOWS
-4. color (Changes the color of text) ONLY WORKS ON WINDOWS
-5. py (Opens up the Python shell, REQUIRES PYTHON TO BE INSTALLED!) ONLY WORKS ON WINDOWS
-6. python (Alternate solution to the 'py' command) ONLY WORKS ON WINDOWS
-7. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
-8. cmd (Opens the Command Prompt) ONLY WORKS ON WINDOWS
-9. ipconfig (Gives info about your IPV4 or IPV6 address, ip address, mac address) ONLY WORKS ON WINDOWS!
-
-                        ____   _____   _    _      _       
-                       / __ \ / ____| | |  | |    | |      
-  _ __ ___   __ _  ___| |  | | (___   | |__| | ___| |_ __  
- | '_ ` _ \ / _` |/ __| |  | |\___ \  |  __  |/ _ \ | '_ \ 
- | | | | | | (_| | (__| |__| |____) | | |  | |  __/ | |_) |
- |_| |_| |_|\__,_|\___|\____/|_____/  |_|  |_|\___|_| .__/ 
-                                                    | |    
-                                                    |_|    
-
-1. brew (The homebrew command) ONLY WORKS ON MACOS
-2. softwareupdate (Checks for either macOS updates or software updates) ONLY WORKS ON MACOS
-3. airport (Manage Apple AirPort) MIGHT REQUIRE zsh...   REQUIRES MACOS
-
-
-  _   _          _      _       _ 
- | | | |_ __  __| |__ _| |_ ___| |
- | |_| | '_ \/ _` / _` |  _/ -_)_|
-  \___/| .__/\__,_\__,_|\__\___(_)
-       |_|                        
-
-CUSTOM COMMANDS WITH 'alias' can now be run via the PyPrompt shell!
-Any other command can now be run in PyPrompt shell!
+The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
 '''
 
@@ -227,95 +177,11 @@ def whatiscommand():
         main()
     elif cmd == "clear":
         clear()
-    elif "mkdir" in cmd:
-        os.system(cmd)
-        main()
-    elif "rm" in cmd:
-        os.system(cmd)
-        main()
-    elif "del" in cmd:
-        os.system(cmd)
-        main()
     elif "loadbarTest" in cmd:
         progressbar()
         main()
-    elif "diskpart" in cmd:
-        os.system(cmd)
-        main()
-    elif "format" in cmd:
-        os.system(cmd)
-        main()
-    elif "history" in cmd:
-        os.system(cmd)
-        main()
-    elif "hash" in cmd:
-        os.system(cmd)
-        main()
-    elif "color" in cmd:
-        os.system(cmd)
-        main()
     elif "intro" in cmd:
         intro()
-        main()
-    elif "py" in cmd:
-        os.system(cmd)
-        main()
-    elif "python3" in cmd:
-        os.system(cmd)
-        main()
-    elif "python" in cmd:
-        os.system(cmd)
-        main()
-    elif "pip" in cmd:
-        os.system(cmd)
-        main()
-    elif "wsl" in cmd:
-        os.system(cmd)
-        main()
-    elif "apt" in cmd:
-        os.system(cmd)
-        main()
-    elif "git" in cmd:
-        os.system(cmd)
-        main()
-    elif "ping" in cmd:
-        os.system(cmd)
-        main()
-    elif "bash" in cmd:
-        os.system(cmd)
-        main()
-    elif "csh" in cmd:
-        os.system(cmd)
-        main()
-    elif "zsh" in cmd:
-        os.system(cmd)
-        main()
-    elif "unrar" in cmd:
-        os.system(cmd)
-        main()
-    elif "sudo" in cmd:
-        os.system(cmd)
-        main()
-    elif "su" in cmd:
-        os.system(cmd)
-        main()
-    elif "cmd" in cmd:
-        os.system(cmd)
-        main()
-    elif "brew" in cmd:
-        os.system(cmd)
-        main()
-    elif "softwareupdate" in cmd:
-        os.system(cmd)
-        main()
-    elif "airport" in cmd:
-        os.system(cmd)
-        main()
-    elif "ipconfig" in cmd:
-        os.system(cmd)
-        main()
-    elif "cat" in cmd:
-        os.system(cmd)
         main()
     elif "sqrt" in cmd:
         sqrt()
@@ -323,26 +189,19 @@ def whatiscommand():
     elif "date" in cmd:
         date()
         main()
-    elif "java" in cmd:
-        os.system(cmd)
+    elif "ignore" in cmd:
+        easterEgg()
         main()
-    elif "i386" in cmd:
-        os.system(cmd)
+    elif "wifipassword" in cmd:
+        wifipassword()
         main()
-    elif "touch" in cmd:
-        os.system(cmd)
+    elif "translator" in cmd:
+        translate()
         main()
-    elif "kill" in cmd:
-        os.system(cmd)
-        main()
-    elif "alias" in cmd:
-        os.system(cmd)
-        main()
-    elif "ssh" in cmd:
-        os.system(cmd)
-        main()
+    elif "installer" in cmd:
+        installer()
     elif str(cmd) in cmd:
-        print("IF THIS ISN'T A CUSTOM COMMAND OR A PROGRAM IN THE RESPECTIVE OPERATING SYSTEM SHELL, IT WON'T WORK!")
+        print("This MUST be a shell command in the OS else your command won't work!")
         os.system(cmd)
         main()
     else:
@@ -490,6 +349,7 @@ def progressbar():
         sleep(0.1)
         loadbar(i + 1, l, prefix='Generating...', suffix='Done!', length=l)
 
+
 def intro():
     print("=" * 40, "PyPrompt", "=" * 40)
     print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
@@ -514,8 +374,98 @@ def date():
     print("Today's date is:", d2)
     main()
 
-y = "1.3"
+def easterEgg():
+    print("This terminal was made by Jose a.k.a joalricha869")
+    print("Base code that this is powered by made by Dwij a.k.a idkDwij")
+    print("Some help by Nathan a.k.a BigBoyTaco")
+    print("This used to be Termithron 3.0 once.")
 
+def wifipassword():
+    systemInfo=''
+    try:
+        systemInfo = subprocess.check_output(['uname']).decode('utf-8', errors="backslashreplace").split('\n')
+        systemInfo = systemInfo[0]
+    except :
+        pass
+    if systemInfo == "Linux":
+        wifiData = subprocess.check_output(['ls', '/etc/NetworkManager/system-connections']).decode('utf-8', errors="backslashreplace").split('\n')
+        print ("Wifiname                       Password")
+        print ("----------------------------------------")
+    
+        for wifiname in wifiData:
+            if wifiname != '':
+                wifiPass = subprocess.check_output(['sudo','cat', f"/etc/NetworkManager/system-connections/{wifiname}"]).decode('utf-8', errors="backslashreplace").split('\n')
+                password=wifiPass[15].strip("psk=");
+                print ("{:<30} {:<}".format(wifiname, password))
+    else:
+        wifi = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8', errors="backslashreplace").split('\n')
+        profiles = [i.split(":")[1][1:-1] for i in wifi if "All User Profile" in i]
+        for i in profiles:
+            try:
+                results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key=clear']).decode('utf-8', errors="backslashreplace").split('\n')
+                results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
+                try:
+                    print ("{:<30}|  {:<}".format(i, results[0]))
+                except :
+                    print ("{:<30}|  {:<}".format(i, ""))
+            except :
+                print ("{:<30}|  {:<}".format(i, "ENCODING ERROR"))
+
+def translate(text, src_lng=None, dest_lng=None):
+    translator = Translator()
+    if src_lng and dest_lng:
+        translated = translator.translate(text, src=src_lng, dest=dest_lng)
+    elif src_lng:
+        translated = translator.translate(text, src=src_lng)
+    elif dest_lng:
+        translated = translator.translate(text, dest=dest_lng)
+    else:
+        translated =  translator.translate(text)
+
+    return translated
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('text', type=str, help='text to translate')
+    parser.add_argument('-s', '--src', default=None, help='origin language of the text')
+    parser.add_argument('-d', '--dest', default=None, help='destiny language of the translation')
+    parser.add_argument('-v', '--verbose', help='show more information', action='store_true')
+    
+    args = parser.parse_args()
+    
+    tr = translate(args.text, args.src, args.dest)
+    
+    if args.verbose:
+        print('original text: %s' % tr.origin)
+        print('translated text: %s' % tr.text)
+        print('origin language: %s' % tr.src)
+        print('destiny language: %s' % tr.dest)
+    else:
+        print(tr.text)
+
+def installer():
+    print("WARNING! Package Install Can't Operate Under Restricted Proxy...")
+    print("Googletrans Package Not Found")
+    print("Installing now...")
+    os.system("pip install googletrans")
+    print("If error thrown, update your Python or reinstall.")
+    time.sleep(3)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 5 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 4 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 3 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 2 Seconds")
+    time.sleep(1)
+    os.system('cls||clear')
+    print("PyPrompt Closing in 1 Second")
+    time.sleep(1)
+    exit()
+
+y = "1.4"
 
 main()
-
