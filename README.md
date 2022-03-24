@@ -40,6 +40,9 @@ Many...
 17. intro (Displays initial text)
 18. sqrt (Enter a number and it will calculate the square root)
 19. date (Displays date)
+20. wifipassword (Gets your wifi password) (MIGHT NOT BE COMPATIBLE WITH Python 3.8 or earlier.)
+21. translator (Usage: translator -s <source_lang> -d <destination_lang>) (MIGHT NOT BE COMAtiBLE WITH Python 3.8 or earlier.)
+22. installer (DEBUG Command to check installation of 'translate' module)
 
 
    \  |        |  |   _)       |         |     _|               
