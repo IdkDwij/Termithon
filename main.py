@@ -10,6 +10,7 @@ import platform
 import fnmatch
 import subprocess
 import argparse
+from ast import For, arg
 import time
 from time import sleep
 try:
@@ -128,88 +129,107 @@ The PyPrompt can be used as an alternative terminal shell. It can run every shel
 
 '''
 
-def whatiscommand():
+def whatiscommand(current_dir):
+    args = cmd.split()
     if cmd == 'help':
         print(commands)
-        main()
+        main(current_dir)
     elif cmd == 'dir':
         print(os.listdir(current_dir))
-        main()
+        main(current_dir)
     elif cmd == 'exit':
         exit()
     elif cmd == 'ip':
         print("Your IP Address is " + getip())
-        main()
+        main(current_dir)
     elif cmd == 'hostname':
         uname = platform.uname()
         print(hostname)
-        main()
+        main(current_dir)
     elif cmd == "mac":
         getmac()
-        main()
+        main(current_dir)
     elif cmd == "calc":
         calc()
     elif cmd == "passgen":
         passGen()
     elif cmd == "sysinfo":
         getSystemInfo()
-        main()
+        main(current_dir)
     elif cmd == "ver":
         ver()
-        main()
+        main(current_dir)
     elif cmd == "test":
         testFunc()
-        main()
+        main(current_dir)
     elif cmd == "mp3search":
         mp3search()
-        main()
+        main(current_dir)
     elif cmd == "mp4search":
         mp3search()
-        main()
+        main(current_dir)
     elif cmd == "pysearch":
         pysearch()
-        main()
+        main(current_dir)
     elif cmd == "docxsearch":
         docxsearch()
-        main()
+        main(current_dir)
     elif cmd == "mailgen":
         mailGen()
-        main()
+        main(current_dir)
     elif cmd == "clear":
         clear()
     elif "loadbarTest" in cmd:
         progressbar()
-        main()
+        main(current_dir)
     elif "intro" in cmd:
         intro()
-        main()
+        main(current_dir)
     elif "sqrt" in cmd:
         sqrt()
-        main()
+        main(current_dir)
     elif "date" in cmd:
         date()
-        main()
+        main(current_dir)
     elif "ignore" in cmd:
         easterEgg()
-        main()
+        main(current_dir)
     elif "wifipassword" in cmd:
         wifipassword()
-        main()
+        main(current_dir)
     elif "translator" in cmd:
         translate()
-        main()
+        main(current_dir)
     elif "installer" in cmd:
         installer()
+    elif "cd" in cmd:
+        args.remove('cd')
+        args = ' '.join(args)
+        if cmd == "cd":
+            main(current_dir)
+        old_dir = current_dir
+        if os.path.isdir(args) == True:
+            current_dir = args
+            main(args)
+        elif os.path.isdir(old_dir + '\\' + args):
+            new_dir = old_dir + '\\' + args
+            current_dir = new_dir
+            main(new_dir)
+        else:
+            print('The system cannot find the path specified. \n')
+            main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
         os.system(cmd)
-        main()
+        main(current_dir)
     else:
         error()
-def main():
+def main(current_dir):
+    global old_dir
+    old_dir = current_dir
     global cmd
     cmd = input(current_dir + '>')
-    whatiscommand()
+    whatiscommand(current_dir)
 def ver():
     print("PyPrompt Version: " + y)
     print("(C) 2022 joalricha869, All Rights Reserved.")
@@ -252,10 +272,10 @@ def calc():
                     print(num1, "/", num2, "=", divide(num1, num2))
                 next_calculation = input("Let's do next calculation? (yes/no): ")
                 if next_calculation == "no":
-                  main()
+                  main(current_dir)
             else:
                 print("Invalid Input")
-                main()
+                main(current_dir)
 def passGen():
         characters = string.ascii_letters + string.punctuation  + string.digits
         password =  "".join(choice(characters) for x in range(randint(8, 16)))
@@ -264,7 +284,7 @@ def passGen():
         if repeatGen == "yes":
             passGen()
         else:
-            main()
+            main(current_dir)
 def getmac():
     import uuid
     print ("The MAC address of this Device is : ", end="")
@@ -282,14 +302,14 @@ def getip():
     return IP
 def clear():
     os.system('cls||clear')
-    main()
+    main(current_dir)
 def error():
     if(cmd == ""):
-        main()
+        main(current_dir)
     else:
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command''')
         print("For more help go to: https://github.com/joalricha869/PyPrompt or https://github.com/IdkDwij/Termithon")
-        main()
+        main(current_dir)
 def testFunc():
     print("If this command works, then your PyPrompt is fine... maybe")
 def mp3search():
@@ -332,7 +352,7 @@ def mailGen():
         progressbar()
         mailGen()
     else:
-        main()
+        main(current_dir)
 def progressbar():
     def loadbar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='█'):
         percent = ('{0:.' + str(decimals) + 'f}').format(100 * (iteration/float(total)))
@@ -372,7 +392,7 @@ def date():
     today = date.today()
     d2 = today.strftime("%B %d, %Y")
     print("Today's date is:", d2)
-    main()
+    main(current_dir)
 
 def easterEgg():
     print("This terminal was made by Jose a.k.a joalricha869")
@@ -466,6 +486,6 @@ def installer():
     time.sleep(1)
     exit()
 
-y = "1.4"
+y = "1.4.1"
 
-main()
+main(current_dir)
