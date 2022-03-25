@@ -1,5 +1,7 @@
 <img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
 
+<a href="https://replit.com/github/IdkDwij/Termithon"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
+
 # Required Packages
 Auto installs if needed
 1. Colorama
