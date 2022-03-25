@@ -464,7 +464,9 @@ def translate(text, src_lng=None, dest_lng=None):
 
 def installer():
     print("WARNING! Package Install Can't Operate Under Restricted Proxy...")
-    print("Googletrans Package Not Found")
+    print("Now Uninstalling Googletrans Package")
+    os.system("pip uninstall googletrans")
+    print("Now Installing Googletrans Package")
     print("Installing now...")
     os.system("pip install googletrans")
     print("If error thrown, update your Python or reinstall.")
