@@ -1,7 +1,5 @@
-from ast import For, arg
 import getpass
 import os
-from platform import python_compiler
 import random
 import socket
 from uuid import getnode as get_mac
