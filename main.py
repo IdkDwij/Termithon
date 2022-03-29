@@ -9,18 +9,19 @@ from random import randint
 import platform
 import fnmatch
 import subprocess
-import argparse
-from ast import For, arg
 import time
 from time import sleep
 try:
-    import googletrans
-    from googletrans import Translator
+    import speedtest
+    import geocoder
 except:
-    print("WARNING! Package Install Can't Operate Under Restricted Proxy...")
-    print("Googletrans Package Not Found")
-    print("Installing now...")
-    os.system("pip install googletrans")
+    print("Speedtest Package Not Found")
+    print("Installing Now...")
+    os.system("pip install speedtest-cli")
+    os.system('cls||clear')
+    print("Geocoder Package Not Found")
+    print("Installing Now...")
+    os.system("pip install geocoder")
     print("If error thrown, update your Python or reinstall.")
     time.sleep(3)
     os.system('cls||clear')
@@ -39,7 +40,6 @@ except:
     print("PyPrompt Closing in 1 Second")
     time.sleep(1)
     exit()
-
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
@@ -121,9 +121,12 @@ commands = '''
 17. intro (Displays initial text)
 18. sqrt (Enter a number and it will calculate the square root)
 19. date (Displays date)
-20. wifipassword (Gets your wifi password) (MIGHT NOT BE COMPATIBLE WITH Python 3.8 or earlier.)
-21. translator (Usage: translator -s <source_lang> -d <destination_lang>) (MIGHT NOT BE COMAtiBLE WITH Python 3.8 or earlier.)
-22. installer (DEBUG Command to check installation of 'translate' module)
+20. cd (Navigate through folders)
+21. iplocation (Find the physical location of your IP address)
+22. speedtest (Speedtest.net but built into PyPrompt!)
+23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
+
+(There's an easter egg in form of a command! Try to find it!) hint: help but not help
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
@@ -193,15 +196,18 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif "ignore" in cmd:
         easterEgg()
+    elif cmd == "speedtest":
+        speedtestapp()
         main(current_dir)
-    elif "wifipassword" in cmd:
-        wifipassword()
+    elif cmd == "iplocation":
+        iplocation()
         main(current_dir)
-    elif "translator" in cmd:
-        translate()
+    elif "encryptdecrypt" in cmd:
+        encryptdecrypt()
         main(current_dir)
-    elif "installer" in cmd:
-        installer()
+    elif cmd == "unhelp":
+        print("The command is 'ignore'")
+        main(current_dir)
     elif "cd" in cmd:
         args.remove('cd')
         args = ' '.join(args)
@@ -400,94 +406,226 @@ def easterEgg():
     print("Some help by Nathan a.k.a BigBoyTaco")
     print("This used to be Termithron 3.0 once.")
 
-def wifipassword():
-    systemInfo=''
-    try:
-        systemInfo = subprocess.check_output(['uname']).decode('utf-8', errors="backslashreplace").split('\n')
-        systemInfo = systemInfo[0]
-    except :
-        pass
-    if systemInfo == "Linux":
-        wifiData = subprocess.check_output(['ls', '/etc/NetworkManager/system-connections']).decode('utf-8', errors="backslashreplace").split('\n')
-        print ("Wifiname                       Password")
-        print ("----------------------------------------")
-    
-        for wifiname in wifiData:
-            if wifiname != '':
-                wifiPass = subprocess.check_output(['sudo','cat', f"/etc/NetworkManager/system-connections/{wifiname}"]).decode('utf-8', errors="backslashreplace").split('\n')
-                password=wifiPass[15].strip("psk=");
-                print ("{:<30} {:<}".format(wifiname, password))
+def speedtestapp():
+    speed=speedtest.Speedtest()
+    option=int(input('''
+    What do you want to know:
+    1) Download speed
+    2) Upload speed
+    3) Both Download and Upload
+    4) Ping
+    Your choice: '''))
+
+    if option<1 or option>4:
+        sleep(2)
+        print('You have entered wrong choice, please enter again with values from 1 to 4')
     else:
-        wifi = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8', errors="backslashreplace").split('\n')
-        profiles = [i.split(":")[1][1:-1] for i in wifi if "All User Profile" in i]
-        for i in profiles:
-            try:
-                results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key=clear']).decode('utf-8', errors="backslashreplace").split('\n')
-                results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
-                try:
-                    print ("{:<30}|  {:<}".format(i, results[0]))
-                except :
-                    print ("{:<30}|  {:<}".format(i, ""))
-            except :
-                print ("{:<30}|  {:<}".format(i, "ENCODING ERROR"))
+        sleep(1)
+        print()
+        print('Pls wait, test in progress...')
+        print()  
+        down_speed=round(speed.download()/1000000,3)
+        up_speed=round(speed.upload()/1000000,3)
+        print('One more sec please...')
+        sleep(2.5)
+        print()
+        if option == 1:
+            print('Your Download speed is: ',down_speed,'Mbps')
+        elif option == 2:
+            print('Your Upload speed is: ',up_speed,'Mbps')
+        elif option == 3:  
+            print('Your Download speed is: ',down_speed,'Mbps',end=" ")
+            print(',and your Upload speed is: ',up_speed,'Mbps')
 
-def translate(text, src_lng=None, dest_lng=None):
-    translator = Translator()
-    if src_lng and dest_lng:
-        translated = translator.translate(text, src=src_lng, dest=dest_lng)
-    elif src_lng:
-        translated = translator.translate(text, src=src_lng)
-    elif dest_lng:
-        translated = translator.translate(text, dest=dest_lng)
-    else:
-        translated =  translator.translate(text)
+        elif option == 4:
+            s=[]
+            speed.get_servers(s)
+            print(speed.results.ping,'ms')
+        else:
+            print('Sorry, something went wrong, pls try again...')
 
-    return translated
+def iplocation():
+    g = geocoder.ipinfo('me')
+    print(g.latlng)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('text', type=str, help='text to translate')
-    parser.add_argument('-s', '--src', default=None, help='origin language of the text')
-    parser.add_argument('-d', '--dest', default=None, help='destiny language of the translation')
-    parser.add_argument('-v', '--verbose', help='show more information', action='store_true')
-    
-    args = parser.parse_args()
-    
-    tr = translate(args.text, args.src, args.dest)
-    
-    if args.verbose:
-        print('original text: %s' % tr.origin)
-        print('translated text: %s' % tr.text)
-        print('origin language: %s' % tr.src)
-        print('destiny language: %s' % tr.dest)
-    else:
-        print(tr.text)
+def encryptdecrypt():
+    def isPrime(n):
+        prime = [True for i in range(n+1)]
+        p = 2
+        while p*p<=n:
+            if prime[p]==True:
+                for i in range(p*p,n+1,p):
+                    prime[i]=False
+            p+=1
 
-def installer():
-    print("WARNING! Package Install Can't Operate Under Restricted Proxy...")
-    print("Now Uninstalling Googletrans Package")
-    os.system("pip uninstall googletrans")
-    print("Now Installing Googletrans Package")
-    print("Installing now...")
-    os.system("pip install googletrans")
-    print("If error thrown, update your Python or reinstall.")
-    time.sleep(3)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 5 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 4 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 3 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 2 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 1 Second")
-    time.sleep(1)
-    exit()
+        return prime[n]
 
-y = "1.4.1"
+
+    def gcd(a,b):
+        while b!=0:
+            r = a%b
+            a=b
+            b=r
+        return a
+
+    def Multiplicative_inverse(a,b):
+        s1 = 1
+        s2 = 0
+        m = b
+        while b!=0:
+            q=a//b
+            r=a%b
+            a=b
+            b=r
+            s=s1-q*s2
+            s1=s2
+            s2=s
+            
+        if s1<0:
+            s1+=m
+            
+        return s1
+
+    def powermod(x,y,p):
+        res = 1
+        
+        x = x%p 
+        while (y>0):
+            
+            if (y%2) == 1:
+                res = (res*x)%p
+                
+            y = y//2
+            x = (x*x)%p
+            
+        return res
+
+    if __name__ == '__main__':
+        while (True):
+            res = input('Do you want to enter prime numbers (y) or let the algorithm do it for you (n) or exit (e)? (y/n/e): ')
+            if res == 'y':
+                while True:
+                    p = 13
+                    p = int(input('Enter a prime number: '))
+                    if isPrime(p):
+                        break
+                    else:
+                        print(p,'is not a prime number')
+                        continue
+
+                while True:
+                    q = 17
+                    q = int(input('Enter a different prime number: '))
+                    if isPrime(q) and (p*q>26):
+                        break
+                    else:
+                        print('Both the prime numbers are same!! or product of both the prime numbers is less than 26!!')
+                        continue
+
+                n = p*q
+                phi_n = (p-1)*(q-1)
+                a = 19
+                while True:
+                    a = int(input('Enter a number such that Greatest Common Divisor of that number with '+ str(phi_n) + ' is 1: '))
+                    if gcd(a,phi_n)!=1:
+                        continue
+                    else:
+                        break
+
+                b = Multiplicative_inverse(a,phi_n)
+                message = input('Enter the message to be encrypted (lower case): ')
+                message = message.lower()
+
+                encrypted_string = ""
+                encrypted_num = []
+
+                for i in range(len(message)):
+                    ch = message[i]
+                    if ch!=' ':
+                        m = ord(ch) - 97
+                        e = powermod(m,a,n)
+                        encrypted_num.append(e)
+                        encrypted_string += chr(e%26 + 97)
+                    else:
+                        encrypted_string +=' '
+
+                print('Encrypted message is:', encrypted_string)
+                print(encrypted_num)
+                res = input("Do you want to decrypt it too? (y/n): ")
+                if res == 'y':
+                    decrypted = ''
+                    j=0
+                    for i in range(len(encrypted_string)):
+                        ch = message[i]
+                        if ch != ' ':
+                            e = encrypted_num[j]
+                            m = powermod(e,b,n)
+                            ch = chr(m+97)
+                            decrypted+=ch
+                            j+=1
+                        else:
+                            decrypted+=' '
+                        
+                    print("Decrypted message is:",decrypted)
+                else:
+                    ans = input("Do you want to continue? (y/n): ")
+                    if ans == 'y':
+                        continue
+                    else:
+                        break
+
+            elif res == 'n':
+                p = 13
+                q = 17
+                n = p*q
+                a = 5
+                b = 77
+                message = input('Enter the message to be encrypted (lower case): ')
+                message = message.lower()
+
+                encrypted_string = ""
+                encrypted_num = []
+
+                for i in range(len(message)):
+                    ch = message[i]
+                    if ch!=' ':
+                        m = ord(ch) - 97
+                        e = powermod(m,a,n)
+                        encrypted_num.append(e)
+                        encrypted_string += chr(e%26 + 97)
+                    else:
+                        encrypted_string +=' '
+
+                print('Encrypted message is:', encrypted_string)
+                res = input("Do you want to decrypt it too? (y/n): ")
+                if res == 'y':
+                    decrypted = ''
+                    j=0
+                    for i in range(len(encrypted_string)):
+                        ch = encrypted_string[i]
+                        if ch != ' ':
+                            e = encrypted_num[j]
+                            m = powermod(e,b,n)
+                            ch = chr(m+97)
+                            decrypted+=ch
+                            j+=1
+                        else:
+                            decrypted+=' '
+                        
+                    print("Decrypted message is:",decrypted)
+                else:
+                    ans = input("Do you want to continue? (y/n): ")
+                    if ans == 'y':
+                        continue
+                    else:
+                        break
+            elif res == 'e':
+                break
+            else:
+                print('Invalid command!')
+                continue
+
+y = "1.4.2"
 
 main(current_dir)
+
