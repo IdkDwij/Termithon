@@ -2,6 +2,12 @@
 
 Making a terminal based in Python 3.10.1
 
+<a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
+<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
+<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/azure.svg" alt="Deploy On Azure"></a>
+<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/googlecloud.svg" alt="Deploy On Google Cloud"></a>
+
+
 ### Engine based on Termithron by Dwij
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
