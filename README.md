@@ -3,9 +3,14 @@
 Making a terminal based in Python 3.10.1
 
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
-<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
-<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/azure.svg" alt="Deploy On Azure"></a>
-<a href="https://www.youtube.com/watch?v=QDia3e12czc"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/googlecloud.svg" alt="Deploy On Google Cloud"></a>
+<a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
+<a href="https://deploy.azure.com/?repository=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/azure.svg" alt="Deploy On Azure"></a>
+<a href="https://deploy.cloud.run/?git_repo=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/googlecloud.svg" alt="Deploy On Google Cloud"></a>
+<a href="https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/amplifyconsole.svg" alt="Deploy On Amplify Console"></a>
+<a target="_blank" href="https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/joalricha869/PyPrompt/archive/refs/heads/main.zip"><img alt="Deploy to Oracle Cloud" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/oraclecloud.svg"></a>
+<a target="_blank" href="https://railway.app/new/template?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy on Railway" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/railway.svg"></a>
+<a target="_blank" href="https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to IBM Cloud" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/ibmcloud.svg"></a>
+<a target="_blank" href="https://heroku.com/deploy/?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Heroku" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/heroku.svg"></a>
 
 
 ### Engine based on Termithron by Dwij
