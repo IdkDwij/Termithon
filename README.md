@@ -51,9 +51,14 @@ Many...
 17. intro (Displays initial text)
 18. sqrt (Enter a number and it will calculate the square root)
 19. date (Displays date)
-20. wifipassword (Gets your wifi password) (MIGHT NOT BE COMPATIBLE WITH Python 3.8 or earlier.)
-21. translator (Usage: translator -s <source_lang> -d <destination_lang>) (MIGHT NOT BE COMAtiBLE WITH Python 3.8 or earlier.)
-22. installer (DEBUG Command to check installation of 'translate' module)
+20. cd (Navigate through folders)
+21. iplocation (Find the physical location of your IP address)
+22. speedtest (Speedtest.net but built into PyPrompt!)
+23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
+
+(There's an easter egg in form of a command! Try to find it!) hint: help but not help
+
+The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
 
    \  |        |  |   _)       |         |     _|               
@@ -67,72 +72,8 @@ Many...
 4. exit (Exits the terminal)
 5. mkdir (Creates a folder)
 
-
-  _      _                    _    _      _       
- | |    (_)                  | |  | |    | |      
- | |     _ _ __  _   ___  __ | |__| | ___| |_ __  
- | |    | | '_ \| | | \ \/ / |  __  |/ _ \ | '_ \ 
- | |____| | | | | |_| |>  <  | |  | |  __/ | |_) |
- |______|_|_| |_|\__,_/_/\_\ |_|  |_|\___|_| .__/ 
-                                           | |    
-                                           |_|    
-                                           
-1. sudo (This uses the REAL sudo mode.) ONLY WORKS ON LINUX OR WSL
-2. rm (deletes a file or directory) ONLY WORKS ON LINUX OR WSL
-3. history (Shows all your command history) ONLY WORKS ON LINUX OR WSL
-4. hash (Displays program locations) ONLY WORKS ON LINUX OR WSL
-5. python3 (Opens the Python shell, REQUIRES PYTHON 3 TO BE INSTALLED!) ONLY WORKS ON LINUX OR WSL
-6. apt (Command used to install package dependencies) ONLY WORKS ON LINUX OR WSL
-7. bash (Launches the bash terminal) ONLY WORKS ON LINUX OR WINDOWS (with wsl)
-8. csh (Launches the C shell; REQUIRES csh to be installed) ONLY WORKS ON LINUX OR WSL
-9. zsh (Launches the Z shell; REQUIRES zsh to be installed) ONLY WORKS ON LINUX OR WSL
-10. unrar (Extracts files from a .rar file; REQUIRES unrar binary to be installed) ONLY WORKS ON LINUX OR WSL
-11. su (Enable or disable the sudo command) ONLY WORKS ON LINUX OR WSL
-12. cat (Creates a blank file) ONLY WORKS ON LINUX OR WSL
-13. java (Runs a .jar file; REQUIRES JAVA TO BE INSTALLED!)
-14. i386 (Runs bash in 386 Compatibility Mode)
-15. touch (Make a file)
-16. kill (Terminate a process)
-17. alias (Create a custom command) 
-
- __          ___           _                     _    _      _       
- \ \        / (_)         | |                   | |  | |    | |      
-  \ \  /\  / / _ _ __   __| | _____      _____  | |__| | ___| |_ __  
-   \ \/  \/ / | | '_ \ / _` |/ _ \ \ /\ / / __| |  __  |/ _ \ | '_ \ 
-    \  /\  /  | | | | | (_| | (_) \ V  V /\__ \ | |  | |  __/ | |_) |
-     \/  \/   |_|_| |_|\__,_|\___/ \_/\_/ |___/ |_|  |_|\___|_| .__/ 
-                                                              | |    
-                                                              |_|    
-
-
-1. del (deletes a file or directory) ONLY WORKS ON WINDOWS
-2. diskpart (Opens up the real diskpart) ONLY WORKS ON WINDOWS
-3. format (Formats a drive) ONLY WORKS ON WINDOWS
-4. color (Changes the color of text) ONLY WORKS ON WINDOWS
-5. py (Opens up the Python shell, REQUIRES PYTHON TO BE INSTALLED!) ONLY WORKS ON WINDOWS
-6. python (Alternate solution to the 'py' command) ONLY WORKS ON WINDOWS
-7. wsl (Opens up the Linux shell, REQUIRES THE WINDOWS SUBSYSTEM FOR LINUX) ONLY WORKS ON WINDOWS!
-8. cmd (Opens the Command Prompt) ONLY WORKS ON WINDOWS
-9. ipconfig (Gives info about your IPV4 or IPV6 address, ip address, mac address) ONLY WORKS ON WINDOWS!
-
-                        ____   _____   _    _      _       
-                       / __ \ / ____| | |  | |    | |      
-  _ __ ___   __ _  ___| |  | | (___   | |__| | ___| |_ __  
- | '_ ` _ \ / _` |/ __| |  | |\___ \  |  __  |/ _ \ | '_ \ 
- | | | | | | (_| | (__| |__| |____) | | |  | |  __/ | |_) |
- |_| |_| |_|\__,_|\___|\____/|_____/  |_|  |_|\___|_| .__/ 
-                                                    | |    
-                                                    |_|    
-
-1. brew (The homebrew command) ONLY WORKS ON MACOS
-2. softwareupdate (Checks for either macOS updates or software updates) ONLY WORKS ON MACOS
-3. airport (Manage Apple AirPort) MIGHT REQUIRE zsh...   REQUIRES MACOS
-
-
-
 ALL UNIX + WINDOWS COMMANDS CAN BE RUN THROUGH PYPROMPT SHELL
 
-Help info will be updated every update!
 '''
 ```
 
