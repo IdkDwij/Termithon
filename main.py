@@ -205,6 +205,9 @@ def whatiscommand(current_dir):
     elif "encryptdecrypt" in cmd:
         encryptdecrypt()
         main(current_dir)
+    elif "troubleshoot" in cmd:
+        troubleshoot()
+        main(current_dir)
     elif cmd == "unhelp":
         print("The command is 'ignore'")
         main(current_dir)
@@ -625,7 +628,34 @@ def encryptdecrypt():
                 print('Invalid command!')
                 continue
 
-y = "1.4.2"
+def troubleshoot():
+    conf = input("Troubleshoot Modules? ")
+    if conf == "yes":
+        print("Uninstalling Speedtest")
+        os.system("pip uninstall speedtest-cli")
+        os.system("cls||clear")
+        print("Uninstalling geocode")
+        os.system("pip uninstall geocode")
+        os.system("cls||clear")
+        print("Exiting PyPrompt in 5")
+        time.sleep(1)
+        os.system("cls||clear")
+        print("Exiting PyPrompt in 4")
+        time.sleep(1)
+        os.system("cls||clear")
+        print("Exiting PyPrompt in 3")
+        time.sleep(1)
+        os.system("cls||clear")
+        print("Exiting PyPrompt in 2")
+        time.sleep(1)
+        os.system("cls||clear")
+        print("Exiting PyPrompt in 1")
+        time.sleep(1)
+        exit()
+    else:
+        print("No changes were made to your system.")
+        main(current_dir)
+
+y = "1.4.2.1"
 
 main(current_dir)
-
