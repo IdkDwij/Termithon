@@ -17,6 +17,19 @@ Making a terminal based in Python 3.10.1
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
+
+## Run this in your PC
+
+First download python from [python.org](python.org). Once it's installed, Run the PyPrompt file from the 'Releases' tab. 
+
+### TO RUN IN WINDOWS TERMINAL
+
+Name the PyPrompt file to prompt.py and put it on the root of the C drive. In Windows Terminal, make a new profile, named PyPrompt. use the following command. ```python.exe C:\prompt.py``` or ```py C:\prompt.py``` Run that new profile. PyPrompt should work.
+
+### Why isn't there an ```.exe``` version?
+
+Using pyinstaller it gives me an error (_apparently about the main() function. idk why it happens_)
+
 ## Features:
 
 Many...
