@@ -4,9 +4,9 @@
 [![Run on Replit](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg)](https://replit.com/github/IdkDwij/Termithon)
 [![Remix on Glitch](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/IdkDwij/Termithon)
 
-# Required Packages
-Auto installs if needed
-1. Colorama
+### Required Packages
+  -Auto installs if needed
+  -1. Colorama
 
 
 # Termithon
