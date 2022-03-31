@@ -20,7 +20,7 @@ Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
 ## Run this in your PC
 
-First download python from [python.org](python.org). Once it's installed, Run the PyPrompt file from the 'Releases' tab. 
+First download python from [python.org](https://python.org). Once it's installed, Run the PyPrompt file from the 'Releases' tab. 
 
 ### TO RUN IN WINDOWS TERMINAL
 
