@@ -125,7 +125,7 @@ commands = '''
 21. iplocation (Find the physical location of your IP address)
 22. speedtest (Speedtest.net but built into PyPrompt!)
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
-
+24. troubleshoot (Troubleshoots modules for speedtest and encryptdecrypt command)
 (There's an easter egg in form of a command! Try to find it!) hint: help but not help
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
