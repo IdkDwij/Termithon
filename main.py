@@ -80,7 +80,7 @@ print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha86
 print(" ")
 print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
 print(" ")
-print('Based on Termithron by' + dwij + 'https://github.com/IdkDwij/Termithron')
+print('Based on Termithon by' + dwij + 'https://github.com/IdkDwij/Termithon')
 print(" ")
 print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
@@ -385,7 +385,7 @@ def intro():
     print(" ")
     print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
     print(" ")
-    print('Based on Termithron Shell by' + dwij + 'https://github.com/IdkDwij/Termithron')
+    print('Based on Termithon Shell by' + dwij + 'https://github.com/IdkDwij/Termithon')
     print(" ")
     print('The source is here')
     print("Type in 'help' for the command list.")
@@ -407,7 +407,7 @@ def easterEgg():
     print("This terminal was made by Jose a.k.a joalricha869")
     print("Base code that this is powered by made by Dwij a.k.a idkDwij")
     print("Some help by Nathan a.k.a BigBoyTaco")
-    print("This used to be Termithron 3.0 once.")
+    print("This used to be Termithon 3.0 once.")
 
 def speedtestapp():
     speed=speedtest.Speedtest()
