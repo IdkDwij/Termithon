@@ -13,7 +13,7 @@ Making a terminal based in Python 3.10.1
 <a target="_blank" href="https://heroku.com/deploy/?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Heroku" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/heroku.svg"></a>
 
 
-### Engine based on Termithron by Dwij
+### Engine based on Termithon by Dwij
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
