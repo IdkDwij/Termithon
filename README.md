@@ -5,7 +5,7 @@
 [![Remix on Glitch](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/IdkDwij/Termithon)
 
 ### Required Packages
-  -Auto installs if needed\n
+  -Auto installs if needed<br>
   -1. Colorama
 
 
