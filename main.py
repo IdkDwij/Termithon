@@ -241,7 +241,7 @@ def main(current_dir):
     whatiscommand(current_dir)
 def ver():
     print("PyPrompt Version: " + y)
-    print("(C) 2022 joalricha869, All Rights Reserved.")
+    print("Made by joalricha869.")
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
     uname = platform.uname()
