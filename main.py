@@ -125,7 +125,7 @@ commands = '''
 21. iplocation (Find the physical location of your IP address)
 22. speedtest (Speedtest.net but built into PyPrompt!)
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
-24. troubleshoot (Troubleshoots modules for speedtest and encryptdecrypt command)
+
 (There's an easter egg in form of a command! Try to find it!) hint: help but not help
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
@@ -205,11 +205,11 @@ def whatiscommand(current_dir):
     elif "encryptdecrypt" in cmd:
         encryptdecrypt()
         main(current_dir)
-    elif "troubleshoot" in cmd:
-        troubleshoot()
-        main(current_dir)
     elif cmd == "unhelp":
         print("The command is 'ignore'")
+        main(current_dir)
+    elif cmd == "troubleshoot":
+        troubleshoot()
         main(current_dir)
     elif "cd" in cmd:
         args.remove('cd')
@@ -241,7 +241,7 @@ def main(current_dir):
     whatiscommand(current_dir)
 def ver():
     print("PyPrompt Version: " + y)
-    print("Made by joalricha869.")
+    print("(C) 2022 joalricha869, All Rights Reserved.")
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
     uname = platform.uname()
@@ -407,7 +407,8 @@ def easterEgg():
     print("This terminal was made by Jose a.k.a joalricha869")
     print("Base code that this is powered by made by Dwij a.k.a idkDwij")
     print("Some help by Nathan a.k.a BigBoyTaco")
-    print("This used to be Termithon 3.0 once.")
+    print("This used to be Termithron 3.0 once.")
+    print("Search up BigBoyTaco Studios on YouTube for a tutorial on Termithon")
 
 def speedtestapp():
     speed=speedtest.Speedtest()
@@ -629,33 +630,29 @@ def encryptdecrypt():
                 continue
 
 def troubleshoot():
-    conf = input("Troubleshoot Modules? ")
-    if conf == "yes":
+    confirmation = input("Troubleshoot Modules? ")
+    if confirmation == "yes":
         print("Uninstalling Speedtest")
         os.system("pip uninstall speedtest-cli")
         os.system("cls||clear")
-        print("Uninstalling geocode")
-        os.system("pip uninstall geocode")
+        print("Uninstalling geocoder")
+        os.system("pip uninstall geocoder")
         os.system("cls||clear")
-        print("Exiting PyPrompt in 5")
-        time.sleep(1)
+        print("Now Reinstalling Modules")
+        print("Installing Speedtest")
+        os.system("pip install speedtest-cli")
         os.system("cls||clear")
-        print("Exiting PyPrompt in 4")
-        time.sleep(1)
+        print("Installing geocoder")
+        os.system("pip installer geocoder")
         os.system("cls||clear")
-        print("Exiting PyPrompt in 3")
-        time.sleep(1)
+        print("PyPrompt Closing in 3 seconds")
         os.system("cls||clear")
-        print("Exiting PyPrompt in 2")
-        time.sleep(1)
+        print("PyPrompt Closing in 2 seconds")
         os.system("cls||clear")
-        print("Exiting PyPrompt in 1")
-        time.sleep(1)
+        print("PyPrompt Closing in 1 second")
         exit()
-    else:
-        print("No changes were made to your system.")
-        main(current_dir)
-
-y = "1.4.2.1"
+y = "1.4.2"
 
 main(current_dir)
+
+
