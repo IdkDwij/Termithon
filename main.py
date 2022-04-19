@@ -10,10 +10,16 @@ import platform
 import fnmatch
 import subprocess
 import time
+import shutil
+import sys
+import argparse
+import re
 from time import sleep
+import urllib.request
 try:
     import speedtest
     import geocoder
+    import paramiko
 except:
     print("Speedtest Package Not Found")
     print("Installing Now...")
@@ -22,6 +28,11 @@ except:
     print("Geocoder Package Not Found")
     print("Installing Now...")
     os.system("pip install geocoder")
+    os.system("cls||clear")
+    print("Paramiko Package Not Found")
+    print("Installing Now...")
+    os.system("pip install paramiko")
+    os.system("cls||clear")
     print("If error thrown, update your Python or reinstall.")
     time.sleep(3)
     os.system('cls||clear')
@@ -85,7 +96,7 @@ print(" ")
 print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
 print("")
-hostname = socket.gethostname()
+hostnamecomputer = socket.gethostname()
 current_dir = os.getcwd()
 def listToString(s):
     str1 = ""
@@ -125,8 +136,11 @@ commands = '''
 21. iplocation (Find the physical location of your IP address)
 22. speedtest (Speedtest.net but built into PyPrompt!)
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
+24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
+25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
+26. macosdownloader (gibMacOS but made as a function for use in PyPrompt)
 
-(There's an easter egg in form of a command! Try to find it!) hint: help but not help
+(There's an easter egg in form of a command! Try to find it!) hint: help but not help (un is in the word)
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
@@ -147,7 +161,7 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == 'hostname':
         uname = platform.uname()
-        print(hostname)
+        print(hostnamecomputer)
         main(current_dir)
     elif cmd == "mac":
         getmac()
@@ -226,6 +240,11 @@ def whatiscommand(current_dir):
             main(new_dir)
         else:
             print('The system cannot find the path specified. \n')
+            main(current_dir)
+    elif cmd == "ssh":
+        sshclient()
+    elif cmd == "macosdownloader":
+            macOSDownloader()
             main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -638,12 +657,23 @@ def troubleshoot():
         print("Uninstalling geocoder")
         os.system("pip uninstall geocoder")
         os.system("cls||clear")
+        print("Uninstalling paramiko")
+        os.system("pip uninstall paramiko")
+        os.system("cls||clear")
+        print("Unins")
         print("Now Reinstalling Modules")
         print("Installing Speedtest")
         os.system("pip install speedtest-cli")
         os.system("cls||clear")
         print("Installing geocoder")
-        os.system("pip installer geocoder")
+        os.system("pip install geocoder")
+        os.system("cls||clear")
+        print("Installing paramiko")
+        os.system("pip install paramiko")
+        os.system("cls||clear")
+        print("Installing Scripts")
+        os.system("pip install Scripts")
+        os.system("cls||clear")
         os.system("cls||clear")
         print("PyPrompt Closing in 3 seconds")
         os.system("cls||clear")
@@ -651,7 +681,62 @@ def troubleshoot():
         os.system("cls||clear")
         print("PyPrompt Closing in 1 second")
         exit()
-y = "1.4.2"
+
+def sshclient():
+    print("This may have compatability issues with earlier versions of Python.")
+    print("Make sure you have Python 3.9 or later!")
+    print("DISCLAIMER: This software can't be used for any type of illegal activity.")
+    print("What you do here is now your OWN RESPONSIBILITY!!!")
+    hostname = input("Enter hostname: ")
+    port = input("Enter Port: ")
+    username = input("Enter Username: ")
+    password = input("Enter Password: ")
+    paramiko.util.log_to_file('paramiko.log')
+    s = paramiko.SSHClient()
+    s.load_system_host_keys()
+    s.connect(hostname, port, username, password)
+    stdin, stdout, stderr = s.exec_command('ifconfig')
+    print(stdout.read())
+    s.close()
+    main()
+
+def macOSDownloader():
+    print("macOS Downloader")
+    print("This downloader retrieves the files from Apple's official server and will download them using this command")
+    print("1) macOS Monterey 12.3.1 (IPSW Version M1) (Requires a Real Mac)")
+    print("2) macOS Monterey 12.2 (Requires a Real Mac)")
+    print("3) macOS Monterey 12.1 (IPSW Version) (Requires a Real Mac)")
+    print("4) macOS Big Sur 11.6.5 (Requires a Real Mac)")
+    print("5) macOS Big Sur 11.6 (IPSW Version) (Requires a Real Mac)")
+    print("6) macOS Catalina 10.15 (Requires a Real Mac)")
+    print("7) macOS Catalina Patcher (Not from Apple)")
+
+    versionSelecter = input("Which version of macOS do you want to download?: ")
+    if versionSelecter == "1":
+        urllib.request.urlretrieve("https://updates.cdn-apple.com/2022SpringFCS/fullrestores/002-79219/851BEDF0-19DB-4040-B765-0F4089D1530D/UniversalMac_12.3.1_21E258_Restore.ipsw", "Monterey12.3.1M1.ipsw")
+        main(current_dir)
+    elif versionSelecter == "2":
+        urllib.request.urlretrieve("https://swcdn.apple.com/content/downloads/41/34/002-57041-A_P59UQKRDXZ/h73bziwp3o4m5kuk3ool1g55vgplpmkwqv/InstallAssistant.pkg", "Monterey12.2.pkg")
+        main(current_dir)
+    elif versionSelecter == "3":
+        urllib.request.urlretrieve("https://updates.cdn-apple.com/2022WinterFCS/fullrestores/002-66272/FB0B40F5-49EB-421B-81EC-8B56B8468D3C/UniversalMac_12.2.1_21D62_Restore.ipsw", "Monterey12.1M1.ipsw")
+        main(current_dir)
+    elif versionSelecter == "4":
+        urllib.request.urlretrieve("https://swcdn.apple.com/content/downloads/15/10/002-77154-A_LAKRVPO4Y6/dbmkv9538dfpvqaqdygjciw8775qjuytbh/InstallAssistant.pkg", "BigSur11.6.5.pkg")
+        main(current_dir)
+    elif versionSelecter == "5":
+        urllib.request.urlretrieve("https://updates.cdn-apple.com/2021FallFCS/fullrestores/071-97388/C361BF5E-0E01-47E5-8D30-5990BC3C9E29/UniversalMac_11.6_20G165_Restore.ipsw", "BigSur11.6M1.ipsw")
+        main(current_dir)
+    elif versionSelecter == "6":
+        urllib.request.urlretrieve("http://swcdn.apple.com/content/downloads/61/56/041-83630-A_8RCIBB415Y/7jqh3nh97ood2mjej7hdgpx7fgh5c3fi9g/InstallESDDmg.pkg", "Catalina10.5.pkg")
+        main(current_dir)
+    elif versionSelecter == "7":
+        print("Go to this website!")
+        print("http://dosdude1.com/catalina/")
+        main(current_dir)
+        
+
+y = "1.4.4"
 
 main(current_dir)
 
