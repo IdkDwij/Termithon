@@ -68,6 +68,9 @@ Many...
 21. iplocation (Find the physical location of your IP address)
 22. speedtest (Speedtest.net but built into PyPrompt!)
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
+24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
+25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
+26. macosdownloader (gibMacOS but made as a function for use in PyPrompt)
 
 (There's an easter egg in form of a command! Try to find it!) hint: help but not help
 
