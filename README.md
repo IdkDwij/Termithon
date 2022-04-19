@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.ico" alt="termithon logo" height="100px">
+<img src="https://raw.githubusercontent.com/IdkDwij/Termithon/main/termithon.png" alt="termithon logo" height="100px">
 
 [![Deploy to Heroku](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/heroku.svg)](https://heroku.com/deploy/?template=https://github.com/IdkDwij/Termithon)
 [![Run on Replit](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg)](https://replit.com/github/IdkDwij/Termithon)
