@@ -1,4 +1,4 @@
-#imports
+# Ten Billion Imports Later...
 from __future__ import division
 import os
 import string
@@ -16,11 +16,30 @@ import argparse
 import re
 from time import sleep
 import urllib.request
+from urllib.request import urlopen
+import json
+import webbrowser
+import uuid
 try:
     import speedtest
     import geocoder
     import paramiko
+    import wget
+    import urlopen
+    import requests
 except:
+    print("Requests Package Not Found")
+    print("Installing Now")
+    os.system("pip install requests")
+    os.system("cls||clear")
+    print("Urlopen Package Not Found")
+    print("Installing Now")
+    os.system("pip install urlopen")
+    os.system("cls||clear")
+    print("Wget Package Not Found")
+    print("Installing Now")
+    os.system("pip install wget")
+    os.system("cls||clear")
     print("Speedtest Package Not Found")
     print("Installing Now...")
     os.system("pip install speedtest-cli")
@@ -116,7 +135,7 @@ commands = '''
 1. ip (Gives you your IP)
 2. hostname (Gives you your Computer's ID)
 3. mac (Retrieves the Physical MAC Address of The Device)
-4. ping (lets you ping a website UPDATE: NOW ADDED!) not
+4. ping (lets you ping a website)
 5. calc (A simple calculator)
 6. passgen (A very efficient password generator)
 7. sysinfo (Gets relevant system info)
@@ -138,9 +157,12 @@ commands = '''
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
 24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
 25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
-26. macosdownloader (gibMacOS but made as a function for use in PyPrompt)
-
-(There's an easter egg in form of a command! Try to find it!) hint: help but not help (un is in the word)
+26. macosdownloader (A simple macOS downloader) no longer based on gibMacOS
+27. filesearch (Searches files via their extension)
+28. filedownloader (Download any file via their url)
+29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
+30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway...
+31. unhelp (i'm not sure what this is. it just exists.)
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
@@ -166,8 +188,9 @@ def whatiscommand(current_dir):
     elif cmd == "mac":
         getmac()
         main(current_dir)
-    elif cmd == "calc":
+    elif "calc" in cmd:
         calc()
+        main(current_dir)
     elif cmd == "passgen":
         passGen()
     elif cmd == "sysinfo":
@@ -210,6 +233,7 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif "ignore" in cmd:
         easterEgg()
+        main(current_dir)
     elif cmd == "speedtest":
         speedtestapp()
         main(current_dir)
@@ -244,8 +268,20 @@ def whatiscommand(current_dir):
     elif cmd == "ssh":
         sshclient()
     elif cmd == "macosdownloader":
-            macOSDownloader()
-            main(current_dir)
+        macOSDownloader()
+        main(current_dir)
+    elif cmd == "filesearch":
+        fileSearch()
+        main(current_dir)
+    elif cmd == "filedownloader":
+        fileDownloader()
+        main(current_dir)
+    elif cmd == "locateme":
+        locateMe()
+        main(current_dir)
+    elif cmd == "unblockedgames":
+        unblockedGames()
+        main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
         os.system(cmd)
@@ -272,38 +308,40 @@ def getSystemInfo():
     print(f"Processor: {uname.processor}")
     print("System Info Retrieved!")
 def calc():
-    def add(x, y):
-        return x + y
-    def subtract(x, y):
-        return x - y
-    def multiply(x, y):
-        return x * y
-    def divide(x, y):
-        return x / y
-        print("Select operation.")
-        print("1.Add")
-        print("2.Subtract")
-        print("3.Multiply")
-        print("4.Divide")
-        while True:
-            choice = input("Enter choice(1/2/3/4): ")
-            if choice in ('1', '2', '3', '4'):
-                num1 = float(input("Enter first number: "))
-                num2 = float(input("Enter second number: "))
-                if choice == '1':
-                    print(num1, "+", num2, "=", add(num1, num2))
-                elif choice == '2':
-                    print(num1, "-", num2, "=", subtract(num1, num2))
-                elif choice == '3':
-                    print(num1, "*", num2, "=", multiply(num1, num2))
-                elif choice == '4':
-                    print(num1, "/", num2, "=", divide(num1, num2))
-                next_calculation = input("Let's do next calculation? (yes/no): ")
-                if next_calculation == "no":
-                  main(current_dir)
-            else:
-                print("Invalid Input")
-                main(current_dir)
+ #addition
+    if "+" in cmd:
+        numbers = cmd.split()
+        first_number = float(numbers[1])
+        second_number = float(numbers[3])
+        print(first_number + second_number)
+    #subtraction
+    elif "-" in cmd:
+        numbers = cmd.split()
+        first_number = float(numbers[1])
+        second_number = float(numbers[3])
+        print(first_number - second_number)
+    #division
+    elif "/" in cmd:
+        numbers = cmd.split()
+        first_number = float(numbers[1])
+        second_number = float(numbers[3])
+        print(first_number / second_number)
+    #multiplication
+    elif "*" in cmd:
+        numbers = cmd.split()
+        first_number = int(numbers[1])
+        second_number = int(numbers[3])
+        print(first_number * second_number)
+    elif cmd == "calc help":
+        print("proper use of calculator: 1 + 2")
+        print("only two numbers are allowed")
+        print('''supports:
+        1. addition
+        2. subtraction
+        3. division
+        4. multiplication''')
+    else:
+        print('error... use "calc help" for more help')
 def passGen():
         characters = string.ascii_letters + string.punctuation  + string.digits
         password =  "".join(choice(characters) for x in range(randint(8, 16)))
@@ -314,7 +352,6 @@ def passGen():
         else:
             main(current_dir)
 def getmac():
-    import uuid
     print ("The MAC address of this Device is : ", end="")
     print (':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
     for ele in range(0,8*6,8)][::-1]))
@@ -428,6 +465,9 @@ def easterEgg():
     print("Some help by Nathan a.k.a BigBoyTaco")
     print("This used to be Termithron 3.0 once.")
     print("Search up BigBoyTaco Studios on YouTube for a tutorial on Termithon")
+    print("Thanks to theopensour for his unblocked games site")
+    print("Check him out in Codeberg")
+    print("btw he was banned from github")
 
 def speedtestapp():
     speed=speedtest.Speedtest()
@@ -651,6 +691,9 @@ def encryptdecrypt():
 def troubleshoot():
     confirmation = input("Troubleshoot Modules? ")
     if confirmation == "yes":
+        print("Uninstalling wget")
+        os.system("pip uninstall wget")
+        os.system("cls||clear")
         print("Uninstalling Speedtest")
         os.system("pip uninstall speedtest-cli")
         os.system("cls||clear")
@@ -662,6 +705,9 @@ def troubleshoot():
         os.system("cls||clear")
         print("Unins")
         print("Now Reinstalling Modules")
+        print("Installing wget")
+        os.system("pip install wget")
+        os.system("cls||clear")
         print("Installing Speedtest")
         os.system("pip install speedtest-cli")
         os.system("cls||clear")
@@ -713,31 +759,72 @@ def macOSDownloader():
 
     versionSelecter = input("Which version of macOS do you want to download?: ")
     if versionSelecter == "1":
-        urllib.request.urlretrieve("https://updates.cdn-apple.com/2022SpringFCS/fullrestores/002-79219/851BEDF0-19DB-4040-B765-0F4089D1530D/UniversalMac_12.3.1_21E258_Restore.ipsw", "Monterey12.3.1M1.ipsw")
+        wget.download("https://updates.cdn-apple.com/2022SpringFCS/fullrestores/002-79219/851BEDF0-19DB-4040-B765-0F4089D1530D/UniversalMac_12.3.1_21E258_Restore.ipsw")
         main(current_dir)
     elif versionSelecter == "2":
-        urllib.request.urlretrieve("https://swcdn.apple.com/content/downloads/41/34/002-57041-A_P59UQKRDXZ/h73bziwp3o4m5kuk3ool1g55vgplpmkwqv/InstallAssistant.pkg", "Monterey12.2.pkg")
+        wget.download("https://swcdn.apple.com/content/downloads/41/34/002-57041-A_P59UQKRDXZ/h73bziwp3o4m5kuk3ool1g55vgplpmkwqv/InstallAssistant.pkg")
         main(current_dir)
     elif versionSelecter == "3":
-        urllib.request.urlretrieve("https://updates.cdn-apple.com/2022WinterFCS/fullrestores/002-66272/FB0B40F5-49EB-421B-81EC-8B56B8468D3C/UniversalMac_12.2.1_21D62_Restore.ipsw", "Monterey12.1M1.ipsw")
+        wget.download("https://updates.cdn-apple.com/2022WinterFCS/fullrestores/002-66272/FB0B40F5-49EB-421B-81EC-8B56B8468D3C/UniversalMac_12.2.1_21D62_Restore.ipsw")
         main(current_dir)
     elif versionSelecter == "4":
-        urllib.request.urlretrieve("https://swcdn.apple.com/content/downloads/15/10/002-77154-A_LAKRVPO4Y6/dbmkv9538dfpvqaqdygjciw8775qjuytbh/InstallAssistant.pkg", "BigSur11.6.5.pkg")
+        wget.download("https://swcdn.apple.com/content/downloads/15/10/002-77154-A_LAKRVPO4Y6/dbmkv9538dfpvqaqdygjciw8775qjuytbh/InstallAssistant.pkg")
         main(current_dir)
     elif versionSelecter == "5":
-        urllib.request.urlretrieve("https://updates.cdn-apple.com/2021FallFCS/fullrestores/071-97388/C361BF5E-0E01-47E5-8D30-5990BC3C9E29/UniversalMac_11.6_20G165_Restore.ipsw", "BigSur11.6M1.ipsw")
+        wget.download("https://updates.cdn-apple.com/2021FallFCS/fullrestores/071-97388/C361BF5E-0E01-47E5-8D30-5990BC3C9E29/UniversalMac_11.6_20G165_Restore.ipsw")
         main(current_dir)
     elif versionSelecter == "6":
-        urllib.request.urlretrieve("http://swcdn.apple.com/content/downloads/61/56/041-83630-A_8RCIBB415Y/7jqh3nh97ood2mjej7hdgpx7fgh5c3fi9g/InstallESDDmg.pkg", "Catalina10.5.pkg")
+        wget.download("http://swcdn.apple.com/content/downloads/61/56/041-83630-A_8RCIBB415Y/7jqh3nh97ood2mjej7hdgpx7fgh5c3fi9g/InstallESDDmg.pkg")
         main(current_dir)
     elif versionSelecter == "7":
         print("Go to this website!")
         print("http://dosdude1.com/catalina/")
         main(current_dir)
-        
 
-y = "1.4.4"
+
+def fileSearch():
+    rootPath = '/'
+    print("Note that the file extension format must be '*.extension' without the apostrophe obv")
+    print("Depending on the speed of your HDD/SSD this may take a while (depending on the extension asw)")
+    pattern = input("Specify File Extension Here: ")
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print( os.path.join(root, filename))
+
+def fileDownloader():
+    wget.download = input("Enter URL for file download: ")
+    main(current_dir)
+
+def locateMe():
+    def getPublicIP():
+        data = requests.get('http://checkip.dyndns.com/').content
+        return re.compile(rb'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
+    IP = str(getPublicIP())
+    url = 'http://ipinfo.io/' + IP + '/json'
+    response = urllib.request.urlopen(url)
+    data = json.load(response)
+    city = data['city']
+    region = data['region']
+    country = data['country']
+    location = data['loc']
+    org = data['org']
+
+    print("Your City : " + city)
+    print("Your Region : " + region)
+    print("Your Country : " + country)
+    print("Your Location : " + location)
+    print("Your ISP : " + org)
+
+def unblockedGames():
+    print("uNbLoCkEd GaMeS fOr ScHoOl")
+    print("1) A collection of games by theopensour (a friend of mine btw)")
+    print("2) An unblocker that actually WORKS")
+    openwhatwebsite = input("Where to next?: ")
+    if openwhatwebsite == "1":
+        webbrowser.open('https://theopensour.codeberg.page/gamesunblocked/@main/')
+    elif openwhatwebsite == "2":
+        webbrowser.open('https://ijustateacorndog.gq')
+
+y = "1.4.5"
 
 main(current_dir)
-
-
