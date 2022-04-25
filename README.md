@@ -100,8 +100,8 @@ Please make sure to update tests as appropriate.
 
 ## Credits
 
-Termithon Shell/Kernel: [idkDwij]("https://github.com/idkDwij")
+Termithon Shell/Kernel: [idkDwij](https://github.com/idkDwij)    [Termithon](https://github.com/idkDwij/Termithon)
 
-Calculator Fix: [BigBoyTaco]("https://github.com/BigBoyTaco")
+Calculator Fix: [BigBoyTaco](https://github.com/BigBoyTaco)      [BigBoyTaco Studios](https://github.com/BigBoyTacoStudios)
 
 Majority of Commands (slightly modified to work in PyPrompt + Bug Fixes): [hastagAB/Awesome-Python-Scripts](https://github.com/hastagAB/Awesome-Python-Scripts)  (_this helped alot_)
