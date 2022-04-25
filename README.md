@@ -29,7 +29,13 @@ Name the PyPrompt file to prompt.py and put it on the root of the C drive. In Wi
 ### Why isn't there an ```.exe``` version?
 
 Using pyinstaller it gives me an error (_apparently about the main() function. idk why it happens_)
-Now I compiled it to a ```.pyc``` format.
+
+## What is this PyPrompt Development Kit?...
+
+It's the necessary tools needed to compile PyPrompt to a ```.pyc``` format. (_You may need to re-compile for different computers. Else it won't work..._)
+
+I will upload it soon. Check this document regularly... I might just put it HERE: "LINK_NON_EXISTENT"
+
 
 ## Features:
 
@@ -105,3 +111,9 @@ Please make sure to update tests as appropriate.
 ## License
 [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
+
+## Credits
+
+Termithon Shell/Kernel: @idkDwij
+Calculator Fix: @BigBoyTaco
+Most commands (slightly modified to work in PyPrompt + Bug Fixes): https://github.com/hastagAB/Awesome-Python-Scripts  (_they helped alot_)
