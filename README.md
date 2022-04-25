@@ -83,20 +83,6 @@ Many...
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
-
-   \  |        |  |   _)       |         |     _|               
-  |\/ |  |  |  |   _|  |  _ \  |   _` |   _|   _| _ \   _| ` \  
- _|  _| \_,_| _| \__| _| .__/ _| \__,_| \__| _| \___/ _| _|_|_| 
-                        _|                                      
-
-1. git (Opens up git, REQUIRES GIT TO BE INSTALLED!)
-2. pip (Opens up pip) REQUIRES PYTHON AND PIP TO BE INSTALLED!
-3. dir (Shows files in current directory)
-4. exit (Exits the terminal)
-5. mkdir (Creates a folder)
-
-ALL UNIX + WINDOWS COMMANDS CAN BE RUN THROUGH PYPROMPT SHELL
-
 '''
 ```
 
@@ -114,6 +100,8 @@ Please make sure to update tests as appropriate.
 
 ## Credits
 
-Termithon Shell/Kernel: @idkDwij
-Calculator Fix: @BigBoyTaco
-Most commands (slightly modified to work in PyPrompt + Bug Fixes): https://github.com/hastagAB/Awesome-Python-Scripts  (_they helped alot_)
+Termithon Shell/Kernel: [idkDwij]("https://github.com/idkDwij")
+
+Calculator Fix: [BigBoyTaco]("https://github.com/BigBoyTaco")
+
+Majority of Commands (slightly modified to work in PyPrompt + Bug Fixes): [hastagAB/Awesome-Python-Scripts](https://github.com/hastagAB/Awesome-Python-Scripts)  (_this helped alot_)
