@@ -77,7 +77,13 @@ Many...
 23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
 24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
 25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
-26. macosdownloader (gibMacOS but made as a function for use in PyPrompt)
+26. macosdownloader (A simple macOS downloader) no longer based on gibMacOS
+27. filesearch (Searches files via their extension)
+28. filedownloader (Download any file via their url)
+29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
+30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway...
+31. unhelp (i'm not sure what this is. it just exists.)
+32. locator (Locate basically any location in the planet)
 
 (There's an easter egg in form of a command! Try to find it!) hint: help but not help
 
