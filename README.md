@@ -34,7 +34,9 @@ Using pyinstaller it gives me an error (_apparently about the main() function. i
 
 It's the necessary tools needed to compile PyPrompt to a ```.pyc``` format. (_You may need to re-compile for different computers. Else it won't work..._)
 
-I will upload it soon. Check this document regularly... I might just put it HERE: "LINK_NON_EXISTENT"
+I will upload it soon. Check this document regularly... I might just put it HERE: Download [PyDevKit](https://drive.google.com/file/d/1TtT72DXU6JIxWEfVa3aCU3BXcDBVyjmb/view?usp=sharing)
+
+You may need to delete the compiled version i pre made. It might not work. Run ```compilePrompt.py``` or whatever its called and it will compile the necessary files needed.
 
 
 ## Features:
