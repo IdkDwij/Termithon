@@ -4,16 +4,8 @@ Making a terminal based in Python 3.10.1
 
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
-<a href="https://deploy.azure.com/?repository=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/azure.svg" alt="Deploy On Azure"></a>
-<a href="https://deploy.cloud.run/?git_repo=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/googlecloud.svg" alt="Deploy On Google Cloud"></a>
-<a href="https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/amplifyconsole.svg" alt="Deploy On Amplify Console"></a>
-<a target="_blank" href="https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/joalricha869/PyPrompt/archive/refs/heads/main.zip"><img alt="Deploy to Oracle Cloud" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/oraclecloud.svg"></a>
-<a target="_blank" href="https://railway.app/new/template?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy on Railway" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/railway.svg"></a>
-<a target="_blank" href="https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to IBM Cloud" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/ibmcloud.svg"></a>
-<a target="_blank" href="https://heroku.com/deploy/?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Heroku" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/heroku.svg"></a>
 
-
-### Engine based on Termithon by Dwij
+### Engine based on Termithon by idkDwij
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
@@ -83,7 +75,7 @@ Many...
 27. filesearch (Searches files via their extension)
 28. filedownloader (Download any file via their url)
 29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
-30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway...
+30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway... (will be updated soon)
 31. unhelp (i'm not sure what this is. it just exists.)
 32. locator (Locate basically any location in the planet)
 
@@ -97,9 +89,7 @@ The PyPrompt can be used as an alternative terminal shell. It can run every shel
 
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+Anyone can contribute with this project! Just open up an issue or pull request and I will review what you will be adding/removing/changing and might add it in. 
 
 
 ## License
@@ -108,8 +98,8 @@ Please make sure to update tests as appropriate.
 
 ## Credits
 
-Termithon Shell/Kernel: [idkDwij](https://github.com/idkDwij)    [Termithon](https://github.com/idkDwij/Termithon)
+Termithon Shell/Kernel: [idkDwij](https://github.com/idkDwij)  |  [Termithon](https://github.com/idkDwij/Termithon)
 
-Calculator Fix: [BigBoyTaco](https://github.com/BigBoyTaco)      [BigBoyTaco Studios](https://github.com/BigBoyTacoStudios)
+Calculator Fix: [BigBoyTaco](https://github.com/BigBoyTaco)   |   [BigBoyTaco Studios](https://github.com/BigBoyTacoStudios)
 
 Majority of Commands (slightly modified to work in PyPrompt + Bug Fixes): [hastagAB/Awesome-Python-Scripts](https://github.com/hastagAB/Awesome-Python-Scripts)  (_this helped alot_)
