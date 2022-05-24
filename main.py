@@ -1,4 +1,23 @@
-# Ten Billion Imports Later...
+#!/usr/bin/python3
+# UNIX Encoding Below!
+# PyPrompt - An alternative cross-platform terminal shell made in Python!
+# Can be used in Windows, Linux, macOS, Android, iOS
+# Yes iOS. Search up Python3IDE in the App Store
+# PyPrompt made by
+#    _             _      _      _            ___    __ ___  
+#   (_)           | |    (_)    | |          / _ \  / // _ \ 
+#    _  ___   __ _| |_ __ _  ___| |__   __ _| (_) |/ /| (_) |
+#   | |/ _ \ / _` | | '__| |/ __| '_ \ / _` |> _ <| '_ \__, |
+#   | | (_) | (_| | | |  | | (__| | | | (_| | (_) | (_) |/ / 
+#   | |\___/ \__,_|_|_|  |_|\___|_| |_|\__,_|\___/ \___//_/  
+#  _/ |                                                      
+# |__/  
+#
+# Based on Termithon by idkDwij
+# Thanks to idkDwij for the base code of Termithon
+# Thanks to BigBoyTaco for fixing the 'calc' command!
+# btw do not trust anyone named theopensour or thesouropen or theclosedbitter
+#
 from __future__ import division
 import os
 import string
@@ -8,68 +27,16 @@ from random import choice
 from random import randint
 import platform
 import fnmatch
-import subprocess
-import time
-import shutil
-import sys
-import argparse
 import re
 from time import sleep
 import urllib.request
-from urllib.request import urlopen
 import json
 import webbrowser
 import uuid
-try:
-    import speedtest
-    import geocoder
-    import paramiko
-    import wget
-    import urlopen
-    import requests
-except:
-    print("Requests Package Not Found")
-    print("Installing Now")
-    os.system("pip install requests")
-    os.system("cls||clear")
-    print("Urlopen Package Not Found")
-    print("Installing Now")
-    os.system("pip install urlopen")
-    os.system("cls||clear")
-    print("Wget Package Not Found")
-    print("Installing Now")
-    os.system("pip install wget")
-    os.system("cls||clear")
-    print("Speedtest Package Not Found")
-    print("Installing Now...")
-    os.system("pip install speedtest-cli")
-    os.system('cls||clear')
-    print("Geocoder Package Not Found")
-    print("Installing Now...")
-    os.system("pip install geocoder")
-    os.system("cls||clear")
-    print("Paramiko Package Not Found")
-    print("Installing Now...")
-    os.system("pip install paramiko")
-    os.system("cls||clear")
-    print("If error thrown, update your Python or reinstall.")
-    time.sleep(3)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 5 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 4 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 3 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 2 Seconds")
-    time.sleep(1)
-    os.system('cls||clear')
-    print("PyPrompt Closing in 1 Second")
-    time.sleep(1)
-    exit()
+import speedtest
+import geocoder
+import paramiko    
+import wget
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
@@ -106,6 +73,7 @@ dwij = '''
                               |__/ 
 
 '''
+# Start screen
 print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
 print(" ")
 print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
@@ -163,6 +131,7 @@ commands = '''
 29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
 30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway...
 31. unhelp (i'm not sure what this is. it just exists.)
+32. locator (Locate basically any location in the planet)
 
 The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
 
@@ -279,8 +248,8 @@ def whatiscommand(current_dir):
     elif cmd == "locateme":
         locateMe()
         main(current_dir)
-    elif cmd == "unblockedgames":
-        unblockedGames()
+    elif "locator" in cmd:
+        locator()
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -437,13 +406,12 @@ def progressbar():
 
 def intro():
     print("=" * 40, "PyPrompt", "=" * 40)
-    print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
+    print('Made by:' + joalricha + 'it says joalricha869 https://github.com/joalricha869')
     print(" ")
     print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
     print(" ")
     print('Based on Termithon Shell by' + dwij + 'https://github.com/IdkDwij/Termithon')
     print(" ")
-    print('The source is here')
     print("Type in 'help' for the command list.")
     print("")
 
@@ -796,9 +764,16 @@ def fileDownloader():
     main(current_dir)
 
 def locateMe():
+    # This will not work on any school proxy.
+    # checkip.dyndns.com is blocked on my proxy
     def getPublicIP():
-        data = requests.get('http://checkip.dyndns.com/').content
-        return re.compile(rb'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
+        try:
+            data = requests.get('http://checkip.dyndns.com/').content
+            return re.compile(rb'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
+        except Exception:
+            pass
+        print("If you see this message, then either your proxy blocked this or something is wrong with PyPrompt.")
+        main(current_dir)
     IP = str(getPublicIP())
     url = 'http://ipinfo.io/' + IP + '/json'
     response = urllib.request.urlopen(url)
@@ -815,16 +790,12 @@ def locateMe():
     print("Your Location : " + location)
     print("Your ISP : " + org)
 
-def unblockedGames():
-    print("uNbLoCkEd GaMeS fOr ScHoOl")
-    print("1) A collection of games by theopensour (a friend of mine btw)")
-    print("2) An unblocker that actually WORKS")
-    openwhatwebsite = input("Where to next?: ")
-    if openwhatwebsite == "1":
-        webbrowser.open('https://theopensour.codeberg.page/gamesunblocked/@main/')
-    elif openwhatwebsite == "2":
-        webbrowser.open('https://ijustateacorndog.gq')
 
-y = "1.4.5"
+def locator():
+    t=input("Enter the location: ")
+    g = geocoder.arcgis(t)
+    print(g.latlng)
+
+y = "1.5.Beta.1"
 
 main(current_dir)
