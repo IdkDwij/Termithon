@@ -46,42 +46,42 @@ Many...
                        __/ |                        
                       |___/                         
 
-1. ip (Gives you your IP)
-2. hostname (Gives you your Computer's ID)
-3. mac (Retrieves the Physical MAC Address of The Device)
-4. ping (lets you ping a website UPDATE: NOW ADDED!) not
-5. calc (A simple calculator)
-6. passgen (A very efficient password generator)
-7. sysinfo (Gets relevant system info)
-8. test (Tests PyPrompt Sample Command)
-9. mp3search (Searches your File System for mp3 files)
-10. mp4search (Searches your File System for mp4 files)
-11. pysearch (Searches your File System for py files)
-12. docxsearch (Searches your File System for docx files)
-13. mailgen (Generates dummy E-Mail Addresses)
-14. ver (Reports PyPrompt Version)
-15. clear (Clears screen)
-16. loadbarTest (Tests the loadbar)
-17. intro (Displays initial text)
-18. sqrt (Enter a number and it will calculate the square root)
-19. date (Displays date)
-20. cd (Navigate through folders)
-21. iplocation (Find the physical location of your IP address)
-22. speedtest (Speedtest.net but built into PyPrompt!)
-23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
-24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
-25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
-26. macosdownloader (A simple macOS downloader) no longer based on gibMacOS
-27. filesearch (Searches files via their extension)
-28. filedownloader (Download any file via their url)
-29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
-30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway... (will be updated soon)
-31. unhelp (i'm not sure what this is. it just exists.)
-32. locator (Locate basically any location in the planet)
+DIR                     (Integrated dir/ls command. To use vanilla dir on Windows, Enter CMD Mode and type dir.)
+IP                      (Gives you your IP)
+HOSTNAME                (Gives you your Computer's ID)
+MAC                     (Retrieves the Physical MAC Address of The Device)
+PING                    (lets you ping a website)
+CALC                    (A simple calculator)
+PASSGEN                 (A very efficient password generator)
+SYSINFO                 (Gets relevant system info)
+TEST                    (Tests PyPrompt Sample Command)
+MAILGEN                 (Generates dummy E-Mail Addresses)
+VER                     (Reports PyPrompt Version)
+CLEAR                   (Clears screen)
+LOADBARTEST             (Tests the loadbar)
+INTRO                   (Displays initial text)
+SQRT                    (Enter a number and it will calculate the square root)
+DATE                    (Displays date)
+CD                      (Navigate through folders) (NOTE: Applicable on PyPrompt Mode ONLY!. If you use CMD/BASH directories will change)
+IPLOCATION              (Find the physical location of your IP address)
+SPEEDTEST               (Speedtest.net but built into PyPrompt!)
+ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
+TROUBLESHOOT            (Troubleshoots extra modules neccessary for PyPrompt to run)
+SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
+MACOSDOWNLOADER         (A simple macOS downloader) no longer based on gibMacOS
+FILESEARCH              (Searches files via their file name)
+FILEDOWNLOADER          (Download any file via their url)
+UNHELP                  (i'm not sure what this is. it just exists.)
+LOCATOR                 (Locate basically any location in the planet)
+DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
+COMPILER                (Compile any standard Python file to a *.pyc format)
+PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 
-(There's an easter egg in form of a command! Try to find it!) hint: help but not help
+PyPrompt Modes:
 
-The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
+CMD Mode (If usual Windows Shell commands are broken in PyPrompt, just use the 'cmd' command and you are in vanilla Command Prompt.)
+         (NOTE: You are still in the PyPrompt App. Exit by typing exit in CMD Mode)
+Bash Mode (Same as CMD Mode but you can run UNIX commands. Again, this is just a sidemode. You can return by typing exit or logoff.)
 
 '''
 ```
