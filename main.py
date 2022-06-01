@@ -17,7 +17,34 @@
 # Thanks to idkDwij for the base code of Termithon
 # Thanks to BigBoyTaco for fixing the 'calc' command!
 # btw do not trust anyone named theopensour or thesouropen or theclosedbitter
+# 
+# Billions of imports ahead!
 #
+#          .?77777777777777$.            
+#          777..777777777777$+           
+#         .77    7777777777$$$           
+#         .777 .7777777777$$$$           
+#         .7777777777777$$$$$$           
+#         ..........:77$$$$$$$           
+#  .77777777777777777$$$$$$$$$.=======.  
+# 777777777777777777$$$$$$$$$$.========  
+#7777777777777777$$$$$$$$$$$$$.========= 
+#77777777777777$$$$$$$$$$$$$$$.========= 
+#777777777777$$$$$$$$$$$$$$$$ :========+.
+#77777777777$$$$$$$$$$$$$$+..=========++~
+#777777777$$..~=====================+++++
+#77777777$~.~~~~=~=================+++++.
+#777777$$$.~~~===================+++++++.
+#77777$$$$.~~==================++++++++: 
+# 7$$$$$$$.==================++++++++++. 
+# .,$$$$$$.================++++++++++~.  
+#         .=========~.........           
+#         .=============++++++           
+#         .===========+++..+++           
+#         .==========+++.  .++           
+#          ,=======++++++,,++,           
+#          ..=====+++++++++=.            
+#                ..~+=...  
 from __future__ import division
 import os
 import string
@@ -27,16 +54,95 @@ from random import choice
 from random import randint
 import platform
 import fnmatch
-import re
 from time import sleep
-import urllib.request
-import json
-import webbrowser
+from urllib.request import *
 import uuid
-import speedtest
-import geocoder
-import paramiko    
-import wget
+import py_compile
+try:
+    import speedtest
+    import geocoder
+    import paramiko    
+    import wget
+    import pyvim
+except:
+    print("-"*40, "PyPrompt Recovery Wizard", "-"*40)
+    recoveryscreen = '''
+                     ....,,:;+ccllll  Problems Found
+       ...,,+:;  cllllllllllllllllll  --------------------
+ ,cclllllllllll  lllllllllllllllllll  A problem has been detected in PyPrompt.
+ llllllllllllll  lllllllllllllllllll  Either one or more modules are non-existent.
+ llllllllllllll  lllllllllllllllllll  
+ llllllllllllll  lllllllllllllllllll  Here's what you can do...
+ llllllllllllll  lllllllllllllllllll  
+ llllllllllllll  lllllllllllllllllll  1) Attempt and reinstall required modules
+                                      2) Enter PyPrompt in Safe Mode (Not all features are available tho)
+ llllllllllllll  lllllllllllllllllll  3) Exit
+ llllllllllllll  lllllllllllllllllll  
+ llllllllllllll  lllllllllllllllllll  TERMITHON KERNEL VERSION: 0.1.2 (PYPROMPT)
+ llllllllllllll  lllllllllllllllllll  LEGACY PYTHON SUPPORT: NO (DEFAULT)
+ llllllllllllll  lllllllllllllllllll  MODULES MISSING: YES
+ `'ccllllllllll  lllllllllllllllllll  PYPROMPT VERSION: 1.5
+       `' \\*::  :ccllllllllllllllll  
+                        ````''*::cll  (C) 2022 joalricha869.
+                                  ``
+    '''
+    print(recoveryscreen)
+    safeboot = input("What would you like to do?: ")
+    if safeboot == "1":
+        print("Uninstalling wget")
+        os.system("pip uninstall wget")
+        os.system("cls||clear")
+        print("Uninstalling Speedtest")
+        os.system("pip uninstall speedtest-cli")
+        os.system("cls||clear")
+        print("Uninstalling geocoder")
+        os.system("pip uninstall geocoder")
+        os.system("cls||clear")
+        print("Uninstalling paramiko")
+        os.system("pip uninstall paramiko")
+        os.system("cls||clear")
+        print("Unins")
+        print("Now Reinstalling Modules")
+        print("Installing wget")
+        os.system("pip install wget")
+        os.system("cls||clear")
+        print("Installing Speedtest")
+        os.system("pip install speedtest-cli")
+        os.system("cls||clear")
+        print("Installing geocoder")
+        os.system("pip install geocoder")
+        os.system("cls||clear")
+        print("Installing paramiko")
+        os.system("pip install paramiko")
+        os.system("cls||clear")
+        print("Installing Scripts")
+        os.system("pip install Scripts")
+        os.system("cls||clear")
+        print("Installing pyvim")
+        os.system("pip install pyvim")
+        os.system("cls||clear")
+        print("PyPrompt Closing in 3 seconds")
+        os.system("cls||clear")
+        print("PyPrompt Closing in 2 seconds")
+        os.system("cls||clear")
+        print("PyPrompt Closing in 1 second")
+        exit()
+    elif safeboot == "2":
+        print("PLEASE NOTE THAT PYPROMPT **WILL** CRASH IF YOU ENTER COMMANDS THAT ARE NOT SUPPORTED")
+        print("HERE IS THE LIST OF COMMANDS THAT WILL NOT WORK IN SAFE MODE")
+        lists = '''
+        IPLOCATION              (Find the physical location of your IP address)
+        SPEEDTEST               (Speedtest.net but built into PyPrompt!)
+        SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
+        MACOSDOWNLOADER         (A simple macOS downloader) no longer based on gibMacOS
+        FILEDOWNLOADER          (Download any file via their url)
+        LOCATOR                 (Locate basically any location in the planet)
+        '''
+        print(lists)
+        input("Press Enter To Enter Safe Mode!: ")
+    else:
+        exit()
+# Ten Billion Imports Later...
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
@@ -73,7 +179,7 @@ dwij = '''
                               |__/ 
 
 '''
-# Start screen
+
 print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
 print(" ")
 print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
@@ -84,6 +190,7 @@ print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPromp
 print("Type in 'help' for the command list.")
 print("")
 hostnamecomputer = socket.gethostname()
+global current_dir
 current_dir = os.getcwd()
 def listToString(s):
     str1 = ""
@@ -100,40 +207,42 @@ commands = '''
                        __/ |                        
                       |___/                         
 
-1. ip (Gives you your IP)
-2. hostname (Gives you your Computer's ID)
-3. mac (Retrieves the Physical MAC Address of The Device)
-4. ping (lets you ping a website)
-5. calc (A simple calculator)
-6. passgen (A very efficient password generator)
-7. sysinfo (Gets relevant system info)
-8. test (Tests PyPrompt Sample Command)
-9. mp3search (Searches your File System for mp3 files)
-10. mp4search (Searches your File System for mp4 files)
-11. pysearch (Searches your File System for py files)
-12. docxsearch (Searches your File System for docx files)
-13. mailgen (Generates dummy E-Mail Addresses)
-14. ver (Reports PyPrompt Version)
-15. clear (Clears screen)
-16. loadbarTest (Tests the loadbar)
-17. intro (Displays initial text)
-18. sqrt (Enter a number and it will calculate the square root)
-19. date (Displays date)
-20. cd (Navigate through folders)
-21. iplocation (Find the physical location of your IP address)
-22. speedtest (Speedtest.net but built into PyPrompt!)
-23. encryptdecrypt (Uses the RSA Algorithm to encrypt and decrypt a message!)
-24. troubleshoot (Troubleshoots extra modules neccessary for PyPrompt to run)
-25. ssh (An SSH Client made in Python) DO NOT USE THIS TOOL FOR ILLEGAL PURPOSES!
-26. macosdownloader (A simple macOS downloader) no longer based on gibMacOS
-27. filesearch (Searches files via their extension)
-28. filedownloader (Download any file via their url)
-29. locateme (Obtains info about your location) This can't work under restricted proxy (ex: school wifi)
-30. unblockedgames (A collection of unblocked games and sites for school) something that no one asked for but happened anyway...
-31. unhelp (i'm not sure what this is. it just exists.)
-32. locator (Locate basically any location in the planet)
+DIR                     (Integrated dir/ls command. To use vanilla dir on Windows, Enter CMD Mode and type dir.)
+IP                      (Gives you your IP)
+HOSTNAME                (Gives you your Computer's ID)
+MAC                     (Retrieves the Physical MAC Address of The Device)
+PING                    (lets you ping a website)
+CALC                    (A simple calculator)
+PASSGEN                 (A very efficient password generator)
+SYSINFO                 (Gets relevant system info)
+TEST                    (Tests PyPrompt Sample Command)
+MAILGEN                 (Generates dummy E-Mail Addresses)
+VER                     (Reports PyPrompt Version)
+CLEAR                   (Clears screen)
+LOADBARTEST             (Tests the loadbar)
+INTRO                   (Displays initial text)
+SQRT                    (Enter a number and it will calculate the square root)
+DATE                    (Displays date)
+CD                      (Navigate through folders) (NOTE: Applicable on PyPrompt Mode ONLY!. If you use CMD/BASH directories will change)
+IPLOCATION              (Find the physical location of your IP address)
+SPEEDTEST               (Speedtest.net but built into PyPrompt!)
+ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
+TROUBLESHOOT            (Troubleshoots extra modules neccessary for PyPrompt to run)
+SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
+MACOSDOWNLOADER         (A simple macOS downloader) no longer based on gibMacOS
+FILESEARCH              (Searches files via their file name)
+FILEDOWNLOADER          (Download any file via their url)
+UNHELP                  (i'm not sure what this is. it just exists.)
+LOCATOR                 (Locate basically any location in the planet)
+DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
+COMPILER                (Compile any standard Python file to a *.pyc format)
+PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 
-The PyPrompt can be used as an alternative terminal shell. It can run every shell command from WIndows and UNIX
+PyPrompt Modes:
+
+CMD Mode (If usual Windows Shell commands are broken in PyPrompt, just use the 'cmd' command and you are in vanilla Command Prompt.)
+         (NOTE: You are still in the PyPrompt App. Exit by typing exit in CMD Mode)
+Bash Mode (Same as CMD Mode but you can run UNIX commands. Again, this is just a sidemode. You can return by typing exit or logoff.)
 
 '''
 
@@ -171,24 +280,12 @@ def whatiscommand(current_dir):
     elif cmd == "test":
         testFunc()
         main(current_dir)
-    elif cmd == "mp3search":
-        mp3search()
-        main(current_dir)
-    elif cmd == "mp4search":
-        mp3search()
-        main(current_dir)
-    elif cmd == "pysearch":
-        pysearch()
-        main(current_dir)
-    elif cmd == "docxsearch":
-        docxsearch()
-        main(current_dir)
     elif cmd == "mailgen":
         mailGen()
         main(current_dir)
     elif cmd == "clear":
         clear()
-    elif "loadbarTest" in cmd:
+    elif "loadbartest" in cmd:
         progressbar()
         main(current_dir)
     elif "intro" in cmd:
@@ -209,7 +306,7 @@ def whatiscommand(current_dir):
     elif cmd == "iplocation":
         iplocation()
         main(current_dir)
-    elif "encryptdecrypt" in cmd:
+    elif "encrypt" in cmd:
         encryptdecrypt()
         main(current_dir)
     elif cmd == "unhelp":
@@ -245,11 +342,17 @@ def whatiscommand(current_dir):
     elif cmd == "filedownloader":
         fileDownloader()
         main(current_dir)
-    elif cmd == "locateme":
-        locateMe()
-        main(current_dir)
     elif "locator" in cmd:
         locator()
+        main(current_dir)
+    elif cmd == "devhelp":
+        devHelp()
+        main(current_dir)
+    elif cmd == "compiler":
+        pyCompiler()
+        main(current_dir)
+    elif cmd == "pyvim":
+        os.system("pyvim")
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -258,6 +361,7 @@ def whatiscommand(current_dir):
     else:
         error()
 def main(current_dir):
+    global main
     global old_dir
     old_dir = current_dir
     global cmd
@@ -268,6 +372,7 @@ def ver():
     print("(C) 2022 joalricha869, All Rights Reserved.")
 def getSystemInfo():
     print("="*40, "System Information", "="*40)
+    global uname
     uname = platform.uname()
     print(f"System: {uname.system}")
     print(f"Node Name: {uname.node}")
@@ -346,30 +451,6 @@ def error():
         main(current_dir)
 def testFunc():
     print("If this command works, then your PyPrompt is fine... maybe")
-def mp3search():
-    rootPath = '/'
-    pattern = '*.mp3'
-    for root, dirs, files in os.walk(rootPath):
-        for filename in fnmatch.filter(files, pattern):
-            print( os.path.join(root, filename))
-def mp4search():
-    rootPath = '/'
-    pattern = '*.mp4'
-    for root, dirs, files in os.walk(rootPath):
-        for filename in fnmatch.filter(files, pattern):
-            print( os.path.join(root, filename))
-def pysearch():
-    rootPath = '/'
-    pattern = '*.py'
-    for root, dirs, files in os.walk(rootPath):
-        for filename in fnmatch.filter(files, pattern):
-            print( os.path.join(root, filename))
-def docxsearch():
-    rootPath = '/'
-    pattern = '*.docx'
-    for root, dirs, files in os.walk(rootPath):
-        for filename in fnmatch.filter(files, pattern):
-            print( os.path.join(root, filename))
 def mailGen():
     extensions = ['com']
     domains = ['gmail','yahoo','comcast','verizon','charter','hotmail','outlook','frontier','icloud','yandex']
@@ -428,14 +509,9 @@ def date():
     main(current_dir)
 
 def easterEgg():
-    print("This terminal was made by Jose a.k.a joalricha869")
-    print("Base code that this is powered by made by Dwij a.k.a idkDwij")
-    print("Some help by Nathan a.k.a BigBoyTaco")
-    print("This used to be Termithron 3.0 once.")
-    print("Search up BigBoyTaco Studios on YouTube for a tutorial on Termithon")
-    print("Thanks to theopensour for his unblocked games site")
-    print("Check him out in Codeberg")
-    print("btw he was banned from github")
+    print("PyPrompt Made by joalricha869")
+    print("Termithon Kernel by idkDwij")
+    print("calc Fix by BigBoyTaco")
 
 def speedtestapp():
     speed=speedtest.Speedtest()
@@ -473,7 +549,7 @@ def speedtestapp():
             speed.get_servers(s)
             print(speed.results.ping,'ms')
         else:
-            print('Sorry, something went wrong, pls try again...')
+            print('Sorry, something went wrong, please try again...')
 
 def iplocation():
     g = geocoder.ipinfo('me')
@@ -754,7 +830,7 @@ def fileSearch():
     rootPath = '/'
     print("Note that the file extension format must be '*.extension' without the apostrophe obv")
     print("Depending on the speed of your HDD/SSD this may take a while (depending on the extension asw)")
-    pattern = input("Specify File Extension Here: ")
+    pattern = input("Specify File Name: ")
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print( os.path.join(root, filename))
@@ -763,39 +839,26 @@ def fileDownloader():
     wget.download = input("Enter URL for file download: ")
     main(current_dir)
 
-def locateMe():
-    # This will not work on any school proxy.
-    # checkip.dyndns.com is blocked on my proxy
-    def getPublicIP():
-        try:
-            data = requests.get('http://checkip.dyndns.com/').content
-            return re.compile(rb'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
-        except Exception:
-            pass
-        print("If you see this message, then either your proxy blocked this or something is wrong with PyPrompt.")
-        main(current_dir)
-    IP = str(getPublicIP())
-    url = 'http://ipinfo.io/' + IP + '/json'
-    response = urllib.request.urlopen(url)
-    data = json.load(response)
-    city = data['city']
-    region = data['region']
-    country = data['country']
-    location = data['loc']
-    org = data['org']
-
-    print("Your City : " + city)
-    print("Your Region : " + region)
-    print("Your Country : " + country)
-    print("Your Location : " + location)
-    print("Your ISP : " + org)
-
-
 def locator():
     t=input("Enter the location: ")
     g = geocoder.arcgis(t)
     print(g.latlng)
 
-y = "1.5.Beta.1"
+def devHelp():
+    print("----------PyPrompt System Details----------\n")
+    print("PYPROMPT VERSION: " + y)
+    print("TERMITHON KERNEL VERSION: 0.2 (MODIFIED)")
+    print("CODENAME: DEVELOPER UPDATE (MINI_UPDATE TYPE)")
+    print("LITE: NO")
+    print("BETA BUILD: NO")
+    print("LEGACY PYTHON SUPPORT: ONLY LITE APPLICABLE")
+    print("NEED TROUBLESHOOTING?: Run 'troubleshoot' command to reinstall extra modules")
+
+def pyCompiler():
+    fileinput = input("Enter name of file you want to compile into .pyc format: ")
+    py_compile.compile(fileinput)
+
+y = "1.5"
+
 
 main(current_dir)
