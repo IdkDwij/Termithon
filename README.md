@@ -20,7 +20,7 @@ Name the PyPrompt file to prompt.py and put it on the root of the C drive. In Wi
 
 ### Why isn't there an ```.exe``` version?
 
-Using pyinstaller it gives me an error (_apparently about the main() function. idk why it happens_)
+What do you mean? It's a thing now!
 
 ## What is this PyPrompt Development Kit?...
 
