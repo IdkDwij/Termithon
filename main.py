@@ -45,6 +45,7 @@
 #          ,=======++++++,,++,           
 #          ..=====+++++++++=.            
 #                ..~+=...  
+#
 from __future__ import division
 import os
 import string
@@ -58,90 +59,21 @@ from time import sleep
 from urllib.request import *
 import uuid
 import py_compile
-try:
-    import speedtest
-    import geocoder
-    import paramiko    
-    import wget
-    import pyvim
-except:
-    print("-"*40, "PyPrompt Recovery Wizard", "-"*40)
-    recoveryscreen = '''
-                     ....,,:;+ccllll  Problems Found
-       ...,,+:;  cllllllllllllllllll  --------------------
- ,cclllllllllll  lllllllllllllllllll  A problem has been detected in PyPrompt.
- llllllllllllll  lllllllllllllllllll  Either one or more modules are non-existent.
- llllllllllllll  lllllllllllllllllll  
- llllllllllllll  lllllllllllllllllll  Here's what you can do...
- llllllllllllll  lllllllllllllllllll  
- llllllllllllll  lllllllllllllllllll  1) Attempt and reinstall required modules
-                                      2) Enter PyPrompt in Safe Mode (Not all features are available tho)
- llllllllllllll  lllllllllllllllllll  3) Exit
- llllllllllllll  lllllllllllllllllll  
- llllllllllllll  lllllllllllllllllll  TERMITHON KERNEL VERSION: 0.1.2 (PYPROMPT)
- llllllllllllll  lllllllllllllllllll  LEGACY PYTHON SUPPORT: NO (DEFAULT)
- llllllllllllll  lllllllllllllllllll  MODULES MISSING: YES
- `'ccllllllllll  lllllllllllllllllll  PYPROMPT VERSION: 1.5
-       `' \\*::  :ccllllllllllllllll  
-                        ````''*::cll  (C) 2022 joalricha869.
-                                  ``
-    '''
-    print(recoveryscreen)
-    safeboot = input("What would you like to do?: ")
-    if safeboot == "1":
-        print("Uninstalling wget")
-        os.system("pip uninstall wget")
-        os.system("cls||clear")
-        print("Uninstalling Speedtest")
-        os.system("pip uninstall speedtest-cli")
-        os.system("cls||clear")
-        print("Uninstalling geocoder")
-        os.system("pip uninstall geocoder")
-        os.system("cls||clear")
-        print("Uninstalling paramiko")
-        os.system("pip uninstall paramiko")
-        os.system("cls||clear")
-        print("Unins")
-        print("Now Reinstalling Modules")
-        print("Installing wget")
-        os.system("pip install wget")
-        os.system("cls||clear")
-        print("Installing Speedtest")
-        os.system("pip install speedtest-cli")
-        os.system("cls||clear")
-        print("Installing geocoder")
-        os.system("pip install geocoder")
-        os.system("cls||clear")
-        print("Installing paramiko")
-        os.system("pip install paramiko")
-        os.system("cls||clear")
-        print("Installing Scripts")
-        os.system("pip install Scripts")
-        os.system("cls||clear")
-        print("Installing pyvim")
-        os.system("pip install pyvim")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 3 seconds")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 2 seconds")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 1 second")
-        exit()
-    elif safeboot == "2":
-        print("PLEASE NOTE THAT PYPROMPT **WILL** CRASH IF YOU ENTER COMMANDS THAT ARE NOT SUPPORTED")
-        print("HERE IS THE LIST OF COMMANDS THAT WILL NOT WORK IN SAFE MODE")
-        lists = '''
-        IPLOCATION              (Find the physical location of your IP address)
-        SPEEDTEST               (Speedtest.net but built into PyPrompt!)
-        SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
-        MACOSDOWNLOADER         (A simple macOS downloader) no longer based on gibMacOS
-        FILEDOWNLOADER          (Download any file via their url)
-        LOCATOR                 (Locate basically any location in the planet)
-        '''
-        print(lists)
-        input("Press Enter To Enter Safe Mode!: ")
-    else:
-        exit()
+import getpass
+import speedtest
+import geocoder
+import paramiko    
+import wget
+import pyvim
+
+hostname = socket.gethostname()
+curr_user = getpass.getuser()
+global echo_on
+echo_on = False
+def warnings():
+    print("THIS IS A BETA BUILD OF PYPROMPT")
+    print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
+    print("IT IS RECOMMENDED TO INSTALL PYTHON FOR BETA BUILDS")
 # Ten Billion Imports Later...
 print("="*40, "PyPrompt", "="*40)
 joalricha = '''
@@ -179,7 +111,6 @@ dwij = '''
                               |__/ 
 
 '''
-
 print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
 print(" ")
 print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
@@ -189,6 +120,8 @@ print(" ")
 print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
 print("")
+warnings()
+print(" ")
 hostnamecomputer = socket.gethostname()
 global current_dir
 current_dir = os.getcwd()
@@ -236,13 +169,15 @@ UNHELP                  (i'm not sure what this is. it just exists.)
 LOCATOR                 (Locate basically any location in the planet)
 DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
 COMPILER                (Compile any standard Python file to a *.pyc format)
-PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
+PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub') REQUIRES PYTHON
+PYINSTALLER             (Another pyinstaller compiler)
 
 PyPrompt Modes:
 
 CMD Mode (If usual Windows Shell commands are broken in PyPrompt, just use the 'cmd' command and you are in vanilla Command Prompt.)
          (NOTE: You are still in the PyPrompt App. Exit by typing exit in CMD Mode)
 Bash Mode (Same as CMD Mode but you can run UNIX commands. Again, this is just a sidemode. You can return by typing exit or logoff.)
+Safe Mode (PyPrompt but ONLY the commands that use vanilla Python modules) Applies to non compiled or beta versions of PyPrompt in a .py file
 
 '''
 
@@ -333,6 +268,7 @@ def whatiscommand(current_dir):
             main(current_dir)
     elif cmd == "ssh":
         sshclient()
+        main(current_dir)
     elif cmd == "macosdownloader":
         macOSDownloader()
         main(current_dir)
@@ -350,9 +286,6 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "compiler":
         pyCompiler()
-        main(current_dir)
-    elif cmd == "pyvim":
-        os.system("pyvim")
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -450,7 +383,17 @@ def error():
         print("For more help go to: https://github.com/joalricha869/PyPrompt or https://github.com/IdkDwij/Termithon")
         main(current_dir)
 def testFunc():
-    print("If this command works, then your PyPrompt is fine... maybe")
+    print("Testing Modules...")
+    try:
+        print("PyVim Version: " + pyvim.__version__)
+        print("Speedtest Version: " + str(speedtest.version))
+        print("Geocoder Version: " + geocoder.__version__)
+        print("Paramiko Test: " + str(paramiko.WarningPolicy))
+        print("Wget Version: " + wget.__version__)
+    except:
+        print("Either one or more modules is wrong. Try re-compiling again...")
+
+
 def mailGen():
     extensions = ['com']
     domains = ['gmail','yahoo','comcast','verizon','charter','hotmail','outlook','frontier','icloud','yandex']
@@ -495,6 +438,8 @@ def intro():
     print(" ")
     print("Type in 'help' for the command list.")
     print("")
+    warnings()
+    print(" ")
 
 def sqrt():
     num = float(input('Enter a number: '))
@@ -847,10 +792,10 @@ def locator():
 def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
-    print("TERMITHON KERNEL VERSION: 0.2 (MODIFIED)")
-    print("CODENAME: DEVELOPER UPDATE (MINI_UPDATE TYPE)")
+    print("TERMITHON KERNEL VERSION: 0.1.3 (MAIN-SKU)")
+    print("CODENAME: SYSTEM UPDATE")
     print("LITE: NO")
-    print("BETA BUILD: NO")
+    print("BETA BUILD: YES")
     print("LEGACY PYTHON SUPPORT: ONLY LITE APPLICABLE")
     print("NEED TROUBLESHOOTING?: Run 'troubleshoot' command to reinstall extra modules")
 
@@ -858,7 +803,10 @@ def pyCompiler():
     fileinput = input("Enter name of file you want to compile into .pyc format: ")
     py_compile.compile(fileinput)
 
-y = "1.5"
+def testPyVim():
+    pyvim.__version__
+
+y = "1.5.1.beta1"
 
 
 main(current_dir)
