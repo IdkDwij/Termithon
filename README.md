@@ -12,7 +12,9 @@ Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
 ## Run this in your PC
 
-First download python from [python.org](https://python.org). Once it's installed, Run the PyPrompt file from the 'Releases' tab. 
+First download python from [python.org](https://python.org). (Applicable to beta builds or .py/.pyc builds)
+
+For stable builds: download the binary or the setup from the 'Releases' tab.
 
 ### TO RUN IN WINDOWS TERMINAL
 
@@ -26,7 +28,7 @@ What do you mean? It's a thing now!
 
 It's the necessary tools needed to compile PyPrompt to a ```.pyc``` format. (_You may need to re-compile for different computers. Else it won't work..._)
 
-I will upload it soon. Check this document regularly... I might just put it HERE: Download [PyDevKit](https://drive.google.com/file/d/1TtT72DXU6JIxWEfVa3aCU3BXcDBVyjmb/view?usp=sharing)
+I will upload it soon. Check this document regularly... I might just put it HERE: Download [PyDevKit](https://drive.google.com/file/d/1TtT72DXU6JIxWEfVa3aCU3BXcDBVyjmb/view?usp=sharing) (Not yet on 1.5)
 
 You may need to delete the compiled version i pre made. It might not work. Run ```compilePrompt.py``` or whatever its called and it will compile the necessary files needed.
 
