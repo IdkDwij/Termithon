@@ -88,7 +88,11 @@ Bash Mode (Same as CMD Mode but you can run UNIX commands. Again, this is just a
 '''
 ```
 
+## Compatability:
 
+Windows: Supports Windows 10 or 8.1
+Linux: Any Linux distro (requires python)
+macOS: There is no current build now
 
 ## Contributing
 Anyone can contribute with this project! Just open up an issue or pull request and I will review what you will be adding/removing/changing and might add it in. 
