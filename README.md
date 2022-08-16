@@ -9,6 +9,17 @@ Making a terminal based in Python 3.10.1
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
+# READ ME FIRST IF CONCERNED ABOUT YOUR SECURITY
+
+VirusTotal detects this file as malicious. (_it *OBVIOUSLY* isn't a virus because it's open source_)
+
+If you use MalwareBytes, SecureAge APEX, or Trellix (FireEye) as your Antivirus, it may flag this file as a false positive. 
+
+MalwareBytes: Malware.AI.3860805198
+SecureAge APEX: Malicious
+Trellix (FireEye): Generic.mg.1f067e9e75eabd2e
+
+[VirusTotal Scan for PyPrompt v1.5.1 Beta 1](https://www.virustotal.com/gui/file/e7a956e297a97566fb7e3c08ff20962f1fb45cbda81abc8595cc25695de3af34)
 
 ## Run this in your PC
 
