@@ -89,6 +89,9 @@ LOCATOR                 (Locate basically any location in the planet)
 DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
 COMPILER                (Compile any standard Python file to a *.pyc format)
 PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
+PYINSTALLER             (Another pyinstaller compiler)
+EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
+EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
 
 PyPrompt Modes:
 
