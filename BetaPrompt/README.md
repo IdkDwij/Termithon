@@ -2,7 +2,9 @@
 
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
 
-This folder contains the leatest BETA build of PyPrompt
+## This is never gonna be updated. idk how to delete a folder so, IGNORE THISSSSSSS... Check out PyPrompt 1.5.1 Beta 3
+
+This folder contains the leatest BETA build of PyPrompt (not)
 
 The app or command(s) may be unstable or not working at ALL
 
