@@ -16,8 +16,12 @@ VirusTotal detects this file as malicious. (_it *OBVIOUSLY* isn't a virus becaus
 If you use MalwareBytes, SecureAge APEX, or Trellix (FireEye) as your Antivirus, it may flag this file as a false positive. 
 
 MalwareBytes: Malware.AI.3860805198
+
 SecureAge APEX: Malicious
+
 Trellix (FireEye): Generic.mg.1f067e9e75eabd2e
+
+If you are in a school that has Carbon Black Sensor, it WILL detect PyPrompt as a virus. It's a false positive.
 
 [VirusTotal Scan for PyPrompt v1.5.1 Beta 1](https://www.virustotal.com/gui/file/e7a956e297a97566fb7e3c08ff20962f1fb45cbda81abc8595cc25695de3af34)
 
@@ -81,7 +85,6 @@ SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
 TROUBLESHOOT            (Troubleshoots extra modules neccessary for PyPrompt to run)
 SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
-MACOSDOWNLOADER         (A simple macOS downloader) no longer based on gibMacOS
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
 UNHELP                  (i'm not sure what this is. it just exists.)
@@ -92,6 +95,7 @@ PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 PYINSTALLER             (Another pyinstaller compiler)
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
+WEATHER                 (Gives info about weather in specified location)
 
 PyPrompt Modes:
 
@@ -105,8 +109,10 @@ Bash Mode (Same as CMD Mode but you can run UNIX commands. Again, this is just a
 ## Compatability:
 
 Windows: Supports Windows 10 or 8.1
-Linux: Any Linux distro (requires python)
-macOS: There is no current build now
+
+Linux: Any Linux distro (requires python) (uncompiled build, don't think i'm going to compile for linux...)
+
+macOS: There is no current build now (yet)
 
 ## Contributing
 Anyone can contribute with this project! Just open up an issue or pull request and I will review what you will be adding/removing/changing and might add it in. 
