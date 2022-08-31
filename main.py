@@ -3,6 +3,7 @@
 # PyPrompt - An alternative cross-platform terminal shell made in Python!
 # Can be used in Windows, Linux, macOS, Android, iOS
 # Yes iOS. Search up Python3IDE in the App Store
+# Make sure to buy its premium option, else it won't run :(
 # PyPrompt made by
 #    _             _      _      _            ___    __ ___  
 #   (_)           | |    (_)    | |          / _ \  / // _ \ 
@@ -63,6 +64,8 @@ import speedtest
 import geocoder
 import wget
 import pyvim
+import requests
+
 
 # Aw man no more neofetch screen :(
 hostname = socket.gethostname()
@@ -70,10 +73,10 @@ curr_user = getpass.getuser()
 global echo_on
 
 
-def warnings():
-    print("THIS IS A BETA BUILD OF PYPROMPT")
-    print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
-    print("IT IS RECOMMENDED TO INSTALL PYTHON FOR BETA BUILDS")
+#def warnings():
+#    print("THIS IS A BETA BUILD OF PYPROMPT")
+#    print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
+#    print("IT IS RECOMMENDED TO INSTALL PYTHON FOR BETA BUILDS")
 
 
 # Ten Billion Imports Later...
@@ -122,7 +125,7 @@ print(" ")
 print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
 print(" ")
-warnings()
+#warnings()
 print(" ")
 hostnamecomputer = socket.gethostname()
 global current_dir
@@ -179,6 +182,7 @@ PYINSTALLER             (Another pyinstaller compiler)
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
+WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
 
 PyPrompt Modes:
 
@@ -300,6 +304,9 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "eztaskkill":
         eztaskkill()
+        main(current_dir)
+    elif cmd == "weather":
+        GetCurrentWeather()
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -810,8 +817,9 @@ def pyCompiler():
     py_compile.compile(fileinput)
 
 
-def testPyVim():
+def testModules():
     print(pyvim.__version__)
+    
 
 
 def ezformatter():
@@ -861,13 +869,49 @@ def eztaskkill():
     else:
         main(current_dir)
 
-y = "1.5.1.release.candidate"
+def GetCurrentWeather():
+    def get_temperature(json_data):
+        temp_in_celcius = json_data['main']['temp']
+        return temp_in_celcius
 
-# Changes from 1.5.1.beta3
+    def get_weather_type(json_data):
+        weather_type = json_data['weather'][0]['description']
+        return weather_type
+
+    def get_wind_speed(json_data):
+        wind_speed = json_data['wind']['speed']
+        return wind_speed
+
+
+
+    def get_weather_data(json_data, city):
+        description_of_weather = json_data['weather'][0]['description']
+        weather_type = get_weather_type(json_data)
+        temperature = get_temperature(json_data)
+        wind_speed = get_wind_speed(json_data)
+        weather_details = ''
+        return weather_details + ("The weather in {} is currently {} with a temperature of {} degrees and wind speeds reaching {} km/ph".format(city, weather_type, temperature, wind_speed))
+
+
+    def weather():
+        api_address = 'https://api.openweathermap.org/data/2.5/weather?q=Sydney,au&appid=a10fd8a212e47edf8d946f26fb4cdef8&q='
+        city = input("Input City Name: ")
+        units_format = "&units=metric"
+        final_url = api_address + city + units_format
+        json_data = requests.get(final_url).json()
+        weather_details = get_weather_data(json_data, city)
+        # print formatted data
+        print(weather_details)
+
+
+
+    weather()
+
+
+y = "1.5.1.release"
+
+# Changes from 1.5.1.release.candidate
 # ____________________________________
-# - Stability Updates (Final Beta for 1.5.1)
-# - eztaskkill (designed for school computers, use task manager instead)
-# - This is somewhat of a major mini update...
-# - The Big Update will be 1.6
+# - Release of 1.5.1 (Stable Build)
 
 main(current_dir)
