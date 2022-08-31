@@ -178,6 +178,7 @@ PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 PYINSTALLER             (Another pyinstaller compiler)
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
+EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 
 PyPrompt Modes:
 
@@ -296,6 +297,9 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "ezshutdown":
         ezSHUTDOWN()
+        main(current_dir)
+    elif cmd == "eztaskkill":
+        eztaskkill()
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -844,13 +848,26 @@ def ezSHUTDOWN():
         print("Either type in 'R' or 'S'")
         main(current_dir)
 
+def eztaskkill():
+    print("Kill an Annoying Process")
+    print(" ")
+    print("Have some process that you need to eliminate but you either can't use the Task Manager")
+    processName = input("What is the name of the process you want to kill? IE: msedge.exe: ")
+    os.system("taskkill /f /im " + processName)
+    print("Done!")
+    taskAgain = input("Kill another process: ")
+    if taskAgain == "yes":
+        eztaskkill()
+    else:
+        main(current_dir)
 
-y = "1.5.1.beta3"
+y = "1.5.1.release.candidate"
 
-# Changes from 1.5.1.beta2.rereleasesku
+# Changes from 1.5.1.beta3
 # ____________________________________
-# - String changes in speedtest
-# - Re-added beta warning strings
-# - Added another "ez" function (probably might be diskpart simplified or something)
+# - Stability Updates (Final Beta for 1.5.1)
+# - eztaskkill (designed for school computers, use task manager instead)
+# - This is somewhat of a major mini update...
+# - The Big Update will be 1.6
 
 main(current_dir)
