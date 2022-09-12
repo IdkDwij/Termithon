@@ -52,20 +52,31 @@ import os
 import string
 import random
 import socket
+from random import *
 from random import choice
 from random import randint
 import platform
 import fnmatch
+from time import *
 from time import sleep
 import uuid
 import py_compile
 import getpass
+import PyInstaller
 import speedtest
 import geocoder
 import wget
 import pyvim
 import requests
+import sys
+import auto_py_to_exe
+from tkinter import *
 
+
+# Checks if Python version is more than 3.9 (Will only take effect on uncompiled build)
+if sys.version_info < (3, 9):
+    sys.stderr.write('You need Python 3.9 or later\n')
+    sys.exit(1)
 
 # Aw man no more neofetch screen :(
 hostname = socket.gethostname()
@@ -73,10 +84,10 @@ curr_user = getpass.getuser()
 global echo_on
 
 
-#def warnings():
-#    print("THIS IS A BETA BUILD OF PYPROMPT")
-#    print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
-#    print("IT IS RECOMMENDED TO INSTALL PYTHON FOR BETA BUILDS")
+def warnings():
+    print("THIS IS A BETA BUILD OF PYPROMPT")
+    print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
+    print("IT IS RECOMMENDED TO INSTALL PYTHON FOR BETA BUILDS")
 
 
 # Ten Billion Imports Later...
@@ -125,7 +136,7 @@ print(" ")
 print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
 print("Type in 'help' for the command list.")
 print(" ")
-#warnings()
+warnings()
 print(" ")
 hostnamecomputer = socket.gethostname()
 global current_dir
@@ -154,7 +165,7 @@ IP                      (Gives you your IP)
 HOSTNAME                (Gives you your Computer's ID)
 MAC                     (Retrieves the Physical MAC Address of The Device)
 PING                    (lets you ping a website)
-CALC                    (A simple calculator)
+CALC                    (A simple CLI calculator)
 PASSGEN                 (A very efficient password generator)
 SYSINFO                 (Gets relevant system info)
 TEST                    (Tests PyPrompt Sample Command)
@@ -169,7 +180,7 @@ CD                      (Navigate through folders) (NOTE: Applicable on PyPrompt
 IPLOCATION              (Find the physical location of your IP address)
 SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
-TROUBLESHOOT            (Troubleshoots extra modules necessary for PyPrompt to run)
+TROUBLESHOOT            (Troubleshoots extra modules necessary for PyPrompt to run) WILL ONLY WORK IF PYTHON IS INSTALLED!
 SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
@@ -180,9 +191,11 @@ COMPILER                (Compile any standard Python file to a *.pyc format)
 PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 PYINSTALLER             (Another pyinstaller compiler)
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
-EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
+MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
+BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+CREDITS                 (Credits for all commands & dev list)
 
 PyPrompt Modes:
 
@@ -202,7 +215,7 @@ def whatiscommand(current_dir):
         print(os.listdir(current_dir))
         main(current_dir)
     elif cmd == 'exit':
-        exit()
+        sys.exit(1)
     elif cmd == 'ip':
         print("Your IP Address is " + getip())
         main(current_dir)
@@ -299,14 +312,20 @@ def whatiscommand(current_dir):
     elif cmd == "ezformat":
         ezformatter()
         main(current_dir)
-    elif cmd == "ezshutdown":
-        ezSHUTDOWN()
-        main(current_dir)
     elif cmd == "eztaskkill":
         eztaskkill()
         main(current_dir)
+    elif cmd == "credits":
+        credits()
+        main(current_dir)
     elif cmd == "weather":
         GetCurrentWeather()
+        main(current_dir)
+    elif cmd == "magic8ball":
+        magic8Ball()
+        main(current_dir)
+    elif cmd == "bettercal":
+        betterCalc()
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -807,9 +826,7 @@ def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
     print("TERMITHON KERNEL VERSION: 0.1.3 (RELEASE-SKU)")
-    print("CODENAME: SYSTEM UPDATE")
-    print("LITE: NO")
-    print("LEGACY PYTHON SUPPORT: ONLY LITE APPLICABLE")
+    print("CODENAME: BBTS_COLLAB_BETA1")
 
 
 def pyCompiler():
@@ -819,6 +836,8 @@ def pyCompiler():
 
 def testModules():
     print(pyvim.__version__)
+    print(PyInstaller.__version__)
+    print(auto_py_to_exe.__version__)
     
 
 
@@ -838,23 +857,6 @@ def ezformatter():
         formattype = ""
     os.system("format " + volume + "/FS:" + filesystem + "/V:" + volumename + formattype)
 
-
-def ezSHUTDOWN():
-    print("Shutdown / Reboot your PC")
-    print(" ")
-    print("In case you REALLY don't know how to shutdown your PC......")
-    shutdownconf = input("(S)hutdown or (R)eboot: ")
-    if shutdownconf == "S":
-        os.system("shutdown /s /t 0")
-    elif shutdownconf == "s":
-        os.system("shutdown /s /t 0")
-    elif shutdownconf == "R":
-        os.system("shutdown /r /t 0")
-    elif shutdownconf == "r":
-        os.system("shutdown /r /t 0")
-    else:
-        print("Either type in 'R' or 'S'")
-        main(current_dir)
 
 def eztaskkill():
     print("Kill an Annoying Process")
@@ -907,11 +909,233 @@ def GetCurrentWeather():
 
     weather()
 
+def magic8Ball():
+    title = '''
 
-y = "1.5.1.release"
+        __  __                        __                 ____         ___             __  __ 
+    F  \/  ]     ___ _     ___ _   LJ    ____        F __ J       F _ ",   ___ _   LJ  LJ 
+    J |\__/| L   F __` L   F __` L       F ___J.     J `--' L     J `-'(|  F __` L  FJ  FJ 
+    | |`--'| |  | |--| |  | |--| |  FJ  | |---LJ     / ,--. \     | ,--.\ | |--| | J  LJ  L
+    F L    J J  F L__J J  F L__J J J  L F L___--.    F L__J J     F L__J \F L__J J J  LJ  L
+    J__L    J__LJ\____,__L )-____  LJ__LJ\______/F   J\______/L   J_______J\____,__LJ__LJ__L
+    |__L    J__| J____,__FJ\______/F|__| J______F     J______F    |_______FJ____,__F|__||__|
+                            J______F                                                         
+    '''
+    ball = '''
+            ____
+        ,dP9CGG88@b,
+    ,IP  _   Y888@@b,
+    dIi  (_)   G8888@b
+    dCII  (_)   G8888@@b
+    GCCIi     ,GG8888@@@
+    GGCCCCCCCGGG88888@@@
+    GGGGCCCGGGG88888@@@@...
+    Y8GGGGGG8888888@@@@P.....
+    Y88888888888@@@@@P......
+    `Y8888888@@@@@@@P'......
+        `@@@@@@@@@P'.......
+            """"........
+    '''
 
-# Changes from 1.5.1.release.candidate
+
+    def magicBall():
+        responses = ["It is certain.", 
+        "It is decidedly so.", 
+        "Without a doubt.", 
+        "Yes definitely.", 
+        "You may rely on it.", 
+        " As I see it, yes.", 
+        "Most likely.", 
+        "Outlook good.", 
+        "Yes.", 
+        "Signs point to yes.", 
+        "Reply hazy, try again.", 
+        "Ask again later.", 
+        "Better not tell you now.", 
+        "Cannot predict now.", 
+        "Concentrate and ask again.", 
+        "Don't count on it.", 
+        "My reply is no.", 
+        "My sources say no.", 
+        "Outlook not so good.", 
+        "Very doubtful."]
+        
+        question = input("What do you want to ask the Magic 8 Ball? ")
+        if question == str(question):
+            print(random.choice(responses))
+            again = input("Run Again? ")
+            if again == "yes":
+                magicBall()
+            else:
+                main()
+        else:
+            print(random.choice(responses))
+            again2 = input("Run Again? ")
+            if again2 == "yes":
+                magicBall()
+            else:
+                main()
+
+    def M8B():
+        print(title)
+        print(ball)
+        magicBall()
+
+
+    M8B()
+
+def betterCalc():
+    root = Tk()
+    root.title("Better Calculator")
+
+    e = Entry(root, width=35, borderwidth=5)
+    e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+
+    #e.insert(0, "")
+
+    def button_click(number):
+        #e.delete(0, END)
+        current = e.get()
+        e.delete(0, END)
+        e.insert(0, str(current) + str(number))
+
+    def button_clear():
+        e.delete(0, END)
+
+    def button_add():
+        first_number = e.get()
+        global f_num
+        global math
+        math = "addition"
+        f_num = int(first_number)
+        e.delete(0, END)
+
+    def button_equal():
+        second_number = e.get()
+        e.delete(0, END)
+        
+        if math == "addition":
+            e.insert(0, f_num + int(second_number))
+
+        if math == "subtraction":
+            e.insert(0, f_num - int(second_number))
+
+        if math == "multiplication":
+            e.insert(0, f_num * int(second_number))
+
+        if math == "division":
+            e.insert(0, f_num / int(second_number))
+
+        
+
+    def button_subtract():
+        first_number = e.get()
+        global f_num
+        global math
+        math = "subtraction"
+        f_num = int(first_number)
+        e.delete(0, END)
+
+    def button_multiply():
+        first_number = e.get()
+        global f_num
+        global math
+        math = "multiplication"
+        f_num = int(first_number)
+        e.delete(0, END)
+
+    def button_divide():
+        first_number = e.get()
+        global f_num
+        global math
+        math = "division"
+        f_num = int(first_number)
+        e.delete(0, END)
+
+
+    # Define Buttons
+
+    button_1 = Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
+    button_2 = Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
+    button_3 = Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
+    button_4 = Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
+    button_5 = Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
+    button_6 = Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
+    button_7 = Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7))
+    button_8 = Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
+    button_9 = Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
+    button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
+    button_add = Button(root, text="+", padx=39, pady=20, command=button_add)
+    button_equal = Button(root, text="=", padx=91, pady=20, command=button_equal)
+    button_clear = Button(root, text="Clear", padx=79, pady=20, command=button_clear)
+    button_subtract = Button(root, text="-", padx=41, pady=20, command=button_subtract)
+    button_multiply = Button(root, text="*", padx=40, pady=20, command=button_multiply)
+    button_divide = Button(root, text="/", padx=41, pady=20, command=button_divide)
+
+    # Put the buttons on the screen
+
+    button_1.grid(row=3, column=0)
+    button_2.grid(row=3, column=1)
+    button_3.grid(row=3, column=2)
+    button_4.grid(row=2, column=0)
+    button_5.grid(row=2, column=1)
+    button_6.grid(row=2, column=2)
+    button_7.grid(row=1, column=0)
+    button_8.grid(row=1, column=1)
+    button_9.grid(row=1, column=2)
+    button_0.grid(row=4, column=0)
+    button_clear.grid(row=4, column=1, columnspan=2)
+    button_add.grid(row=5, column=0)
+    button_equal.grid(row=5, column=1, columnspan=2)
+    button_subtract.grid(row=6, column=0)
+    button_multiply.grid(row=6, column=1)
+    button_divide.grid(row=6, column=2)
+    root.mainloop()
+
+def credits():
+    pyCredits = '''
+    PYPROMPT v1.6 CREDITS:
+
+    Developer / Maker: joalricha869 | https://github.com/joalricha869
+    Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkDwij/Termithon
+    CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
+    Collab: joalricha869 / BigBoyTacoStudios (BBTS) | https://github.com/BigBoyTacoStudios
+
+    Command Credits:
+
+    WEATHER                 Made by imkaka | https://github.com/imkaka
+    BETTERCALC              Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+    SLOTS                   Made by ichabod801 | https://github.com/ichabod801/t_games/blob/master/gambling_games/slot_machine_game.py
+    
+    Most Co mmands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
+
+    LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
+
+    WARNING!!!:
+
+    VirusTotal Detects Multi-File PyPrompt Releases (any PyInstaller multifile compilation)
+
+    Check out README.md in PyPrompt Repo to find more info
+
+    From now on, I will only compile single file releases for less false-positives
+    '''
+    print(pyCredits)
+
+
+
+
+
+y = "1.6.beta1"
+
+# Changes from 1.5.1.release
 # ____________________________________
-# - Release of 1.5.1 (Stable Build)
+# - Removed ezShutdown() 
+# - Exit now closes PyPrompt correctly instead of crashing
+# - Compiled version now includes Pyinstaller!
+# - Auto-Py-To-Exe Now included!
+# - Added magic8Ball (Salvaged old project of mine.)
+# - Removed unneccessary strings in devHelp() 
+# - Added bettercal (GUI Calculator)
+
 
 main(current_dir)
