@@ -11,6 +11,8 @@ Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
 # READ ME FIRST IF CONCERNED ABOUT YOUR SECURITY
 
+### THIS Only applies to .zip releases (Dubbed as UNSAFE Edition)
+
 VirusTotal detects this file as malicious. (_it *OBVIOUSLY* isn't a virus because it's open source_)
 
 If you use MalwareBytes, SecureAge APEX, or Trellix (FireEye) as your Antivirus, it may flag this file as a false positive. 
@@ -94,8 +96,11 @@ COMPILER                (Compile any standard Python file to a *.pyc format)
 PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
 PYINSTALLER             (Another pyinstaller compiler)
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
-EZSHUTDOWN              (Shutdown or Reboot your PC) ONLY WORKS ON WINDOWS
-WEATHER                 (Gives info about weather in specified location)
+EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
+WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
+MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
+BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+CREDITS                 (Credits for all commands & dev list)
 
 PyPrompt Modes:
 
