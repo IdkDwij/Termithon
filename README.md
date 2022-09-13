@@ -129,8 +129,20 @@ Anyone can contribute with this project! Just open up an issue or pull request a
 
 ## Credits
 
-Termithon Shell/Kernel: [idkDwij](https://github.com/idkDwij)  |  [Termithon](https://github.com/idkDwij/Termithon)
+PYPROMPT v1.6 CREDITS:
 
-Calculator Fix: [BigBoyTaco](https://github.com/BigBoyTaco)   |   [BigBoyTaco Studios](https://github.com/BigBoyTacoStudios)
+Developer / Maker: joalricha869 | https://github.com/joalricha869
 
-Majority of Commands (slightly modified to work in PyPrompt + Bug Fixes): [hastagAB/Awesome-Python-Scripts](https://github.com/hastagAB/Awesome-Python-Scripts)  (_this helped alot_)
+Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkDwij/Termithon
+
+CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
+
+Collab: joalricha869 / BigBoyTacoStudios (BBTS) | https://github.com/BigBoyTacoStudios
+
+Command Credits:
+
+WEATHER                 Made by imkaka | https://github.com/imkaka
+
+BETTERCALC              Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+
+Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
