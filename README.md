@@ -9,7 +9,7 @@ Making a terminal based in Python 3.10.1
 
 Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
 
-# READ ME FIRST IF CONCERNED ABOUT YOUR SECURITY
+# READ ME FIRST IF CONCERNED ABOUT YOUR SECURITY (FIXED IN v1.6)
 
 ### THIS Only applies to .zip releases (Dubbed as UNSAFE Edition)
 
@@ -23,47 +23,43 @@ SecureAge APEX: Malicious
 
 Trellix (FireEye): Generic.mg.1f067e9e75eabd2e
 
-If you are in a school that has Carbon Black Sensor, it WILL detect PyPrompt as a virus. It's a false positive.
+If you are in a school that has Carbon Black Sensor, it WILL detect PyPrompt as a virus. It's a false positive. (Only applies to multi-file releases, i will now release single executable releases to prevent this issue)
 
 [VirusTotal Scan for PyPrompt v1.5.1 Beta 1](https://www.virustotal.com/gui/file/e7a956e297a97566fb7e3c08ff20962f1fb45cbda81abc8595cc25695de3af34)
 
 ## Run this in your PC
 
-First download python from [python.org](https://python.org). (Applicable to beta builds or .py/.pyc builds)
+First download python from [python.org](https://python.org). (ONLY REQUIRED FOR PYPROMPT DEVELOPMENT, BETA RELEASES, OR UNCOMPILED BUILDS)
 
 For stable builds: download the binary or the setup from the 'Releases' tab.
 
 ### TO RUN IN WINDOWS TERMINAL
 
-Name the PyPrompt file to prompt.py and put it on the root of the C drive. In Windows Terminal, make a new profile, named PyPrompt. use the following command. ```python.exe C:\prompt.py``` or ```py C:\prompt.py``` Run that new profile. PyPrompt should work.
+locate your downloaded release (pyprompt.exe) and copy it to the root of your C drive and make a new profile named PyPrompt, use the following command ```C:\pyprompt.exe``` once you copy it, it should work.
 
 ### Why isn't there an ```.exe``` version?
 
 What do you mean? It's a thing now!
 
-## What is this PyPrompt Development Kit?...
+### What happened to PyPrompt Development Kit?
 
-It's the necessary tools needed to compile PyPrompt to a ```.pyc``` format. (_You may need to re-compile for different computers. Else it won't work..._)
-
-I will upload it soon. Check this document regularly... I might just put it HERE: Download [PyDevKit](https://drive.google.com/file/d/1TtT72DXU6JIxWEfVa3aCU3BXcDBVyjmb/view?usp=sharing) (Not yet on 1.5)
-
-You may need to delete the compiled version i pre made. It might not work. Run ```compilePrompt.py``` or whatever its called and it will compile the necessary files needed.
+Just get the code from here and use the included pyinstaller and auto py to exe (WILL WORK IN v1.6 BETA 2) to compile your own version!
 
 
 ## Features:
 
-Many...
+There's a lot...
 
 ```
 '''
-  _____       _                       _           _ 
- |_   _|     | |                     | |         | |
-   | |  _ __ | |_ ___  __ _ _ __ __ _| |_ ___  __| |
-   | | | '_ \| __/ _ \/ _` | '__/ _` | __/ _ \/ _` |
-  _| |_| | | | ||  __/ (_| | | | (_| | ||  __/ (_| |
- |_____|_| |_|\__\___|\__, |_|  \__,_|\__\___|\__,_|
-                       __/ |                        
-                      |___/                         
+
+  ______         _                         _   _   _ 
+ |  ____|       | |                       | | | | | |
+ | |__ ___  __ _| |_ _   _ _ __ ___  ___  | | | | | |
+ |  __/ _ \/ _` | __| | | | '__/ _ \/ __| | | | | | |
+ | | |  __/ (_| | |_| |_| | | |  __/\__ \ |_| |_| |_|
+ |_|  \___|\__,_|\__|\__,_|_|  \___||___/ (_) (_) (_)
+                                                             
 
 DIR                     (Integrated dir/ls command. To use vanilla dir on Windows, Enter CMD Mode and type dir.)
 IP                      (Gives you your IP)
@@ -141,8 +137,8 @@ Collab: joalricha869 / BigBoyTacoStudios (BBTS) | https://github.com/BigBoyTacoS
 
 Command Credits:
 
-WEATHER                 Made by imkaka | https://github.com/imkaka
+WEATHER        |         Made by imkaka | https://github.com/imkaka
 
-BETTERCALC              Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+BETTERCALC      |        Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 
 Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
