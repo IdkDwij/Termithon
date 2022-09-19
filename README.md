@@ -133,12 +133,10 @@ Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkD
 
 CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
 
-Collab: joalricha869 / BigBoyTacoStudios (BBTS) | https://github.com/BigBoyTacoStudios
-
 Command Credits:
 
 WEATHER        |         Made by imkaka | https://github.com/imkaka
 
-BETTERCALC      |        Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+BETTERCAL      |        Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 
 Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
