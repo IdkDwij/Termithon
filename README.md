@@ -1,6 +1,6 @@
 # PyPrompt
 
-Making a terminal based in Python 3.10.1
+Making a terminal based in Python 3.10.7
 
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
@@ -82,7 +82,6 @@ IPLOCATION              (Find the physical location of your IP address)
 SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
 TROUBLESHOOT            (Troubleshoots extra modules neccessary for PyPrompt to run)
-SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
 UNHELP                  (i'm not sure what this is. it just exists.)
