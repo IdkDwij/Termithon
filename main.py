@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-# UNIX Encoding Below!
 # PyPrompt - An alternative cross-platform terminal shell made in Python!
-# Can be used in Windows, Linux, macOS, Android, iOS
-# Yes iOS. Search up Python3IDE in the App Store
-# Make sure to buy its premium option, else it won't run :(
 # PyPrompt made by
 #    _             _      _      _            ___    __ ___  
 #   (_)           | |    (_)    | |          / _ \  / // _ \ 
@@ -51,10 +47,9 @@ from __future__ import division
 import os
 import string
 import random
-import socket
-from random import *
 from random import choice
 from random import randint
+import socket
 import platform
 import fnmatch
 from time import *
@@ -71,6 +66,7 @@ import requests
 import sys
 import auto_py_to_exe
 from tkinter import *
+import pip
 
 
 # Checks if Python version is more than 3.9 (Will only take effect on uncompiled build)
@@ -83,7 +79,6 @@ hostname = socket.gethostname()
 curr_user = getpass.getuser()
 global echo_on
 
-
 def warnings():
     print("THIS IS A BETA BUILD OF PYPROMPT")
     print("NOTE THAT MOST COMMANDS MIGHT NOT WORK OR BE UNSTABLE")
@@ -91,7 +86,6 @@ def warnings():
 
 
 # Ten Billion Imports Later...
-print("=" * 40, "PyPrompt", "=" * 40)
 joalricha = '''
     _             _      _      _            ___    __ ___  
    (_)           | |    (_)    | |          / _ \  / // _ \ 
@@ -127,14 +121,18 @@ dwij = '''
                               |__/ 
 
 '''
-print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
-print(" ")
-print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
-print(" ")
-print('Based on Termithon by' + dwij + 'https://github.com/IdkDwij/Termithon')
-print(" ")
-print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
-print("Type in 'help' for the command list.")
+pypromptascii = '''
+  _____       _____                           _   
+ |  __ \     |  __ \                         | |  
+ | |__) |   _| |__) | __ ___  _ __ ___  _ __ | |_ 
+ |  ___/ | | |  ___/ '__/ _ \| '_ ` _ \| '_ \| __|
+ | |   | |_| | |   | | | (_) | | | | | | |_) | |_ 
+ |_|    \__, |_|   |_|  \___/|_| |_| |_| .__/ \__|
+         __/ |                         | |        
+        |___/                          |_|        
+
+'''
+print(pypromptascii)
 print(" ")
 warnings()
 print(" ")
@@ -151,15 +149,15 @@ def listToString(s):
 
 
 commands = '''
-  _____       _                       _           _ 
- |_   _|     | |                     | |         | |
-   | |  _ __ | |_ ___  __ _ _ __ __ _| |_ ___  __| |
-   | | | '_ \| __/ _ \/ _` | '__/ _` | __/ _ \/ _` |
-  _| |_| | | | ||  __/ (_| | | | (_| | ||  __/ (_| |
- |_____|_| |_|\__\___|\__, |_|  \__,_|\__\___|\__,_|
-                       __/ |                        
-                      |___/                         
-
+  _____       _____                           _     _    _      _       
+ |  __ \     |  __ \                         | |   | |  | |    | |      
+ | |__) |   _| |__) | __ ___  _ __ ___  _ __ | |_  | |__| | ___| |_ __  
+ |  ___/ | | |  ___/ '__/ _ \| '_ ` _ \| '_ \| __| |  __  |/ _ \ | '_ \ 
+ | |   | |_| | |   | | | (_) | | | | | | |_) | |_  | |  | |  __/ | |_) |
+ |_|    \__, |_|   |_|  \___/|_| |_| |_| .__/ \__| |_|  |_|\___|_| .__/ 
+         __/ |                         | |                       | |    
+        |___/                          |_|                       |_|    
+                                                             
 DIR                     (Integrated dir/ls command. To use vanilla dir on Windows, Enter CMD Mode and type dir.)
 IP                      (Gives you your IP)
 HOSTNAME                (Gives you your Computer's ID)
@@ -181,7 +179,6 @@ IPLOCATION              (Find the physical location of your IP address)
 SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
 TROUBLESHOOT            (Troubleshoots extra modules necessary for PyPrompt to run) WILL ONLY WORK IF PYTHON IS INSTALLED!
-SSH                     (An SSH Client made in Python) (To use vanilla ssh use either CMD/BASH MODE)
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
 UNHELP                  (i'm not sure what this is. it just exists.)
@@ -196,6 +193,7 @@ WEATHER                 (Gets the weather from any city) Made by imkaka. Github:
 MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
 BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 CREDITS                 (Credits for all commands & dev list)
+
 
 PyPrompt Modes:
 
@@ -291,9 +289,6 @@ def whatiscommand(current_dir):
         else:
             print('The system cannot find the path specified. \n')
             main(current_dir)
-    elif cmd == "ssh":
-        sshclient()
-        main(current_dir)
     elif cmd == "filesearch":
         fileSearch()
         main(current_dir)
@@ -484,15 +479,10 @@ def progressbar():
 
 
 def intro():
-    print("=" * 40, "PyPrompt", "=" * 40)
-    print('Made by:' + joalricha + 'it says joalricha869 https://github.com/joalricha869')
+    print(pypromptascii)
     print(" ")
-    print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
+    warnings()
     print(" ")
-    print('Based on Termithon Shell by' + dwij + 'https://github.com/IdkDwij/Termithon')
-    print(" ")
-    print("Type in 'help' for the command list.")
-    print("")
 
 
 def sqrt():
@@ -779,27 +769,6 @@ def troubleshoot():
         print("PyPrompt Closing in 1 second")
         exit()
 
-def sshclient():
-    print("This may have compatability issues with earlier versions of Python.")
-    print("Make sure you have Python 3.9 or later!")
-    print("DISCLAIMER: This software can't be used for any type of illegal activity.")
-    print("What you do here is now your OWN RESPONSIBILITY!!!")
-    username = input("Enter username: ")
-    hostname = input("Enter hostname: ")
-    # port = input("Enter Port: ")
-    # password = input("Enter Password: ")
-    command = os.system("ssh " + username + "@" + hostname)
-    os.system(command)
-    # Requires Internet
-    # paramiko.util.log_to_file('paramiko.log')
-    # s = paramiko.SSHClient()
-    # s.load_system_host_keys()
-    # s.connect(hostname, port, username, password)
-    # stdin, stdout, stderr = s.exec_command('ifconfig')
-    # print(stdout.read())
-    # s.close()
-    main(current_dir)
-
 
 def fileSearch():
     rootPath = '/'
@@ -826,7 +795,7 @@ def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
     print("TERMITHON KERNEL VERSION: 0.1.3 (RELEASE-SKU)")
-    print("CODENAME: BBTS_COLLAB_BETA1")
+    print("CODENAME: COMMON_TOOLS_BETA2")
 
 
 def pyCompiler():
@@ -838,7 +807,7 @@ def testModules():
     print(pyvim.__version__)
     print(PyInstaller.__version__)
     print(auto_py_to_exe.__version__)
-    
+    print(pip.__version__)
 
 
 def ezformatter():
@@ -873,8 +842,8 @@ def eztaskkill():
 
 def GetCurrentWeather():
     def get_temperature(json_data):
-        temp_in_celcius = json_data['main']['temp']
-        return temp_in_celcius
+        temp_in_farenheit = json_data['main']['temp']
+        return temp_in_farenheit
 
     def get_weather_type(json_data):
         weather_type = json_data['weather'][0]['description']
@@ -892,13 +861,18 @@ def GetCurrentWeather():
         temperature = get_temperature(json_data)
         wind_speed = get_wind_speed(json_data)
         weather_details = ''
-        return weather_details + ("The weather in {} is currently {} with a temperature of {} degrees and wind speeds reaching {} km/ph".format(city, weather_type, temperature, wind_speed))
+        return weather_details + ("The weather in {} is currently {} with a temperature of {} degrees farenheit and wind speeds reaching {} km/ph".format(city, weather_type, temperature, wind_speed))
 
 
     def weather():
-        api_address = 'https://api.openweathermap.org/data/2.5/weather?q=Sydney,au&appid=a10fd8a212e47edf8d946f26fb4cdef8&q='
-        city = input("Input City Name: ")
-        units_format = "&units=metric"
+        print("Gather the Weather!")
+        print(" ")
+        print("NOTE: The inputs are CASE-SENSITIVE!!!")
+        print("Any wrong misspell and PyPrompt will crash")
+        city = input("Please Input City Name: ")
+        countrycode = input("Please Input Country Code (ie. us, mx): ")
+        api_address = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + countrycode + '&appid=a10fd8a212e47edf8d946f26fb4cdef8&q='
+        units_format = "&units=imperial"
         final_url = api_address + city + units_format
         json_data = requests.get(final_url).json()
         weather_details = get_weather_data(json_data, city)
@@ -967,14 +941,14 @@ def magic8Ball():
             if again == "yes":
                 magicBall()
             else:
-                main()
+                main(current_dir)
         else:
             print(random.choice(responses))
             again2 = input("Run Again? ")
             if again2 == "yes":
                 magicBall()
             else:
-                main()
+                main(current_dir)
 
     def M8B():
         print(title)
@@ -1094,48 +1068,43 @@ def betterCalc():
 
 def credits():
     pyCredits = '''
-    PYPROMPT v1.6 CREDITS:
+PYPROMPT v1.6 CREDITS:
 
-    Developer / Maker: joalricha869 | https://github.com/joalricha869
-    Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkDwij/Termithon
-    CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
-    Collab: joalricha869 / BigBoyTacoStudios (BBTS) | https://github.com/BigBoyTacoStudios
+Developer / Maker: joalricha869 | https://github.com/joalricha869
+Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkDwij/Termithon
+CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
 
-    Command Credits:
+Command Credits:
 
-    WEATHER                 Made by imkaka | https://github.com/imkaka
-    BETTERCALC              Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
-    SLOTS                   Made by ichabod801 | https://github.com/ichabod801/t_games/blob/master/gambling_games/slot_machine_game.py
+WEATHER                 Made by imkaka      | https://github.com/imkaka
+BETTERCAL               Made by flatplanet  | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
     
-    Most Co mmands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
+Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
 
-    LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
-
-    WARNING!!!:
-
-    VirusTotal Detects Multi-File PyPrompt Releases (any PyInstaller multifile compilation)
-
-    Check out README.md in PyPrompt Repo to find more info
-
-    From now on, I will only compile single file releases for less false-positives
+LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
     '''
     print(pyCredits)
+    print(" ")
+    print('Made by:' + joalricha + 'it says joalricha https://github.com/joalricha869')
+    print(" ")
+    print('Thanks to ' + taco + 'for help  https://github.com/BigBoyTaco')
+    print(" ")
+    print('Based on Termithon by' + dwij + 'https://github.com/IdkDwij/Termithon')
+    print(" ")
+    print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
+    print("Type in 'help' for the command list.")
 
 
+y = "1.6.beta2"
 
-
-
-y = "1.6.beta1"
-
-# Changes from 1.5.1.release
+# Changes from 1.6.beta1
 # ____________________________________
-# - Removed ezShutdown() 
-# - Exit now closes PyPrompt correctly instead of crashing
-# - Compiled version now includes Pyinstaller!
-# - Auto-Py-To-Exe Now included!
-# - Added magic8Ball (Salvaged old project of mine.)
-# - Removed unneccessary strings in devHelp() 
-# - Added bettercal (GUI Calculator)
+# - Modified WEATHER from getting temperature in celcius to farenheit
+# - Fixed WEATHER from always getting the weather from Sydney
+# - Fixed magic8ball from crashing
+# - String changes in CREDITS, HELP, & INTRO
+# - New Intro screen! (Less bloated!)
+# - Removed SSH
 
 
 main(current_dir)
