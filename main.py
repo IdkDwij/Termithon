@@ -178,15 +178,14 @@ CD                      (Navigate through folders) (NOTE: Applicable on PyPrompt
 IPLOCATION              (Find the physical location of your IP address)
 SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
-TROUBLESHOOT            (Troubleshoots extra modules necessary for PyPrompt to run) WILL ONLY WORK IF PYTHON IS INSTALLED!
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
 UNHELP                  (i'm not sure what this is. it just exists.)
 LOCATOR                 (Locate basically any location in the planet)
 DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
 COMPILER                (Compile any standard Python file to a *.pyc format)
-PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
-PYINSTALLER             (Another pyinstaller compiler)
+PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub') WILL REQUIRE PYTHON!!
+PYINSTALLER             (Another Python compiler) REQUIRES PYTHON
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
@@ -269,9 +268,6 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "unhelp":
         print("The command is 'ignore'")
-        main(current_dir)
-    elif cmd == "troubleshoot":
-        troubleshoot()
         main(current_dir)
     elif "cd" in cmd:
         args.remove('cd')
@@ -728,48 +724,6 @@ def encryptdecrypt():
                 print('Invalid command!')
                 continue
 
-
-def troubleshoot():
-    confirmation = input("Troubleshoot Modules? ")
-    if confirmation == "yes":
-        print("Uninstalling wget")
-        os.system("pip uninstall wget")
-        os.system("cls||clear")
-        print("Uninstalling Speedtest")
-        os.system("pip uninstall speedtest-cli")
-        os.system("cls||clear")
-        print("Uninstalling geocoder")
-        os.system("pip uninstall geocoder")
-        os.system("cls||clear")
-        print("Uninstalling paramiko")
-        os.system("pip uninstall paramiko")
-        os.system("cls||clear")
-        print("reinstalling...")
-        print("Now Reinstalling Modules")
-        print("Installing wget")
-        os.system("pip install wget")
-        os.system("cls||clear")
-        print("Installing Speedtest")
-        os.system("pip install speedtest-cli")
-        os.system("cls||clear")
-        print("Installing geocoder")
-        os.system("pip install geocoder")
-        os.system("cls||clear")
-        print("Installing paramiko")
-        os.system("pip install paramiko")
-        os.system("cls||clear")
-        print("Installing Scripts")
-        os.system("pip install Scripts")
-        os.system("cls||clear")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 3 seconds")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 2 seconds")
-        os.system("cls||clear")
-        print("PyPrompt Closing in 1 second")
-        exit()
-
-
 def fileSearch():
     rootPath = '/'
     print("Note that the file extension format must be '*.extension' without the apostrophe obv")
@@ -1095,6 +1049,7 @@ LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
     print("Type in 'help' for the command list.")
 
 
+
 y = "1.6.beta2"
 
 # Changes from 1.6.beta1
@@ -1104,7 +1059,9 @@ y = "1.6.beta2"
 # - Fixed magic8ball from crashing
 # - String changes in CREDITS, HELP, & INTRO
 # - New Intro screen! (Less bloated!)
-# - Removed SSH
+# - Removed SSH (INEFFICIENT AND BUGGY)
+# - Removed TROUBLESHOOT (ALL MODULES ARE BUILT IN BINARY)
+# - PYVIM & PYINSTALLER / AUTO-PY-TO-EXE NOW REQUIRES PYTHON TO WORK
 
 
 main(current_dir)
