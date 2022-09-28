@@ -13,6 +13,7 @@
 # Based on Termithon by idkDwij
 # Thanks to idkDwij for the base code of Termithon
 # Thanks to BigBoyTaco for fixing the 'calc' command!
+# Some commands were not made by me, check CREDITS for info about devs
 # btw do not trust anyone named theopensour or thesouropen or theclosedbitter
 # 
 # Billions of imports ahead!
@@ -67,6 +68,9 @@ import sys
 import auto_py_to_exe
 from tkinter import *
 import pip
+import numpy
+import pandas as pd
+from tkinter import ttk, filedialog
 
 
 # Checks if Python version is more than 3.9 (Will only take effect on uncompiled build)
@@ -1032,7 +1036,8 @@ Command Credits:
 
 WEATHER                 Made by imkaka      | https://github.com/imkaka
 BETTERCAL               Made by flatplanet  | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
-    
+XLVIEWER                Made by Dev Prakash Sharma | https://www.tutorialspoint.com/how-to-open-an-excel-spreadsheet-in-treeview-widget-in-tkinter
+
 Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
 
 LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -1047,13 +1052,78 @@ LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
     print(" ")
     print("The source is at my GitHub page! 'https://github.com/joalricha869/PyPrompt'")
     print("Type in 'help' for the command list.")
+    print("SOME COMMANDS ARE MADE BY OTHER PEOPLE!")
+    print("READ CREDITS ABOVE FOR MORE INFO")
 
+def excelViewer():
+    win = Tk()
+    win.geometry("700x350")
 
+    # Create an object of Style widget
+    style = ttk.Style()
+    style.theme_use('clam')
+
+    # Create a Frame
+    frame = Frame(win)
+    frame.pack(pady=20)
+    # Define a function for opening the file
+    def open_file():
+        filename = filedialog.askopenfilename(title="Open a File", filetype=(("xlxs files", ".*xlsx"),
+    ("All Files", "*.")))
+
+    if filename:
+        try:
+            filename = r"{}".format(filename)
+            df = pd.read_excel(filename)
+        except ValueError:
+            label.config(text="File could not be opened")
+        except FileNotFoundError:
+            label.config(text="File Not Found")
+
+    # Clear all the previous data in tree
+    clear_treeview()
+
+    # Add new data in Treeview widget
+    tree["column"] = list(df.columns)
+    tree["show"] = "headings"
+
+    # For Headings iterate over the columns
+    for col in tree["column"]:
+        tree.heading(col, text=col)
+
+    # Put Data in Rows
+    df_rows = df.to_numpy().tolist()
+    for row in df_rows:
+        tree.insert("", "end", values=row)
+
+    tree.pack()
+
+    # Clear the Treeview Widget
+    def clear_treeview():
+        tree.delete(*tree.get_children())
+
+    # Create a Treeview widget
+    tree = ttk.Treeview(frame)
+
+    # Add a Menu
+    m = Menu(win)
+    win.config(menu=m)
+
+    # Add Menu Dropdown
+    file_menu = Menu(m, tearoff=False)
+    m.add_cascade(label="Menu", menu=file_menu)
+    file_menu.add_command(label="Open Spreadsheet", command=open_file)
+
+    # Add a Label widget to display the file content
+    label = Label(win, text='')
+    label.pack(pady=20)
+
+    win.mainloop()
 
 y = "1.6.beta2"
 
 # Changes from 1.6.beta1
-# ____________________________________
+# ____________________________________________________________________
 # - Modified WEATHER from getting temperature in celcius to farenheit
 # - Fixed WEATHER from always getting the weather from Sydney
 # - Fixed magic8ball from crashing
@@ -1062,6 +1132,8 @@ y = "1.6.beta2"
 # - Removed SSH (INEFFICIENT AND BUGGY)
 # - Removed TROUBLESHOOT (ALL MODULES ARE BUILT IN BINARY)
 # - PYVIM & PYINSTALLER / AUTO-PY-TO-EXE NOW REQUIRES PYTHON TO WORK
+# - Added XLVIEWER (Simple Tkinter Excel Spreadsheet Viewer)
+# - Added Disclaimer in CREDITS
 
 
 main(current_dir)
