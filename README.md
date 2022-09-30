@@ -1,6 +1,9 @@
 # PyPrompt
 
-Making a terminal based in Python 3.10.7
+A replacement Terminal for Windows and Linux.
+
+![image](https://user-images.githubusercontent.com/83835381/193330986-1e34323b-dfc8-43ba-b7ba-dd0c5b298dfa.png)
+
 
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
