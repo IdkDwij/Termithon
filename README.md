@@ -1,6 +1,6 @@
 # PyPrompt
 
-A replacement Terminal for Windows and Linux.
+A replacement multiplatform terminal built in Python.
 
 ![image](https://user-images.githubusercontent.com/83835381/193330986-1e34323b-dfc8-43ba-b7ba-dd0c5b298dfa.png)
 
@@ -8,31 +8,22 @@ A replacement Terminal for Windows and Linux.
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
 
-### Engine based on Termithon by idkDwij
-
-Inspired by: [This repo!](https://github.com/IdkDwij/Termithon)
-
-# READ ME FIRST IF CONCERNED ABOUT YOUR SECURITY (FIXED IN v1.6)
-
-### THIS Only applies to .zip releases (Dubbed as UNSAFE Edition)
-
-VirusTotal detects this file as malicious. (_it *OBVIOUSLY* isn't a virus because it's open source_)
-
-If you use MalwareBytes, SecureAge APEX, or Trellix (FireEye) as your Antivirus, it may flag this file as a false positive. 
-
-MalwareBytes: Malware.AI.3860805198
-
-SecureAge APEX: Malicious
-
-Trellix (FireEye): Generic.mg.1f067e9e75eabd2e
-
-If you are in a school that has Carbon Black Sensor, it WILL detect PyPrompt as a virus. It's a false positive. (Only applies to multi-file releases, i will now release single executable releases to prevent this issue)
-
-[VirusTotal Scan for PyPrompt v1.5.1 Beta 1](https://www.virustotal.com/gui/file/e7a956e297a97566fb7e3c08ff20962f1fb45cbda81abc8595cc25695de3af34)
+### Engine based on [Termithon | idkDwij](https://github.com/IdkDwij/Termithon)
 
 ## Run this in your PC
 
-First download python from [python.org](https://python.org). (ONLY REQUIRED FOR PYPROMPT DEVELOPMENT, BETA RELEASES, OR UNCOMPILED BUILDS)
+PYPROMPT DEVELOPMENT, BETA BUILDS, UNCOMPILED BUILDS
+
+_________________________________________________________
+
+Install [Python](https://python.org) and [Visual Studio Code](https://code.visualstudio.com) (ONLY FOR PYPROMPT DEVELOPMENT)
+
+STABLE VERSIONS (CURRENTLY ON 1.5.1)
+
+_________________________________________________________
+
+Download the binary in the Releases tab. Nothing else. (PYVIM, PYINSTALLER DO REQUIRE PYTHON)
+
 
 For stable builds: download the binary or the setup from the 'Releases' tab.
 
