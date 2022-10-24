@@ -99,24 +99,24 @@ def main(current_dir, cur_color):
 def whatiscommand(current_dir, cur_color):
     args = cmd.split()
     #help command
-    if cmd == 'help':
+    if args[0] == 'help':
         print(commands)
         main(current_dir, cur_color)
     #ls command
-    elif cmd == 'ls':
+    elif args[0] == 'ls':
         print(os.listdir(current_dir))
         main(current_dir, cur_color)
-    elif 'curl' in cmd:
+    elif args[0] == 'curl':
         os.system(cmd)
         main(current_dir, cur_color)
     #start command
-    elif "start" in cmd:
+    elif args[0] == "start":
         os.system(cmd)
     #cd command
-    elif "cd" in cmd:
+    elif args[0] == "cd":
         args.remove('cd')
         args = ' '.join(args)
-        if cmd == "cd":
+        if args[0] == "cd":
             main(current_dir, cur_color)
         old_dir = current_dir
         if os.path.isdir(args) == True:
@@ -130,52 +130,52 @@ def whatiscommand(current_dir, cur_color):
             print('The system cannot find the path specified. \n')
             main(current_dir, cur_color)
     #exit command
-    elif cmd == 'exit':
+    elif args[0] == 'exit':
         exit()
     #ip command
-    elif cmd == 'ip':
+    elif args[0] == 'ip':
         print(ip)
         main(current_dir, cur_color)
     #hostname command
-    elif cmd == 'hostname':
+    elif args[0] == 'hostname':
         print(hostname)
         main(current_dir, cur_color)
     #users command
-    elif cmd == 'user':
+    elif args[0] == 'user':
         print(curr_user())
         main(current_dir, cur_color)
     #mac address command
-    elif cmd == "mac":
+    elif args[0] == "mac":
         print(mac)
         main(current_dir, cur_color)
     #ping command
-    elif "ping" in cmd:
+    elif args[0] == 'ping':
         os.system(cmd)
         main(current_dir, cur_color)
      #clear command
-    elif cmd == "clear":
+    elif args[0] == "clear":
         os.system('cls||clear')
         main(current_dir, cur_color)
-    elif "mkdir" in cmd:
+    elif args[0] == "mkdir":
         try:
             os.makedirs(args[1])
         except:
             os.makedirs(current_dir + args[1])
         main(current_dir, cur_color)
-    elif "del" in cmd:
+    elif args[0] == "del":
         try:
             os.remove(args[1])
         except:
             os.remove(current_dir + args[1])
         main(current_dir, cur_color)
-    elif 'echo' in cmd:
+    elif args[0] == 'echo':
         args.remove('echo')
         args = ' '.join(args)
         print(args)
         main(current_dir, cur_color)
         
     #python command
-    elif 'python3' in cmd:
+    elif args[0] == 'python3':
         global PY_warning_said
         if PY_warning_said == False:
             print('warning, this reqires python3 to be installed')
@@ -185,11 +185,11 @@ def whatiscommand(current_dir, cur_color):
         else:
             os.system(cmd)
             main(current_dir, cur_color)
-    elif cmd == "":
+    elif args[0] == "":
         main(current_dir, cur_color)
     elif  "color" in cmd:
         color(current_dir,cur_color)
-    elif 'pip' in cmd:
+    elif args[0] == 'pip':
         print('warning python must be installed to use this commnad')
         time.sleep(1)
         os.system(cmd)
@@ -198,7 +198,7 @@ def whatiscommand(current_dir, cur_color):
         Miscellaneous.commands(current_dir,cur_color)
 class Miscellaneous():
     def commands(current_dir,cur_color):
-        if cmd == 'inspace':
+        if args[0] == 'inspace':
             Miscellaneous.emulation(current_dir,cur_color)
         else:
             Miscellaneous.error(current_dir,cur_color)
@@ -215,7 +215,7 @@ class Miscellaneous():
 
 def color(current_dir,cur_color):
     args = cmd.split()
-    if cmd == "color":
+    if args[0] == "color":
         print('''       0 = Black       8 = Gray
         1 = Blue        9 = Light Blue
         2 = Green       A = Light Green
