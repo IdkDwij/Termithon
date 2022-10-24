@@ -87,24 +87,24 @@ def main(current_dir):
 def whatiscommand(current_dir):
     args = cmd.split()
     #help command
-    if cmd == 'help':
+    if args[0] == 'help':
         print(commands)
         main(current_dir)
     #ls command
-    elif cmd == 'ls':
+    elif args[0] == 'ls':
         print(os.listdir(current_dir))
         main(current_dir)
-    elif 'curl' in cmd:
+    elif args[0] == 'curl':
         os.system(cmd)
         main(current_dir)
     #start command
-    elif "start" in cmd:
+    elif args[0] == "start":
         os.system(cmd)
     #cd command
-    elif "cd" in cmd:
+    elif args[0] == "cd":
         args.remove('cd')
         args = ' '.join(args)
-        if cmd == "cd":
+        if args[0] == "cd":
             main(current_dir)
         old_dir = current_dir
         if os.path.isdir(args) == True:
@@ -118,125 +118,139 @@ def whatiscommand(current_dir):
             print('The system cannot find the path specified. \n')
             main(current_dir)
     #exit command
-    elif cmd == 'exit':
+    elif args[0] == 'exit':
         exit()
     #ip command
-    elif cmd == 'ip':
+    elif args[0] == 'ip':
         print(ip)
         main(current_dir)
     #hostname command
-    elif cmd == 'hostname':
+    elif args[0] == 'hostname':
         print(hostname)
         main(current_dir)
     #users command
-    elif cmd == 'user':
-        print(getpass.getuser())
+    elif args[0] == 'user':
+        print(curr_user())
         main(current_dir)
     #mac address command
-    elif cmd == "mac":
+    elif args[0] == "mac":
         print(mac)
         main(current_dir)
     #ping command
-    elif "ping" in cmd:
+    elif args[0] == 'ping':
         os.system(cmd)
         main(current_dir)
      #clear command
-    elif cmd == "clear":
+    elif args[0] == "clear":
         os.system('cls||clear')
         main(current_dir)
-    elif "mkdir" in cmd:
+    elif args[0] == "mkdir":
         try:
             os.makedirs(args[1])
         except:
             os.makedirs(current_dir + args[1])
         main(current_dir)
-    elif "del" in cmd:
+    elif args[0] == "del":
         try:
             os.remove(args[1])
         except:
             os.remove(current_dir + args[1])
         main(current_dir)
-    elif 'echo' in cmd:
+    elif args[0] == 'echo':
         args.remove('echo')
         args = ' '.join(args)
         print(args)
         main(current_dir)
+        
     #python command
-    elif 'python3' in cmd:
+    elif args[0] == 'python3':
         global PY_warning_said
         if PY_warning_said == False:
-            print(Fore.RED + 'warning, this reqires python3 to be installed' + Fore.WHITE)
+            print('warning, this reqires python3 to be installed')
             PY_warning_said = True
             os.system(cmd)
             main(current_dir)
         else:
             os.system(cmd)
             main(current_dir)
-    elif cmd == "":
+    elif args[0] == "":
         main(current_dir)
-    elif 'pip' in cmd:
-        print(Fore.RED + 'warning python must be installed to use this commnad' + Fore.WHITE)
+    elif  "color" in cmd:
+        color(current_dir,cur_color)
+    elif args[0] == 'pip':
+        print('warning python must be installed to use this commnad')
         time.sleep(1)
         os.system(cmd)
         main(current_dir)
-    elif 'color' in cmd:
-        #color help
-        if(cmd == 'color'):
-            print('''All colors:
-        0 = Black       8 = Light Blue
-        1 = Blue        9 = Light Green
-        2 = Green       A = Light Aqua
-        3 = Aqua        B = Light Red
-        4 = Red         C = Light Purple
-        5 = Purple      D = Light Yellow
-        6 = Yellow      7 = White''')
-        elif(cmd == 'color 0'):
-            print(Fore.BLACK)
-        elif(cmd == 'color 1'):
-            print(Fore.BLUE)
-        elif(cmd == 'color 2'):
-            print(Fore.GREEN)
-        elif(cmd == 'color 3'):
-            print(Fore.CYAN)
-        elif(cmd == 'color 4'):
-            print(Fore.RED)
-        elif(cmd == "color 5"):
-            print(Fore.MAGENTA)
-        elif(cmd == 'color 6'):
-            print(Fore.YELLOW)
-        elif(cmd == 'color 7'):
-            print(Fore.WHITE)
-        elif(cmd == 'color 8'):
-            print(Fore.LIGHTBLUE_EX)
-        elif(cmd == 'color 9'):
-            print(Fore.LIGHTGREEN_EX)
-        elif(cmd == 'color a'):
-            print(Fore.LIGHTCYAN_EX)
-        elif(cmd == 'color b'):
-            print(Fore.LIGHTRED_EX)
-        elif(cmd == 'color c'):
-            print(Fore.LIGHTMAGENTA_EX)
-        elif(cmd == 'color d'):
-            print(Fore.LIGHTYELLOW_EX)
-        else:
-            print('color not recognized use "color" for help')
-        main(current_dir)
     else:
-        Miscellaneous.commands(self=None)
+        Miscellaneous.commands(current_dir,cur_color)
 class Miscellaneous():
-    def commands(self):
-        if cmd == 'inspace':
-            Miscellaneous.emulation(self=None)
+    def commands(current_dir,cur_color):
+        if args[0] == 'inspace':
+            Miscellaneous.emulation(current_dir,cur_color)
         else:
-            Miscellaneous.error(self=None)
-    def emulation(self):
+            Miscellaneous.error(current_dir,cur_color)
+    def emulation(current_dir,cur_color):
         chance = random.randint(1,100)
         if chance > 2:
             print("You Died")
         else:
             print('You survived')
         main(current_dir)
-    def error(self):
+    def error(current_dir):
         print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
         main(current_dir)
+
+def color(current_dir):
+    args = cmd.split()
+    if args[0] == "color":
+        print('''       0 = Black       8 = Gray
+        1 = Blue        9 = Light Blue
+        2 = Green       A = Light Green
+        3 = Aqua        B = Light Aqua
+        4 = Red         C = Light Red
+        5 = Purple      D = Light Purple
+        6 = Yellow      E = Light Yellow
+        7 = White       F = Bright White''')
+    elif args[1] == "help":
+        print('''            0 = Black       8 = Gray
+            1 = Blue        9 = Light Blue
+            2 = Green       A = Light Green
+            3 = Aqua        B = Light Aqua
+            4 = Red         C = Light Red
+            5 = Purple      D = Light Purple
+            6 = Yellow      E = Light Yellow
+            7 = White       F = Bright White''')
+    elif args[1] == "1":
+        cur_color = Fore.BLUE
+    elif args[1] == "2":
+        cur_color = Fore.GREEN
+    elif args[1] == "3":
+        cur_color = Fore.CYAN
+    elif args[1] == "4":
+        cur_color = Fore.RED
+    elif args[1] == "5":
+        cur_color = Fore.RED
+    elif args[1] == "6":
+        cur_color = Fore.YELLOW
+    elif args[1] == "7":
+        cur_color = Fore.WHITE
+    elif args[1] == "8":
+        cur_color = Fore.LIGHTBLACK_EX
+    elif args[1] == "9":
+        cur_color = Fore.LIGHTBLUE_EX
+    elif args[1] == "0":
+        cur_color = Fore.BLACK
+    elif args[1].lower() == "a":
+        cur_color = Fore.BLUE
+    elif args[1].lower() == "c":
+        cur_color = Fore.LIGHTRED_EX
+    elif args[1].lower() == "d":
+        cur_color = Fore.LIGHTMAGENTA_EX
+    elif args[1].lower() == "e":
+        cur_color = Fore.LIGHTYELLOW_EX
+    elif args[1].lower() == "f":
+        cur_color = Fore.LIGHTWHITE_EX
+    main(current_dir)
+
 main(current_dir)
