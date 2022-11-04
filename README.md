@@ -86,6 +86,7 @@ WEATHER                 (Gets the weather from any city) Made by imkaka. Github:
 MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
 BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 CREDITS                 (Credits for all commands & dev list)
+XLVIEWER                (Simple Tkinter Excel Spreadsheet Viewer)
 
 PyPrompt Modes:
 
@@ -120,12 +121,14 @@ Developer / Maker: joalricha869 | https://github.com/joalricha869
 
 Termithon Kernel: idkDwij | https://github.com/idkDwij | https://github.com/idkDwij/Termithon
 
-CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
+CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco | https://github.com/AnotherLumenGames
 
 Command Credits:
 
-WEATHER        |         Made by imkaka | https://github.com/imkaka
+WEATHER        |        Made by imkaka                | https://github.com/imkaka
 
-BETTERCAL      |        Made by flatplanet | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+BETTERCAL      |        Made by flatplanet            | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
+
+XLVIEWER       |        Made by Dev Prakash Sharma    | https://www.tutorialspoint.com/how-to-open-an-excel-spreadsheet-in-treeview-widget-in-tkinter
 
 Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
