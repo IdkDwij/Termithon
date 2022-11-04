@@ -18,11 +18,11 @@ _________________________________________________________
 
 Install [Python](https://python.org) and [Visual Studio Code](https://code.visualstudio.com) (ONLY FOR PYPROMPT DEVELOPMENT)
 
-STABLE VERSIONS (CURRENTLY ON 1.5.1)
+STABLE VERSIONS (CURRENTLY ON 1.6)
 
 _________________________________________________________
 
-Download the binary in the Releases tab. Nothing else. (PYVIM, PYINSTALLER DO REQUIRE PYTHON)
+Download the binary in the Releases tab. Nothing else. (PYVIM AND PYINSTALLER REQUIRE PYTHON)
 
 
 For stable builds: download the binary or the setup from the 'Releases' tab.
@@ -31,13 +31,9 @@ For stable builds: download the binary or the setup from the 'Releases' tab.
 
 locate your downloaded release (pyprompt.exe) and copy it to the root of your C drive and make a new profile named PyPrompt, use the following command ```C:\pyprompt.exe``` once you copy it, it should work.
 
-### Why isn't there an ```.exe``` version?
-
-What do you mean? It's a thing now!
-
 ### What happened to PyPrompt Development Kit?
 
-Just get the code from here and use the included pyinstaller and auto py to exe (WILL WORK IN v1.6 BETA 2) to compile your own version!
+Just get the source code from here and use the stable release that includes pyinstaller and auto py to exe (requires python + required modules) to compile your own version!
 
 
 ## Features:
