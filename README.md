@@ -10,6 +10,8 @@ A replacement multiplatform terminal built in Python.
 
 ### Engine based on [Termithon | idkDwij](https://github.com/IdkDwij/Termithon)
 
+## IMPORTANT: PYPROMPT 1.6.1 BETA 2 IS DELAYED BECAUSE PYTHON 3.11 BROKE SOMETHING
+
 ## Run this in your PC
 
 PYPROMPT DEVELOPMENT, BETA BUILDS, UNCOMPILED BUILDS
