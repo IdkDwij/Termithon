@@ -1,4 +1,4 @@
-# PyPrompt
+# PyPrompt 
 
 A replacement multiplatform terminal built in Python.
 
