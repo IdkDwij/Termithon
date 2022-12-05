@@ -13,7 +13,7 @@
 Making a terminal based in python but its ass<br>
 EXE in Releases
 
-# get started guide
+# Get Started Guide
 https://youtu.be/Nc0YpPV8k-E
 
 Features:<br>
