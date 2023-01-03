@@ -58,17 +58,14 @@ from time import sleep
 import uuid
 import py_compile
 import getpass
-import PyInstaller
 import speedtest
 import geocoder
 import wget
 import pyvim
 import requests
 import sys
-import auto_py_to_exe
 from tkinter import *
 import pip
-import numpy
 import pandas as pd
 from tkinter import ttk, filedialog
 
@@ -189,14 +186,14 @@ LOCATOR                 (Locate basically any location in the planet)
 DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
 COMPILER                (Compile any standard Python file to a *.pyc format)
 PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub') WILL REQUIRE PYTHON!!
-PYINSTALLER             (Another Python compiler) REQUIRES PYTHON
+PYINSTALLER             (Another Python compiler) REQUIRES PYTHON AND PYINSTALLER TO BE INSTALLED!
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
 MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
 BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 CREDITS                 (Credits for all commands & dev list)
-
+TSKMGR                  (TUI Windows Task Manager)
 
 PyPrompt Modes:
 
@@ -321,6 +318,9 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "bettercal":
         betterCalc()
+        main(current_dir)
+    elif cmd == "tskmgr":
+        miniTskMgr()
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -753,7 +753,7 @@ def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
     print("TERMITHON KERNEL VERSION: 0.1.3 (RELEASE-SKU)")
-    print("CODENAME: COMMON_TOOLS_BETA2")
+    print("CODENAME: I_UPDATED_DWIJ_LUL")
 
 
 def pyCompiler():
@@ -763,8 +763,6 @@ def pyCompiler():
 
 def testModules():
     print(pyvim.__version__)
-    print(PyInstaller.__version__)
-    print(auto_py_to_exe.__version__)
     print(pip.__version__)
 
 
@@ -1120,20 +1118,66 @@ def excelViewer():
 
     win.mainloop()
 
-y = "1.6.beta2"
+def miniTskMgr():
+    chrome = "chrome.exe"
+    itunes = "itunes.exe"
+    vscode = "code.exe"
+    firefox = "firefox.exe"
+    javawindowed = "javaw.exe"
+    print("Windows TUI Task Manager")
+    print(" ")
+    print("In the future you will be able to name the actual app instead of naming the actual process.")
+    print("1) Show Process List")
+    print("2) Eliminate Specific Process")
+    print("3) Return to PyPrompt")
+    print("4) Show Process Database (BETA)")
+    tskCmd = "taskkill /f /im "
+    mgr = input("Select Option: ")
+    if mgr == "1":
+        os.system("tasklist")
+        miniTskMgr()
+    elif mgr == "2":
+        print(" ")
+        print("1) Process Executable Name Mode")
+        print("2) App Name Mode (Beta)")
+        tskSel = input("Select Mode: ")
+        if tskSel == "1":
+            global task
+            task = input("Input the name of the process you want to eliminate: ")
+            os.system("taskkill /f /im " + task)
+        else:
+            print("Make sure to check the database first")
+            app = input("Process Name: ")
+            if app == "Google Chrome":
+                os.system(tskCmd + chrome)
+                main(current_dir)
+            elif app == "Visual Studio Code":
+                os.system(tskCmd + vscode)
+                main(current_dir)
+            elif app == "JavaWindowed":
+                os.system(tskCmd + javawindowed)
+                main(current_dir)
+            else:
+                print("The app name you typed either is not in the database or spelled incorrectly")
+            miniTskMgr()
+    elif mgr == "3":
+        main(current_dir)
+    elif mgr == "4":
+        database = '''
+        Google Chrome
+        Visual Studio Code 
+        JavaWindowed (javaw.exe)
+        '''
+        print(database)
+        miniTskMgr()
 
-# Changes from 1.6.beta1
+    
+y = "1.6.1.beta3"
+
+# Changes from 1.6.beta2
 # ____________________________________________________________________
-# - Modified WEATHER from getting temperature in celcius to farenheit
-# - Fixed WEATHER from always getting the weather from Sydney
-# - Fixed magic8ball from crashing
-# - String changes in CREDITS, HELP, & INTRO
-# - New Intro screen! (Less bloated!)
-# - Removed SSH (INEFFICIENT AND BUGGY)
-# - Removed TROUBLESHOOT (ALL MODULES ARE BUILT IN BINARY)
-# - PYVIM & PYINSTALLER / AUTO-PY-TO-EXE NOW REQUIRES PYTHON TO WORK
-# - Added XLVIEWER (Simple Tkinter Excel Spreadsheet Viewer)
-# - Added Disclaimer in CREDITS
+# - Changed Version from 1.6 to 1.6.1 because why not?
+# - Added tskmgr (TUI for Windows Task Manager)
 
 
 main(current_dir)
