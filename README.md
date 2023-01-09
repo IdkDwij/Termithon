@@ -10,8 +10,6 @@ A replacement multiplatform terminal built in Python.
 
 ### Engine based on [Termithon | idkDwij](https://github.com/IdkDwij/Termithon)
 
-## IMPORTANT: PYPROMPT 1.6.1 BETA 3 IS DELAYED BECAUSE PYTHON 3.11 BROKE SOMETHING
-
 ## Run this in your PC
 
 PYPROMPT DEVELOPMENT, BETA BUILDS, UNCOMPILED BUILDS
@@ -20,7 +18,7 @@ _________________________________________________________
 
 Install [Python](https://python.org) and [Visual Studio Code](https://code.visualstudio.com) (ONLY FOR PYPROMPT DEVELOPMENT)
 
-STABLE VERSIONS (CURRENTLY ON 1.6)
+STABLE VERSIONS (CURRENTLY ON 1.5.1)
 
 _________________________________________________________
 
@@ -35,7 +33,7 @@ locate your downloaded release (pyprompt.exe) and copy it to the root of your C 
 
 ### What happened to PyPrompt Development Kit?
 
-Just get the source code from here and use the stable release that includes pyinstaller and auto py to exe (requires python + required modules) to compile your own version!
+Just get the source code from here and use the stable release that includes pyinstaller and auto py to exe (requires python + required modules) to compile your own version! Make sure to download the speedtest.py file in this repo to compile with Pyinstaller.
 
 
 ## Features:
@@ -117,7 +115,7 @@ Anyone can contribute with this project! Just open up an issue or pull request a
 
 ## Credits
 
-PYPROMPT v1.6 CREDITS:
+PYPROMPT v1.6.1 CREDITS:
 
 Developer / Maker: joalricha869 | https://github.com/joalricha869
 
