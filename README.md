@@ -56,14 +56,13 @@ IP                      (Gives you your IP)
 HOSTNAME                (Gives you your Computer's ID)
 MAC                     (Retrieves the Physical MAC Address of The Device)
 PING                    (lets you ping a website)
-CALC                    (A simple calculator)
+CALC                    (A simple CLI calculator)
 PASSGEN                 (A very efficient password generator)
 SYSINFO                 (Gets relevant system info)
 TEST                    (Tests PyPrompt Sample Command)
 MAILGEN                 (Generates dummy E-Mail Addresses)
 VER                     (Reports PyPrompt Version)
 CLEAR                   (Clears screen)
-LOADBARTEST             (Tests the loadbar)
 INTRO                   (Displays initial text)
 SQRT                    (Enter a number and it will calculate the square root)
 DATE                    (Displays date)
@@ -71,22 +70,22 @@ CD                      (Navigate through folders) (NOTE: Applicable on PyPrompt
 IPLOCATION              (Find the physical location of your IP address)
 SPEEDTEST               (Speedtest.net but built into PyPrompt!)
 ENCRYPT                 (Uses the RSA Algorithm to encrypt a message!)
-TROUBLESHOOT            (Troubleshoots extra modules neccessary for PyPrompt to run)
 FILESEARCH              (Searches files via their file name)
 FILEDOWNLOADER          (Download any file via their url)
 UNHELP                  (i'm not sure what this is. it just exists.)
 LOCATOR                 (Locate basically any location in the planet)
 DEVHELP                 (Detailed info about PyPrompt useful for troubleshooting)
 COMPILER                (Compile any standard Python file to a *.pyc format)
-PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub')
-PYINSTALLER             (Another pyinstaller compiler)
+PYVIM                   (Vim clone 'MADE BY jonathanslenders On GitHub') WILL REQUIRE PYTHON!!
+PYINSTALLER             (Another Python compiler) REQUIRES PYTHON AND PYINSTALLER TO BE INSTALLED!
 EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
 MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
-BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 CREDITS                 (Credits for all commands & dev list)
-XLVIEWER                (Simple Tkinter Excel Spreadsheet Viewer)
+TSKMGR                  (TUI Windows Task Manager)
+BSOD                    (Cause a BSOD) Windows Only
+
 
 PyPrompt Modes:
 
@@ -127,8 +126,4 @@ Command Credits:
 
 WEATHER        |        Made by imkaka                | https://github.com/imkaka
 
-BETTERCAL      |        Made by flatplanet            | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
-
-XLVIEWER       |        Made by Dev Prakash Sharma    | https://www.tutorialspoint.com/how-to-open-an-excel-spreadsheet-in-treeview-widget-in-tkinter
-
-Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
+Some Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
