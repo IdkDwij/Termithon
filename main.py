@@ -145,7 +145,7 @@ pypromptascii = '''
 '''
 print(pypromptascii)
 print(" ")
-warnings()
+# warnings()
 print(" ")
 hostnamecomputer = socket.gethostname()
 global current_dir
@@ -758,7 +758,7 @@ def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
     print("TERMITHON KERNEL VERSION: 0.1.3 (RELEASE-SKU)")
-    print("CODENAME: DWIJ_UPDATE_TERMITHON")
+    print("CODENAME: DWIJ_DIED_IN_NJ")
     print(f"OPERATING SYSTEM: {uname.system}")
 
 
@@ -1003,7 +1003,7 @@ def miniTskMgr():
         print(database)
         miniTskMgr()
 
-y = "1.6.1.release_candidate.1"
+y = "1.6.1.stable"
 
 def ver():
     print("PyPrompt Version: " + y)
@@ -1028,12 +1028,30 @@ def bsod():
         byref(c_uint())
     )
 
+# Shutdown Code (To Be Released in v1.6.2)
+def shutdown():
+    print("Shutdown / Reboot your PC")
+    print("(S)hutdown")
+    print("(R)eboot")
+    why = input("Select an Option: ")
+    if why == "S":
+        osDetector = platform.uname()
+        if osDetector.system == "Windows":
+            os.system("shutdown /s /t 0")
+        else:
+            os.system("sudo shutdown now -h")
+            # Temporary Code
+    elif why == "R":
+          osDetector = platform.uname()
+          if osDetector.system == "Windows":
+              os.system("shutdown /r /t 1")
+          else:
+              os.system("sudo reboot")
+        
 
-# Changes from 1.6.1.beta3
+# Changes from 1.6.1.release.candidate.1
 # ____________________________________________________________________
-# - Removed XLVIEWER and BETTERCAL because they serve no purpose and ultra basic. (and also to reduce loading times lmao why is that a thing????)
-# - Changed Copyright Date to 2023 (dum mistake lul)
-# - Added BSOD (it's obvious what this does lmao)
+# - Bug Fixes
 
   
 # Run this piece of crap
