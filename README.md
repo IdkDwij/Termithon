@@ -5,8 +5,12 @@ A replacement multiplatform terminal built in Python.
 ![image](https://user-images.githubusercontent.com/83835381/199865215-57306158-4444-48c8-856b-1f2095dc4c05.png)
 
 
+<a href="https://heroku.com/deploy/?template=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Heroku" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/heroku.svg"></a>
 <a href="https://replit.com/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg" alt="Deploy On Replit"></a>
 <a href="https://glitch.com/edit/#!/import/github/joalricha869/PyPrompt"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg" alt="Deploy On Glitch"></a>
+<a href="https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Amplify Console" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/amplifyconsole.svg"></a>
+<a href="https://render.com/deploy?repo=https://github.com/joalricha869/PyPrompt"><img alt="Deploy to Render" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg"></a>
+
 
 ### Engine based on [Termithon | idkDwij](https://github.com/IdkDwij/Termithon)
 
