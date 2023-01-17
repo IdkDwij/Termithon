@@ -45,13 +45,17 @@
 #                ..~+=...  
 #
 from __future__ import division
+import platform
+
+global uname
+uname = platform.uname()
+
 import os
 import string
 import random
 from random import choice
 from random import randint
 import socket
-import platform
 import fnmatch
 from time import *
 from time import sleep
@@ -64,11 +68,17 @@ import wget
 import pyvim
 import requests
 import sys
-from tkinter import *
 import pip
-import pandas as pd
-from tkinter import ttk, filedialog
+if uname.system == "Windows":
+    from ctypes import *
+else:
+  pass
+# 69 lines nice
 
+# Fixes 'distutils' error in PyInstaller
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
 # Checks if Python version is more than 3.9 (Will only take effect on uncompiled build)
 if sys.version_info < (3, 9):
@@ -141,7 +151,6 @@ hostnamecomputer = socket.gethostname()
 global current_dir
 current_dir = os.getcwd()
 
-
 def listToString(s):
     str1 = ""
     for ele in s:
@@ -171,7 +180,6 @@ TEST                    (Tests PyPrompt Sample Command)
 MAILGEN                 (Generates dummy E-Mail Addresses)
 VER                     (Reports PyPrompt Version)
 CLEAR                   (Clears screen)
-LOADBARTEST             (Tests the loadbar)
 INTRO                   (Displays initial text)
 SQRT                    (Enter a number and it will calculate the square root)
 DATE                    (Displays date)
@@ -191,9 +199,9 @@ EZFORMAT                (Simplified disk formatter) ONLY WORKS ON WINDOWS
 EZTASKKILL              (Eliminate some process without using the task mamager) ONLY WORKS ON WINDOWS
 WEATHER                 (Gets the weather from any city) Made by imkaka. Github: https://github.com/imkaka
 MAGIC8BALL              (A virtual Magic-8-Ball made in Python)
-BETTERCAL               (GUI Calculator using Tkinter) Original: https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
 CREDITS                 (Credits for all commands & dev list)
 TSKMGR                  (TUI Windows Task Manager)
+BSOD                    (Cause a BSOD) Windows Only
 
 PyPrompt Modes:
 
@@ -315,12 +323,15 @@ def whatiscommand(current_dir):
         main(current_dir)
     elif cmd == "magic8ball":
         magic8Ball()
-        main(current_dir)
-    elif cmd == "bettercal":
-        betterCalc()
-        main(current_dir)
     elif cmd == "tskmgr":
         miniTskMgr()
+        main(current_dir)
+    elif cmd == "bsod":
+        var1 = platform.uname()
+        if var1.system == "Windows":
+            bsod()
+        else:
+            print("BSOD is only supported on Windows")
         main(current_dir)
     elif str(cmd) in cmd:
         print("This MUST be a shell command in the OS else your command won't work!")
@@ -338,16 +349,8 @@ def main(current_dir):
     cmd = input(current_dir + '>')
     whatiscommand(current_dir)
 
-
-def ver():
-    print("PyPrompt Version: " + y)
-    print("(C) 2022 joalricha869, All Rights Reserved.")
-
-
 def getSystemInfo():
     print("=" * 40, "System Information", "=" * 40)
-    global uname
-    uname = platform.uname()
     print(f"System: {uname.system}")
     print(f"Node Name: {uname.node}")
     print(f"Release: {uname.release}")
@@ -424,8 +427,10 @@ def clear():
     os.system('cls||clear')
     main(current_dir)
 
-
 def error():
+
+# LMAO 420 lines
+
     if (cmd == ""):
         main(current_dir)
     else:
@@ -753,7 +758,8 @@ def devHelp():
     print("----------PyPrompt System Details----------\n")
     print("PYPROMPT VERSION: " + y)
     print("TERMITHON KERNEL VERSION: 0.1.3 (RELEASE-SKU)")
-    print("CODENAME: I_UPDATED_DWIJ_LUL")
+    print("CODENAME: DWIJ_UPDATE_TERMITHON")
+    print(f"OPERATING SYSTEM: {uname.system}")
 
 
 def pyCompiler():
@@ -914,113 +920,6 @@ def magic8Ball():
 
     M8B()
 
-def betterCalc():
-    root = Tk()
-    root.title("Better Calculator")
-
-    e = Entry(root, width=35, borderwidth=5)
-    e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-
-    #e.insert(0, "")
-
-    def button_click(number):
-        #e.delete(0, END)
-        current = e.get()
-        e.delete(0, END)
-        e.insert(0, str(current) + str(number))
-
-    def button_clear():
-        e.delete(0, END)
-
-    def button_add():
-        first_number = e.get()
-        global f_num
-        global math
-        math = "addition"
-        f_num = int(first_number)
-        e.delete(0, END)
-
-    def button_equal():
-        second_number = e.get()
-        e.delete(0, END)
-        
-        if math == "addition":
-            e.insert(0, f_num + int(second_number))
-
-        if math == "subtraction":
-            e.insert(0, f_num - int(second_number))
-
-        if math == "multiplication":
-            e.insert(0, f_num * int(second_number))
-
-        if math == "division":
-            e.insert(0, f_num / int(second_number))
-
-        
-
-    def button_subtract():
-        first_number = e.get()
-        global f_num
-        global math
-        math = "subtraction"
-        f_num = int(first_number)
-        e.delete(0, END)
-
-    def button_multiply():
-        first_number = e.get()
-        global f_num
-        global math
-        math = "multiplication"
-        f_num = int(first_number)
-        e.delete(0, END)
-
-    def button_divide():
-        first_number = e.get()
-        global f_num
-        global math
-        math = "division"
-        f_num = int(first_number)
-        e.delete(0, END)
-
-
-    # Define Buttons
-
-    button_1 = Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
-    button_2 = Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
-    button_3 = Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
-    button_4 = Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
-    button_5 = Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
-    button_6 = Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
-    button_7 = Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7))
-    button_8 = Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
-    button_9 = Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
-    button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
-    button_add = Button(root, text="+", padx=39, pady=20, command=button_add)
-    button_equal = Button(root, text="=", padx=91, pady=20, command=button_equal)
-    button_clear = Button(root, text="Clear", padx=79, pady=20, command=button_clear)
-    button_subtract = Button(root, text="-", padx=41, pady=20, command=button_subtract)
-    button_multiply = Button(root, text="*", padx=40, pady=20, command=button_multiply)
-    button_divide = Button(root, text="/", padx=41, pady=20, command=button_divide)
-
-    # Put the buttons on the screen
-
-    button_1.grid(row=3, column=0)
-    button_2.grid(row=3, column=1)
-    button_3.grid(row=3, column=2)
-    button_4.grid(row=2, column=0)
-    button_5.grid(row=2, column=1)
-    button_6.grid(row=2, column=2)
-    button_7.grid(row=1, column=0)
-    button_8.grid(row=1, column=1)
-    button_9.grid(row=1, column=2)
-    button_0.grid(row=4, column=0)
-    button_clear.grid(row=4, column=1, columnspan=2)
-    button_add.grid(row=5, column=0)
-    button_equal.grid(row=5, column=1, columnspan=2)
-    button_subtract.grid(row=6, column=0)
-    button_multiply.grid(row=6, column=1)
-    button_divide.grid(row=6, column=2)
-    root.mainloop()
 
 def credits():
     pyCredits = '''
@@ -1033,8 +932,6 @@ CLI Calculator FIX: BigBoyTaco | https://github.com/BigBoyTaco
 Command Credits:
 
 WEATHER                 Made by imkaka      | https://github.com/imkaka
-BETTERCAL               Made by flatplanet  | https://github.com/flatplanet/Intro-To-Tkinter-Youtube-Course
-XLVIEWER                Made by Dev Prakash Sharma | https://www.tutorialspoint.com/how-to-open-an-excel-spreadsheet-in-treeview-widget-in-tkinter
 
 Most Commands by hastagAB | https://github.com/hastagAB/Awesome-Python-Scripts
 
@@ -1052,71 +949,6 @@ LICENSE: GPL 3.0 | https://www.gnu.org/licenses/gpl-3.0.en.html
     print("Type in 'help' for the command list.")
     print("SOME COMMANDS ARE MADE BY OTHER PEOPLE!")
     print("READ CREDITS ABOVE FOR MORE INFO")
-
-def excelViewer():
-    win = Tk()
-    win.geometry("700x350")
-
-    # Create an object of Style widget
-    style = ttk.Style()
-    style.theme_use('clam')
-
-    # Create a Frame
-    frame = Frame(win)
-    frame.pack(pady=20)
-    # Define a function for opening the file
-    def open_file():
-        filename = filedialog.askopenfilename(title="Open a File", filetype=(("xlxs files", ".*xlsx"),
-    ("All Files", "*.")))
-
-    if filename:
-        try:
-            filename = r"{}".format(filename)
-            df = pd.read_excel(filename)
-        except ValueError:
-            label.config(text="File could not be opened")
-        except FileNotFoundError:
-            label.config(text="File Not Found")
-
-    # Clear all the previous data in tree
-    clear_treeview()
-
-    # Add new data in Treeview widget
-    tree["column"] = list(df.columns)
-    tree["show"] = "headings"
-
-    # For Headings iterate over the columns
-    for col in tree["column"]:
-        tree.heading(col, text=col)
-
-    # Put Data in Rows
-    df_rows = df.to_numpy().tolist()
-    for row in df_rows:
-        tree.insert("", "end", values=row)
-
-    tree.pack()
-
-    # Clear the Treeview Widget
-    def clear_treeview():
-        tree.delete(*tree.get_children())
-
-    # Create a Treeview widget
-    tree = ttk.Treeview(frame)
-
-    # Add a Menu
-    m = Menu(win)
-    win.config(menu=m)
-
-    # Add Menu Dropdown
-    file_menu = Menu(m, tearoff=False)
-    m.add_cascade(label="Menu", menu=file_menu)
-    file_menu.add_command(label="Open Spreadsheet", command=open_file)
-
-    # Add a Label widget to display the file content
-    label = Label(win, text='')
-    label.pack(pady=20)
-
-    win.mainloop()
 
 def miniTskMgr():
     chrome = "chrome.exe"
@@ -1171,13 +1003,38 @@ def miniTskMgr():
         print(database)
         miniTskMgr()
 
+y = "1.6.1.release_candidate.1"
+
+def ver():
+    print("PyPrompt Version: " + y)
+    print("(C) 2023 joalricha869, All Rights Reserved.")
+
+def bsod():
+    nullptr = POINTER(c_int)()
     
-y = "1.6.1.beta3"
+    windll.ntdll.RtlAdjustPrivilege(
+        c_uint(19), 
+        c_uint(1), 
+        c_uint(0), 
+        byref(c_int())
+    )
+    
+    windll.ntdll.NtRaiseHardError(
+        c_ulong(0xC000007B), 
+        c_ulong(0), 
+        nullptr, 
+        nullptr, 
+        c_uint(6), 
+        byref(c_uint())
+    )
 
-# Changes from 1.6.beta2
+
+# Changes from 1.6.1.beta3
 # ____________________________________________________________________
-# - Changed Version from 1.6 to 1.6.1 because why not?
-# - Added tskmgr (TUI for Windows Task Manager)
+# - Removed XLVIEWER and BETTERCAL because they serve no purpose and ultra basic. (and also to reduce loading times lmao why is that a thing????)
+# - Changed Copyright Date to 2023 (dum mistake lul)
+# - Added BSOD (it's obvious what this does lmao)
 
-
+  
+# Run this piece of crap
 main(current_dir)
