@@ -22,7 +22,7 @@ _________________________________________________________
 
 Install [Python](https://python.org) and [Visual Studio Code](https://code.visualstudio.com) (ONLY FOR PYPROMPT DEVELOPMENT)
 
-STABLE VERSIONS (CURRENTLY ON 1.5.1)
+STABLE VERSIONS (CURRENTLY ON 1.6.1)
 
 _________________________________________________________
 
