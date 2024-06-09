@@ -17,26 +17,26 @@ EXE in Releases
 https://youtu.be/Nc0YpPV8k-E
 
 Features:<br>
-ls (shows files in current directory)
-exit (exits program)
-ip (gives you your ip)
-hostname (gives you your computers id)
-user (gives the user your logged on)
-mac (gives you your mac addresss)
-ping (lets you ping a website)
-winfetch (A lot of info about your computer)
-wifi ( gives you your wifi info and passwords)
+ls (shows files in current directory)<br> 
+exit (exits program)<br>
+ip (gives you your ip)<br>
+hostname (gives you your computers id)<br>
+user (gives the user your logged on)<br>
+mac (gives you your mac addresss)<br>
+ping (lets you ping a website)<br>
+winfetch (A lot of info about your computer)<br>
+wifi ( gives you your wifi info and passwords)<br>
 python3 (full python3 support [only if you have python3 installed])
-pip (python pip command)
-cd (change current working directory)
-del (deletes file)
-mkdir (creates folder)
-echo (echo something or create something [not currently working])
-clear (clear terminal)
-curl (the curl command)
-start (run something)
-color (change text color)
-
+pip (python pip command)<br>
+cd (change current working directory)<br>
+del (deletes file)<br>
+mkdir (creates folder)<br>
+echo (echo something or create something [not currently working])<br>
+clear (clear terminal)<br>
+curl (the curl command)<br>
+start (run something)<br>
+color (change text color)<br>
+<br>
 # Usage<br>
 example for commands<br>
 ```
