@@ -11,7 +11,7 @@
 
 # Termithon
 Making a terminal based in python but its ass<br>
-EXE in Releases
+EXE in Releases (Not available for recent releases)
 
 # Get Started Guide
 https://youtu.be/Nc0YpPV8k-E
