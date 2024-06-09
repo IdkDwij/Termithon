@@ -31,7 +31,7 @@ pip (python pip command)<br>
 cd (change current working directory)<br>
 del (deletes file)<br>
 mkdir (creates folder)<br>
-echo (echo something or create something [not currently working])<br>
+echo (echo something or create something<br>
 clear (clear terminal)<br>
 curl (the curl command)<br>
 start (run something)<br>
