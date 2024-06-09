@@ -1,9 +1,13 @@
 import getpass
+import platform
 import os
 import random
 import socket
 from uuid import getnode as get_mac
 import time
+import signal
+import subprocess
+
 try:
     import colorama
     from colorama import Fore
@@ -14,12 +18,19 @@ except:
     print('closing in 5 seconds')
     time.sleep(5)
     exit()
+
 mac = get_mac()
-# Made in python
-# collaborated with https://github.com/BigBoyTaco/ for this little update
-# thanks for green1490#2863 for helping me with arguments
 os.system('cls||clear')
-print(Fore.RED + 'Termithon' + Fore.WHITE)
+termithon = '''
+
+ _______ _______  ______ _______ _____ _______ _     _  _____  __   _
+    |    |______ |_____/ |  |  |   |      |    |_____| |     | | \  |
+    |    |______ |    \_ |  |  | __|__    |    |     | |_____| |  \_|
+                                                                      
+                                                                                                                               
+                                                                                                                               
+
+'''
 idkdwij = '''
     I   D       K   K   D       W         W     I       J
     I   D   D   K K     D  D    W    W    W     I   J   J
@@ -34,25 +45,29 @@ bigboytaco = '''
  |____/|_|\__, |____/ \___/ \__, |_|\__,_|\___\___/ 
            __/ |             __/ |                  
           |___/             |___/   '''
-print('The Python based terminal by' + idkdwij + 'it says idkdwij')
-print("IRL Friend/2nd devloper" + Fore.GREEN + bigboytaco + Fore.WHITE)
+
+rohanisaidiot = '''                                        
+         /             o          o    /o    _/_
+ _   __ /_  __,  _ _  ,  (   __, ,  __/,  __ /  
+/ (_(_)/ /_(_/(_/ / /_(_/_)_(_/(_(_(_/_(_(_)(__ 
+'''
+print(Fore.RED + termithon + Fore.WHITE)
+print('The Python based terminal by' + Fore.LIGHTYELLOW_EX + idkdwij + Fore.WHITE + 'it says idkdwij')
+print("IRL Friend/2nd developer" + Fore.GREEN + bigboytaco + Fore.WHITE)
+print(Fore.MAGENTA + rohanisaidiot + Fore.WHITE)
 print('The source is here github.com/IDkDwij/termithon')
-#setup
+
+# Setup
 global current_dir
 global echo_on
 echo_on = False
-PY_warning_said = bool(False)
-#get hostname
+PY_warning_said = False
+
+# Get hostname
 hostname = socket.gethostname()
-#gets users ip addresss
+
+# Get user's IP address
 ip = socket.gethostbyname(hostname)
-
-def listToString(s):
-    str1 = ""
-    for ele in s:
-        str1 += ele
-    return str1
-
 
 current_dir = os.getcwd()
 
@@ -76,135 +91,115 @@ color (change text color)
 
 For more help go to github.com/IDkDwij/termithon
 '''
+# Function to print the interface
 
-def main(current_dir):
-    global old_dir
-    old_dir = current_dir
-    global cmd
-    cmd = input(current_dir + '>')
-    whatiscommand(current_dir)
 
-def whatiscommand(current_dir):
+def handle_command(cmd, current_dir):
+    global PY_warning_said
     args = cmd.split()
-    #help command
-    if args[0] == 'help':
+    
+    if not args:
+        return current_dir
+    
+    command = args[0]
+    
+    if command == 'help':
         print(commands)
-        main(current_dir)
-    #ls command
-    elif args[0] == 'ls':
+    elif command == 'ls':
         print(os.listdir(current_dir))
-        main(current_dir)
-    elif args[0] == 'curl':
+    elif command == 'curl':
         os.system(cmd)
-        main(current_dir)
-    #start command
-    elif args[0] == "start":
+    elif command == "start":
         os.system(cmd)
-    #cd command
-    elif args[0] == "cd":
-        args.remove('cd')
-        args = ' '.join(args)
-        if args[0] == "cd":
-            main(current_dir)
-        old_dir = current_dir
-        if os.path.isdir(args) == True:
-            current_dir = args
-            main(args)
-        elif os.path.isdir(old_dir + '\\' + args):
-            new_dir = old_dir + '\\' + args
-            current_dir = new_dir
-            main(new_dir)
+    elif command == "cd":
+        if len(args) < 2:
+            print('The system cannot find the path specified.')
         else:
-            print('The system cannot find the path specified. \n')
-            main(current_dir)
-    #exit command
-    elif args[0] == 'exit':
+            path = ' '.join(args[1:])
+            if os.path.isdir(path):
+                current_dir = path
+            elif os.path.isdir(os.path.join(current_dir, path)):
+                current_dir = os.path.join(current_dir, path)
+            else:
+                print('The system cannot find the path specified.')
+    elif command == 'exit':
         exit()
-    #ip command
-    elif args[0] == 'ip':
+    elif command == 'ip':
         print(ip)
-        main(current_dir)
-    #hostname command
-    elif args[0] == 'hostname':
+    elif command == 'hostname':
         print(hostname)
-        main(current_dir)
-    #users command
-    elif args[0] == 'user':
-        print(curr_user())
-        main(current_dir)
-    #mac address command
-    elif args[0] == "mac":
+    elif command == 'user':
+        print(getpass.getuser())
+    elif command == "mac":
         print(mac)
-        main(current_dir)
-    #ping command
-    elif args[0] == 'ping':
+    elif command == 'ping':
         os.system(cmd)
-        main(current_dir)
-     #clear command
-    elif args[0] == "clear":
-        os.system('cls||clear')
-        main(current_dir)
-    elif args[0] == "mkdir":
-        try:
-            os.makedirs(args[1])
-        except:
-            os.makedirs(current_dir + args[1])
-        main(current_dir)
-    elif args[0] == "del":
-        try:
-            os.remove(args[1])
-        except:
-            os.remove(current_dir + args[1])
-        main(current_dir)
-    elif args[0] == 'echo':
-        args.remove('echo')
-        args = ' '.join(args)
-        print(args)
-        main(current_dir)
-        
-    #python command
-    elif args[0] == 'python3':
-        global PY_warning_said
-        if PY_warning_said == False:
-            print('warning, this reqires python3 to be installed')
-            PY_warning_said = True
-            os.system(cmd)
-            main(current_dir)
+    elif command == "clear":
+        os.system('cls||clear') 
+    elif command == "mkdir":
+        if len(args) < 2:
+            print('Usage: mkdir <directory_name>')
         else:
-            os.system(cmd)
-            main(current_dir)
-    elif args[0] == "":
-        main(current_dir)
-    elif  "color" in cmd:
-        color(current_dir,cur_color)
-    elif args[0] == 'pip':
-        print('warning python must be installed to use this commnad')
+            try:
+                os.makedirs(args[1])
+            except:
+                os.makedirs(current_dir + args[1])
+    elif command == "del":
+        if len(args) < 2:
+            print('Usage: del <file_name>')
+        else:
+            try:
+                os.remove(args[1])
+            except:
+                os.remove(current_dir + args[1])
+    elif command == 'echo':
+        print(' '.join(args[1:]))
+    elif command == 'python3':
+        if not PY_warning_said:
+            print('warning, this requires python3 to be installed')
+            PY_warning_said = True
+        os.system(cmd)
+    elif command == 'pip':
+        print('warning python must be installed to use this command')
         time.sleep(1)
         os.system(cmd)
-        main(current_dir)
+    elif "color" in cmd:
+        change_color(args)  
+    elif "blackjack" in cmd:
+        blackjack()
+    elif command == "wifi":
+        if platform.system() == "Windows":
+            get_wifi_password_windows()
+        else:
+            print("Unsupported platform")
     else:
-        Miscellaneous.commands(current_dir,cur_color)
-class Miscellaneous():
-    def commands(current_dir,cur_color):
-        if args[0] == 'inspace':
-            Miscellaneous.emulation(current_dir,cur_color)
-        else:
-            Miscellaneous.error(current_dir,cur_color)
-    def emulation(current_dir,cur_color):
-        chance = random.randint(1,100)
-        if chance > 2:
-            print("You Died")
-        else:
-            print('You survived')
-        main(current_dir)
-    def error(current_dir):
-        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
-        main(current_dir)
+        Miscellaneous.commands(cmd, current_dir)
 
-def color(current_dir):
-    args = cmd.split()
-    if args[0] == "color":
-        print('''       0 = Black       8 = Gray
+    return current_dir
+def blackjack():
+      print("placeholder")
+
+def get_wifi_password_windows():
+    output = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
+    profiles = [line.split(":")[1][1:-1] for line in output if "All User Profile" in line]
+    for profile in profiles:
+        try:
+            results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', profile, 'key=clear']).decode('utf-8').split('\n')
+            password = os.system('netsh wlan show profile name=' + profile + ' key=clear | find "Key Content"')
+            if password:
+                print(f"Wi-Fi Network: {profile}")
+                print(f"Password: {password[0]}")
+            else: 
+                print(f"Wi-Fi Network: {profile}")
+                print("Password not available for this network.")
+        except Exception as e:
+            print(f"Error occurred while retrieving password for {profile}: {str(e)}")
+
+
+def change_color(args):
+    if len(args) == 1 or args[1] == "help":
+        print('''Available colors:
+        0 = Black       8 = Gray
         1 = Blue        9 = Light Blue
         2 = Green       A = Light Green
         3 = Aqua        B = Light Aqua
@@ -212,45 +207,70 @@ def color(current_dir):
         5 = Purple      D = Light Purple
         6 = Yellow      E = Light Yellow
         7 = White       F = Bright White''')
-    elif args[1] == "help":
-        print('''            0 = Black       8 = Gray
-            1 = Blue        9 = Light Blue
-            2 = Green       A = Light Green
-            3 = Aqua        B = Light Aqua
-            4 = Red         C = Light Red
-            5 = Purple      D = Light Purple
-            6 = Yellow      E = Light Yellow
-            7 = White       F = Bright White''')
-    elif args[1] == "1":
-        cur_color = Fore.BLUE
-    elif args[1] == "2":
-        cur_color = Fore.GREEN
-    elif args[1] == "3":
-        cur_color = Fore.CYAN
-    elif args[1] == "4":
-        cur_color = Fore.RED
-    elif args[1] == "5":
-        cur_color = Fore.RED
-    elif args[1] == "6":
-        cur_color = Fore.YELLOW
-    elif args[1] == "7":
-        cur_color = Fore.WHITE
-    elif args[1] == "8":
-        cur_color = Fore.LIGHTBLACK_EX
-    elif args[1] == "9":
-        cur_color = Fore.LIGHTBLUE_EX
-    elif args[1] == "0":
-        cur_color = Fore.BLACK
-    elif args[1].lower() == "a":
-        cur_color = Fore.BLUE
-    elif args[1].lower() == "c":
-        cur_color = Fore.LIGHTRED_EX
-    elif args[1].lower() == "d":
-        cur_color = Fore.LIGHTMAGENTA_EX
-    elif args[1].lower() == "e":
-        cur_color = Fore.LIGHTYELLOW_EX
-    elif args[1].lower() == "f":
-        cur_color = Fore.LIGHTWHITE_EX
-    main(current_dir)
+    elif args[1] in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']:
+        print(Fore.RESET + f"Color changed to {args[1]}")
+        if args[1] == '0':
+            print(Fore.BLACK, end="")
+        elif args[1] == '1':
+            print(Fore.BLUE, end="")
+        elif args[1] == '2':
+            print(Fore.GREEN, end="")
+        elif args[1] == '3':
+            print(Fore.CYAN, end="")
+        elif args[1] == '4':
+            print(Fore.RED, end="")
+        elif args[1] == '5':
+            print(Fore.MAGENTA, end="")
+        elif args[1] == '6':
+            print(Fore.YELLOW, end="")
+        elif args[1] == '7':
+            print(Fore.WHITE, end="")
+        elif args[1] == '8':
+            print(Fore.LIGHTBLACK_EX, end="")
+        elif args[1] == '9':
+            print(Fore.LIGHTBLUE_EX, end="")
+        elif args[1] == 'A':
+            print(Fore.LIGHTGREEN_EX, end="")
+        elif args[1] == 'B':
+            print(Fore.LIGHTCYAN_EX, end="")
+        elif args[1] == 'C':
+            print(Fore.LIGHTRED_EX, end="")
+        elif args[1] == 'D':
+            print(Fore.LIGHTMAGENTA_EX, end="")
+        elif args[1] == 'E':
+            print(Fore.LIGHTYELLOW_EX, end="")
+        elif args[1] == 'F':
+            print(Fore.WHITE, end="")
+    else:
+        print("Invalid color code")
 
-main(current_dir)
+
+class Miscellaneous():
+    @staticmethod
+    def commands(cmd, current_dir):
+        args = cmd.split()
+        if args[0] == 'inspace':
+            Miscellaneous.emulation()
+        else:
+            Miscellaneous.error(cmd)
+
+    @staticmethod
+    def emulation():
+        chance = random.randint(1, 100)
+        if chance > 2:
+            print("You Died")
+        else:
+            print('You survived')
+
+    @staticmethod
+    def error(cmd):
+        print("'" + str(cmd) + "'" + ''' is not recognized as an internal or external command (external commands not supported atm)''')
+
+def main():
+    global current_dir
+    while True:
+        cmd = input(f"{os.getlogin()}@{hostname}:{current_dir}$ ")
+        current_dir = handle_command(cmd, current_dir)
+
+if __name__ == "__main__":
+    main()
