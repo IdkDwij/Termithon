@@ -36,6 +36,8 @@ clear (clear terminal)<br>
 curl (the curl command)<br>
 start (run something)<br>
 color (change text color)<br>
+wifi (gets wifi password for all available networks)<br>'
+winfetch (gets various sys information)<br>
 <br>
 # Usage<br>
 example for commands<br>
