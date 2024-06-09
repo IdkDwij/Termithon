@@ -8,6 +8,8 @@ import time
 import signal
 import subprocess
 
+
+
 try:
     import colorama
     from colorama import Fore
@@ -63,6 +65,7 @@ global echo_on
 echo_on = False
 PY_warning_said = False
 
+
 # Get hostname
 hostname = socket.gethostname()
 
@@ -79,7 +82,6 @@ user (gives the user your logged on)
 mac (gives you your mac addresss)
 ping (lets you ping a website)
 winfetch (A lot of info about your computer)
-wifi ( gives you your wifi info and passwords)
 python3 (full python3 support [only if you have python3 installed])
 pip (python pip command)
 cd (change current working directory)
@@ -189,15 +191,22 @@ def get_wifi_password_windows():
     for profile in profiles:
         try:
             results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', profile, 'key=clear']).decode('utf-8').split('\n')
-            password = os.system('netsh wlan show profile name=' + profile + ' key=clear | find "Key Content"')
-            if password:
-                print(f"Wi-Fi Network: {profile}")
-                print(f"Password: {password[0]}")
-            else: 
-                print(f"Wi-Fi Network: {profile}")
+            password_line = [line for line in results if "Key Content" in line]
+            if password_line:
+                password = password_line[0].split(":")[1].strip()
+                print(Fore.BLUE + "_" * 40 + Fore.WHITE)
+                print(f"Network: {profile}")
+                print(f"Password: {password}")
+            else:
+                print(f"Network: {profile}")
                 print("Password not available for this network.")
+            # Print a dotted blue line
+            print(Fore.BLUE + "_" * 40 + Fore.WHITE)
+            print(" " * 40)
+            print(" " * 40)
         except Exception as e:
             print(f"Error occurred while retrieving password for {profile}: {str(e)}")
+
 
 
 def change_color(args):
@@ -252,7 +261,7 @@ def change_color(args):
 class Miscellaneous():
     @staticmethod
     def commands(cmd, current_dir):
-        args = cmd.split()
+        args = cmd.split() 
         if args[0] == 'inspace':
             Miscellaneous.emulation()
         else:
