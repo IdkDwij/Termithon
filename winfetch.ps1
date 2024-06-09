@@ -16,7 +16,6 @@ function Get-SystemInfo {
     [PSCustomObject]@{
         "Manufacturer" = $sys.Manufacturer
         "Model" = $sys.Model
-        "System Type" = $sys.SystemType
     }
 }
 
@@ -25,22 +24,7 @@ function Get-CPUInfo {
     $cpu = Get-CimInstance Win32_Processor
     [PSCustomObject]@{
         "Processor" = $cpu.Name
-        "Cores" = $cpu.NumberOfCores
-        "Threads" = $cpu.NumberOfLogicalProcessors
     }
-}
-
-# Function to get GPU info
-function Get-GPUInfo {
-    $gpu = Get-CimInstance Win32_VideoController
-    $gpuInfo = @()
-    foreach ($g in $gpu) {
-        $gpuInfo += [PSCustomObject]@{
-            "GPU" = $g.Name
-            "VRAM" = [math]::Round($g.AdapterRAM / 1MB, 2)
-        }
-    }
-    return $gpuInfo
 }
 
 # Function to get Memory info
@@ -48,11 +32,9 @@ function Get-MemoryInfo {
     $mem = Get-CimInstance Win32_PhysicalMemory
     $totalMem = ($mem | Measure-Object -Property Capacity -Sum).Sum
     [PSCustomObject]@{
-        "Total Memory" = [math]::Round($totalMem / 1GB, 2)
+        "Memory (GB)" = [math]::Round($totalMem / 1GB, 2)
     }
 }
-
-# Function to get Disk info
 function Get-DiskInfo {
     $disk = Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3"
     $diskInfo = @()
@@ -67,38 +49,63 @@ function Get-DiskInfo {
     return $diskInfo
 }
 
+function Get-GPUInfo {
+    $gpu = Get-CimInstance Win32_VideoController
+    $gpuInfo = @()
+    foreach ($g in $gpu) {
+        $gpuInfo += [PSCustomObject]@{
+            "GPU" = $g.Name
+            "VRAM" = [math]::Round($g.AdapterRAM / 1MB, 2)
+        }
+    }
+    return $gpuInfo
+}
+
 # Function to display info
 function Display-Info {
-    Write-Host "Neofetch for PowerShell" -ForegroundColor Cyan
-    Write-Host "======================="
+    $asciiLogo = @"
+
+
+ lllllllllllllll   lllllllllllllll
+  lllllllllllllll   lllllllllllllll
+   lllllllllllllll   lllllllllllllll
+    lllllllllllllll   lllllllllllllll
+     lllllllllllllll   lllllllllllllll
+      lllllllllllllll   lllllllllllllll
+
+        lllllllllllllll   lllllllllllllll
+         lllllllllllllll   lllllllllllllll
+          lllllllllllllll   lllllllllllllll
+           lllllllllllllll   lllllllllllllll
+            lllllllllllllll   lllllllllllllll
+             lllllllllllllll   lllllllllllllll
+
+
+
+"@
+
+
+    Write-Host $asciiLogo -ForegroundColor Blue -NoNewline
 
     $osInfo = Get-OSInfo
-    Write-Host "`nOS Information:`n-----------------"
-    $osInfo.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
-
     $sysInfo = Get-SystemInfo
-    Write-Host "`nSystem Information:`n----------------------"
-    $sysInfo.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
-
     $cpuInfo = Get-CPUInfo
-    Write-Host "`nCPU Information:`n-----------------"
-    $cpuInfo.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
-
-    $gpuInfo = Get-GPUInfo
-    Write-Host "`nGPU Information:`n-----------------"
-    foreach ($gpu in $gpuInfo) {
-        $gpu.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
-        Write-Host ""
-    }
-
     $memInfo = Get-MemoryInfo
-    Write-Host "`nMemory Information:`n-------------------"
-    $memInfo.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
-
     $diskInfo = Get-DiskInfo
-    Write-Host "`nDisk Information:`n-------------------"
+    $gpuInfo = Get-GPUInfo
+
+    Write-Host "OS:" -ForegroundColor Blue -NoNewline; Write-Host " $($osInfo.OS) $($osInfo.Version) (Build $($osInfo.Build))"
+    Write-Host "Host:" -ForegroundColor Blue -NoNewline; Write-Host " $($sysInfo.Manufacturer) $($sysInfo.Model)"
+    Write-Host "CPU:" -ForegroundColor Blue -NoNewline; Write-Host " $($cpuInfo.Processor)"
+    Write-Host "Memory:" -ForegroundColor Blue -NoNewline; Write-Host " $($memInfo.'Memory (GB)') GB"
+    Write-Host "Disk Info: " -ForegroundColor Blue -NoNewLine; Write-Host 
     foreach ($disk in $diskInfo) {
         $disk.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
+        Write-Host ""
+    }
+    Write-Host "GPU: " -ForegroundColor Blue -NoNewLine; Write-Host 
+    foreach ($gpu in $gpuInfo) {
+        $gpu.PSObject.Properties | ForEach-Object { Write-Host ($_.Name + ": " + $_.Value) }
         Write-Host ""
     }
 }
