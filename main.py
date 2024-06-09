@@ -78,6 +78,8 @@ hostname (gives you your computers id)
 user (gives the user your logged on)
 mac (gives you your mac addresss)
 ping (lets you ping a website)
+winfetch (A lot of info about your computer)
+wifi ( gives you your wifi info and passwords)
 python3 (full python3 support [only if you have python3 installed])
 pip (python pip command)
 cd (change current working directory)
@@ -105,6 +107,8 @@ def handle_command(cmd, current_dir):
     
     if command == 'help':
         print(commands)
+    elif command == 'winfetch':
+        os.system("powershell -File \"" + os.path.dirname(__file__) +"/winfetch.ps1\"")
     elif command == 'ls':
         print(os.listdir(current_dir))
     elif command == 'curl':
