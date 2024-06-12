@@ -334,14 +334,14 @@ def get_wifi_password_windows():
             password_line = [line for line in results if "Key Content" in line]
             if password_line:
                 password = password_line[0].split(":")[1].strip()
-                print(Fore.BLUE + "_" * 40 + Fore.WHITE)
+                print(Fore.CYAN + "_" * 40 + Fore.WHITE)
                 print(f"\nNetwork: {profile}")
                 print(f"\nPassword: {password}")
             else:
                 print(f"\nNetwork: {profile}")
                 print("\nPassword not available for this network.")
     
-            print(Fore.BLUE + "_" * 40 + Fore.WHITE)
+            print(Fore.CYAN + "_" * 40 + Fore.WHITE)
             print(" " * 40)
             print(" " * 40)
         except Exception as e:
