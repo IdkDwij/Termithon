@@ -43,11 +43,11 @@ packagelist (displays all installed python packages)<br>
 <br>
 # Usage<br>
 example for commands<br>
-```
+
 ping www.google.com<br>
 mkdir foldername<br>
 del filename<br>
 echo hihi<br>
 python3 (requires python3)<br>
 cd C:\<br>
-```
+
