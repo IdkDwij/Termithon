@@ -37,7 +37,9 @@ curl (the curl command)<br>
 start (run something)<br>
 color (change text color)<br>
 wifi (gets wifi password for all available networks)<br>
-winfetch (gets various sys information)<br>
+diafetch (gets various sys information)<br>
+packagelist (displays all installed python packages)<br>
+
 <br>
 # Usage<br>
 example for commands<br>
