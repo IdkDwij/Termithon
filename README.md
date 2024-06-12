@@ -44,10 +44,10 @@ packagelist (displays all installed python packages)<br>
 # Usage<br>
 example for commands<br>
 ```
-ping www.google.com
-mkdir foldername
-del filename
-echo hihi
-python3 (requires python3)
-cd C:\
+ping www.google.com<br>
+mkdir foldername<br>
+del filename<br>
+echo hihi<br>
+python3 (requires python3)<br>
+cd C:\<br>
 ```
