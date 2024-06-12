@@ -7,15 +7,25 @@ from uuid import getnode as get_mac
 import time
 import signal
 import subprocess
-
-
+from datetime import timedelta
+import pkg_resources
 
 try:
+    import psutil
+    import shutil
+    import gpuinfo
+    from win32api import GetSystemMetrics
+    from gpuinfo import GPUInfo
     import colorama
-    from colorama import Fore
+    from colorama import Fore, Style
+
 except:
-    print("Colorama package not found, installing Colorama")
+    print("Required package not found, installing")
     os.system("pip install colorama")
+    os.system("pip install pywin32")
+    os.system("pip install shutils")
+    os.system("pip install gpuinfo")
+    os.system("pip install psutil")
     print('Termithon restart required')
     print('closing in 5 seconds')
     time.sleep(5)
@@ -66,6 +76,7 @@ echo_on = False
 PY_warning_said = False
 
 
+
 # Get hostname
 hostname = socket.gethostname()
 
@@ -81,7 +92,7 @@ hostname (gives you your computers id)
 user (gives the user your logged on)
 mac (gives you your mac addresss)
 ping (lets you ping a website)
-winfetch (A lot of info about your computer)
+diafetch (A lot of info about your computer)
 python3 (full python3 support [only if you have python3 installed])
 pip (python pip command)
 cd (change current working directory)
@@ -92,10 +103,11 @@ clear (clear terminal)
 curl (the curl command)
 start (run something)
 color (change text color)
+packagelist (All installed python packages)
 
 For more help go to github.com/IDkDwij/termithon
 '''
-# Function to print the interface
+
 
 
 def handle_command(cmd, current_dir):
@@ -109,8 +121,6 @@ def handle_command(cmd, current_dir):
     
     if command == 'help':
         print(commands)
-    elif command == 'winfetch':
-        os.system("powershell -File \"" + os.path.dirname(__file__) +"/winfetch.ps1\"")
     elif command == 'ls':
         print(os.listdir(current_dir))
     elif command == 'curl':
@@ -131,11 +141,11 @@ def handle_command(cmd, current_dir):
     elif command == 'exit':
         exit()
     elif command == 'ip':
-        print(ip)
+        print(Fore.CYAN + ip + Fore.WHITE)
     elif command == 'hostname':
-        print(hostname)
+        print(Fore.CYAN + hostname + Fore.WHITE)
     elif command == 'user':
-        print(getpass.getuser())
+        print(Fore.CYAN + getpass.getuser() + Fore.WHITE)
     elif command == "mac":
         print(mac)
     elif command == 'ping':
@@ -159,31 +169,161 @@ def handle_command(cmd, current_dir):
             except:
                 os.remove(current_dir + args[1])
     elif command == 'echo':
-        print(' '.join(args[1:]))
+        print(Fore.CYAN + ' '.join(args[1:]) + Fore.WHITE)
     elif command == 'python3':
         if not PY_warning_said:
-            print('warning, this requires python3 to be installed')
+            print(Fore.CYAN + 'warning, this requires python3 to be installed' + Fore.WHITE)
             PY_warning_said = True
         os.system(cmd)
     elif command == 'pip':
-        print('warning python must be installed to use this command')
+        print(Fore.CYAN + 'warning python must be installed to use this command' + Fore.WHITE)
         time.sleep(1)
         os.system(cmd)
     elif "color" in cmd:
         change_color(args)  
-    elif "blackjack" in cmd:
-        blackjack()
     elif command == "wifi":
         if platform.system() == "Windows":
             get_wifi_password_windows()
         else:
-            print("Unsupported platform")
+            print(Fore.CYAN + "Unsupported platform" + Fore.WHITE)
+    elif command == "casino":
+        casino()
+    elif command == "diafetch":
+        diafetch()
+    elif command == "packagelist":
+        diafetch_package_list()
     else:
         Miscellaneous.commands(cmd, current_dir)
 
     return current_dir
+
+def get_installed_packages_count():
+    installed_packages_count = len(list(pkg_resources.working_set))
+    return installed_packages_count
+
+def diafetch():
+    try:
+
+        gpu_info_tuple = GPUInfo.get_info()
+        gpu_name = "Unknown"
+        
+        # Check if GPU info is returned as a tuple
+        if isinstance(gpu_info_tuple, tuple) and len(gpu_info_tuple) >= 4:
+            # Extract GPU name from the returned tuple
+            for pid, gpu_id in zip(gpu_info_tuple[0], gpu_info_tuple[1]):
+                if gpu_id not in available_device:
+                    continue
+                gpu_name = GPUInfo.get_user(pid)
+                break
+        
+    
+        available_device = GPUInfo.check_empty()
+
+      
+        installed_packages_count = get_installed_packages_count()
+
+    
+        uname = platform.uname()
+        system = uname.system
+        hostname = socket.gethostname()
+        uptime_seconds = time.time() - psutil.boot_time()
+        uptime_string = str(timedelta(seconds=uptime_seconds))
+        cpu_info = f"{psutil.cpu_percent()}% {psutil.cpu_freq().max:.2f}MHz {psutil.cpu_count(logical=False)} cores"
+        memory_info = psutil.virtual_memory()
+        total_memory = memory_info.total / (1024**3)  # Convert bytes to GB
+        used_memory = memory_info.used / (1024**3)
+        total, used, free = shutil.disk_usage("/")
+        total_disk = total / (1024**3)
+        used_disk = used / (1024**3)
+        resolution = "N/A"
+
+        if platform.system() == "Windows":
+            from win32api import GetSystemMetrics
+            resolution = f"{GetSystemMetrics(0)}x{GetSystemMetrics(1)}"
+
+
+        print(Fore.CYAN + "        ___                ")
+        print(Fore.CYAN + "      /    /\              User: " + Fore.WHITE + f"{getpass.getuser()}")
+        print(Fore.CYAN + "     /    /  \             Host: " + Fore.WHITE + f"{hostname}")
+        print(Fore.CYAN + "    /    /    \            OS: " + Fore.WHITE + f"{system}")
+        print(Fore.CYAN + "   /    /  /\  \           Kernel: " + Fore.WHITE + f"{uname.release}")
+        print(Fore.CYAN + "  /    /  /  \  \          Uptime: " + Fore.WHITE + f"{uptime_string}")
+        print(Fore.CYAN + " /    /  /    \  \         Packages: " + Fore.WHITE + f"{installed_packages_count}")
+        print(Fore.CYAN + "/____/  /      \  \        Shell: " + Fore.WHITE + "Python")
+        print(Fore.CYAN + "\    \  \      /  /        Resolution: " + Fore.WHITE + f"{resolution}")
+        print(Fore.CYAN + " \    \  \    /  /         Terminal: " + Fore.WHITE + "Termithon")
+        print(Fore.CYAN + "  \    \  \  /  /          CPU: " + Fore.WHITE + f"{cpu_info}")
+        print(Fore.CYAN + "   \    \  \/  /           GPU: " + Fore.WHITE + f"{gpu_name}")
+        print(Fore.CYAN + "    \    \    /            Memory: " + Fore.WHITE + f"{used_memory:.2f}GB / {total_memory:.2f}GB")
+        print(Fore.CYAN + "     \    \  /             Disk: " + Fore.WHITE + f"{used_disk:.2f}GB / {total_disk:.2f}GB")
+        print(Fore.CYAN + "      \____\/              ")
+        print(Style.RESET_ALL)
+    
+    except Exception as e:
+        print(Fore.RED + f"An error occurred in diafetch: {str(e)}" + Fore.WHITE)
+
+def get_installed_packages():
+    installed_packages = []
+    for package in pkg_resources.working_set:
+        installed_packages.append(package.key)
+    return installed_packages
+
+def diafetch_package_list():
+    try:
+        installed_packages = get_installed_packages()
+        num_packages = len(installed_packages)
+        print(Fore.CYAN + "Installed Packages:")
+        for i, package in enumerate(installed_packages):
+            if (i + 1) % 3 == 0:  
+                end = '\n'
+            else:
+                end = ' ' + Style.RESET_ALL + ' '
+            print(f"{Fore.CYAN}{i + 1}. {Fore.WHITE}{package.ljust(20)}", end=end)
+        print()  
+    except Exception as e:
+        print(Fore.RED + f"An error occurred in diafetch pl: {str(e)}")
+
+def casino():
+    print(Fore.GREEN + '''
+
+    1. Blackjack
+    2. Roulette
+    3. Poker
+    4. Slots
+    
+    Q to Quit
+            
+''' + Fore.WHITE)
+    
+    choice = input("Which game would you like to play: ")
+
+    if choice == '1':
+        blackjack()
+    elif choice == '2':
+        roulette()
+    elif choice == '3':
+        poker()
+    elif choice == '4':
+        slots()
+    elif choice.lower() == 'q':
+        main()
+    else:
+        print("\n" + Fore.RED + "Bad Input Try Again" + Fore.WHITE)
+        casino()
+    
 def blackjack():
-      print("placeholder")
+    print("Placeholder")
+
+def roulette():
+    print("Placeholder")
+
+def poker():
+    print("Placeholder")
+
+def slots():
+    print("Placeholder")
+
+
 
 def get_wifi_password_windows():
     output = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
@@ -195,17 +335,17 @@ def get_wifi_password_windows():
             if password_line:
                 password = password_line[0].split(":")[1].strip()
                 print(Fore.BLUE + "_" * 40 + Fore.WHITE)
-                print(f"Network: {profile}")
-                print(f"Password: {password}")
+                print(f"\nNetwork: {profile}")
+                print(f"\nPassword: {password}")
             else:
-                print(f"Network: {profile}")
-                print("Password not available for this network.")
-            # Print a dotted blue line
+                print(f"\nNetwork: {profile}")
+                print("\nPassword not available for this network.")
+    
             print(Fore.BLUE + "_" * 40 + Fore.WHITE)
             print(" " * 40)
             print(" " * 40)
         except Exception as e:
-            print(f"Error occurred while retrieving password for {profile}: {str(e)}")
+            print(f"\nError occurred while retrieving password for {profile}: {str(e)}")
 
 
 
