@@ -85,28 +85,29 @@ ip = socket.gethostbyname(hostname)
 
 current_dir = os.getcwd()
 
-commands = '''ls (shows files in current directory)
-exit (exits program)
-ip (gives you your ip)
-hostname (gives you your computers id)
-user (gives the user your logged on)
-mac (gives you your mac addresss)
-ping (lets you ping a website)
-diafetch (A lot of info about your computer)
-python3 (full python3 support [only if you have python3 installed])
-pip (python pip command)
-cd (change current working directory)
-del (deletes file)
-mkdir (creates folder)
-echo (echo something or create something [not currently working])
-clear (clear terminal)
-curl (the curl command)
-start (run something)
-color (change text color)
-packagelist (All installed python packages)
+commands = Fore.CYAN + '''
+1. ls (shows files in current directory)
+2. exit (exits program)
+3. ip (gives you your ip)
+4. hostname (gives you your computers id)
+5. user (gives the user your logged on)
+6. mac (gives you your mac addresss)
+7. ping (lets you ping a website)
+8. diafetch (A lot of info about your computer)
+9. python3 (full python3 support [only if you have python3 installed])
+10. pip (python pip command)
+11. cd (change current working directory)
+12. del (deletes file)
+13. mkdir (creates folder)
+14. echo (echo something or create something [not currently working])
+15. clear (clear terminal)
+16. curl (the curl command)
+17. start (run something)
+18. color (change text color)
+19. packagelist (All installed python packages)
 
 For more help go to github.com/IDkDwij/termithon
-'''
+''' + Fore.WHITE
 
 
 
