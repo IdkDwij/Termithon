@@ -41,7 +41,8 @@ diafetch (gets various sys information)<br>
 packagelist (displays all installed python packages)<br>
 
 <br>
-**# Usage**
+
+###Usage<br>
 example for commands<br>
 
 ping www.google.com<br>
