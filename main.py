@@ -1,22 +1,17 @@
 import getpass
-import platform
 import os
+import platform
 import random
 import socket
-from uuid import getnode as get_mac
-import time
-import signal
 import subprocess
+import time
 from datetime import timedelta
-import pkg_resources
-
+from uuid import getnode as get_mac
 try:
     import psutil
     import shutil
-    import gpuinfo
     from win32api import GetSystemMetrics
-    from gpuinfo import GPUInfo
-    import colorama
+    import GPUtil
     from colorama import Fore, Style
 
 except:
@@ -203,22 +198,8 @@ def get_installed_packages_count():
 
 def diafetch():
     try:
-
-        gpu_info_tuple = GPUInfo.get_info()
-        gpu_name = "Unknown"
-        
-        # Check if GPU info is returned as a tuple
-        if isinstance(gpu_info_tuple, tuple) and len(gpu_info_tuple) >= 4:
-            # Extract GPU name from the returned tuple
-            for pid, gpu_id in zip(gpu_info_tuple[0], gpu_info_tuple[1]):
-                if gpu_id not in available_device:
-                    continue
-                gpu_name = GPUInfo.get_user(pid)
-                break
-        
+        gpu_name = GPUtil.getGPUs()[0].name
     
-        available_device = GPUInfo.check_empty()
-
       
         installed_packages_count = get_installed_packages_count()
 
