@@ -7,6 +7,8 @@ import subprocess
 import time
 from datetime import timedelta
 from uuid import getnode as get_mac
+
+import pkg_resources
 try:
     import psutil
     import shutil
@@ -113,82 +115,82 @@ def handle_command(cmd, current_dir):
         return current_dir
     
     command = args[0]
-    
-    if command == 'help':
-        print(commands)
-    elif command == 'ls':
-        print(os.listdir(current_dir))
-    elif command == 'curl':
-        os.system(cmd)
-    elif command == "start":
-        os.system(cmd)
-    elif command == "cd":
-        if len(args) < 2:
-            print('The system cannot find the path specified.')
-        else:
-            path = ' '.join(args[1:])
-            if os.path.isdir(path):
-                current_dir = path
-            elif os.path.isdir(os.path.join(current_dir, path)):
-                current_dir = os.path.join(current_dir, path)
-            else:
+    match command:
+        case "help":
+            print(commands)
+        case "ls":
+            print(os.listdir(current_dir))
+        case "curl":
+            os.system(cmd)
+        case "start":
+            os.system(cmd)
+        case "cd":
+            if len(args) < 2:
                 print('The system cannot find the path specified.')
-    elif command == 'exit':
-        exit()
-    elif command == 'ip':
-        print(Fore.CYAN + ip + Fore.WHITE)
-    elif command == 'hostname':
-        print(Fore.CYAN + hostname + Fore.WHITE)
-    elif command == 'user':
-        print(Fore.CYAN + getpass.getuser() + Fore.WHITE)
-    elif command == "mac":
-        print(mac)
-    elif command == 'ping':
-        os.system(cmd)
-    elif command == "clear":
-        os.system('cls||clear') 
-    elif command == "mkdir":
-        if len(args) < 2:
-            print('Usage: mkdir <directory_name>')
-        else:
-            try:
-                os.makedirs(args[1])
-            except:
-                os.makedirs(current_dir + args[1])
-    elif command == "del":
-        if len(args) < 2:
-            print('Usage: del <file_name>')
-        else:
-            try:
-                os.remove(args[1])
-            except:
-                os.remove(current_dir + args[1])
-    elif command == 'echo':
-        print(Fore.CYAN + ' '.join(args[1:]) + Fore.WHITE)
-    elif command == 'python3':
-        if not PY_warning_said:
-            print(Fore.CYAN + 'warning, this requires python3 to be installed' + Fore.WHITE)
-            PY_warning_said = True
-        os.system(cmd)
-    elif command == 'pip':
-        print(Fore.CYAN + 'warning python must be installed to use this command' + Fore.WHITE)
-        time.sleep(1)
-        os.system(cmd)
-    elif "color" in cmd:
-        change_color(args)  
-    elif command == "wifi":
-        if platform.system() == "Windows":
-            get_wifi_password_windows()
-        else:
-            print(Fore.CYAN + "Unsupported platform" + Fore.WHITE)
-    elif command == "casino":
-        casino()
-    elif command == "diafetch":
-        diafetch()
-    elif command == "packagelist":
-        diafetch_package_list()
-    else:
-        Miscellaneous.commands(cmd, current_dir)
+            else:
+                path = ' '.join(args[1:])
+                if os.path.isdir(path):
+                    current_dir = path
+                elif os.path.isdir(os.path.join(current_dir, path)):
+                    current_dir = os.path.join(current_dir, path)
+                else:
+                    print('The system cannot find the path specified.')
+        case 'exit':
+            exit()
+        case 'ip':
+            print(Fore.CYAN + ip + Fore.WHITE)
+        case 'hostname':
+            print(Fore.CYAN + hostname + Fore.WHITE)
+        case 'user':
+            print(Fore.CYAN + getpass.getuser() + Fore.WHITE)
+        case "mac":
+            print(mac)
+        case 'ping':
+            os.system(cmd)
+        case "clear":
+            os.system('cls||clear') 
+        case "mkdir":
+            if len(args) < 2:
+                print('Usage: mkdir <directory_name>')
+            else:
+                try:
+                    os.makedirs(args[1])
+                except:
+                    os.makedirs(current_dir + args[1])
+        case "del":
+            if len(args) < 2:
+                print('Usage: del <file_name>')
+            else:
+                try:
+                    os.remove(args[1])
+                except:
+                    os.remove(current_dir + args[1])
+        case 'echo':
+            print(Fore.CYAN + ' '.join(args[1:]) + Fore.WHITE)
+        case 'python3':
+            if not PY_warning_said:
+                print(Fore.CYAN + 'warning, this requires python3 to be installed' + Fore.WHITE)
+                PY_warning_said = True
+            os.system(cmd)
+        case 'pip':
+            print(Fore.CYAN + 'warning python must be installed to use this command' + Fore.WHITE)
+            time.sleep(1)
+            os.system(cmd)
+        case "color":
+            change_color(args)  
+        case "wifi":
+            if platform.system() == "Windows":
+                get_wifi_password_windows()
+            else:
+                print(Fore.CYAN + "Unsupported platform" + Fore.WHITE)
+        case "casino":
+            casino()
+        case "diafetch":
+            diafetch()
+        case "packagelist":
+            diafetch_package_list()
+        case _:
+            Miscellaneous.commands(cmd, current_dir)
 
     return current_dir
 
@@ -331,8 +333,9 @@ def get_wifi_password_windows():
 
 
 def change_color(args):
-    if len(args) == 1 or args[1] == "help":
-        print('''Available colors:
+    match args:
+        case [_, "help"] | [_,] if len(args) == 1:
+            print('''Available colors:
         0 = Black       8 = Gray
         1 = Blue        9 = Light Blue
         2 = Green       A = Light Green
@@ -341,48 +344,50 @@ def change_color(args):
         5 = Purple      D = Light Purple
         6 = Yellow      E = Light Yellow
         7 = White       F = Bright White''')
-    elif args[1] in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']:
-        print(Fore.RESET + f"Color changed to {args[1]}")
-        if args[1] == '0':
-            print(Fore.BLACK, end="")
-        elif args[1] == '1':
-            print(Fore.BLUE, end="")
-        elif args[1] == '2':
-            print(Fore.GREEN, end="")
-        elif args[1] == '3':
-            print(Fore.CYAN, end="")
-        elif args[1] == '4':
-            print(Fore.RED, end="")
-        elif args[1] == '5':
-            print(Fore.MAGENTA, end="")
-        elif args[1] == '6':
-            print(Fore.YELLOW, end="")
-        elif args[1] == '7':
-            print(Fore.WHITE, end="")
-        elif args[1] == '8':
-            print(Fore.LIGHTBLACK_EX, end="")
-        elif args[1] == '9':
-            print(Fore.LIGHTBLUE_EX, end="")
-        elif args[1] == 'A':
-            print(Fore.LIGHTGREEN_EX, end="")
-        elif args[1] == 'B':
-            print(Fore.LIGHTCYAN_EX, end="")
-        elif args[1] == 'C':
-            print(Fore.LIGHTRED_EX, end="")
-        elif args[1] == 'D':
-            print(Fore.LIGHTMAGENTA_EX, end="")
-        elif args[1] == 'E':
-            print(Fore.LIGHTYELLOW_EX, end="")
-        elif args[1] == 'F':
-            print(Fore.WHITE, end="")
-    else:
-        print("Invalid color code")
+        case [_, color] if color in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']:
+            print(Fore.RESET + f"Color changed to {color}")
+            match color:
+                case '0':
+                    print(Fore.BLACK, end="")
+                case '1':
+                    print(Fore.BLUE, end="")
+                case '2':
+                    print(Fore.GREEN, end="")
+                case '3':
+                    print(Fore.CYAN, end="")
+                case '4':
+                    print(Fore.RED, end="")
+                case '5':
+                    print(Fore.MAGENTA, end="")
+                case '6':
+                    print(Fore.YELLOW, end="")
+                case '7':
+                    print(Fore.WHITE, end="")
+                case '8':
+                    print(Fore.LIGHTBLACK_EX, end="")
+                case '9':
+                    print(Fore.LIGHTBLUE_EX, end="")
+                case 'A':
+                    print(Fore.LIGHTGREEN_EX, end="")
+                case 'B':
+                    print(Fore.LIGHTCYAN_EX, end="")
+                case 'C':
+                    print(Fore.LIGHTRED_EX, end="")
+                case 'D':
+                    print(Fore.LIGHTMAGENTA_EX, end="")
+                case 'E':
+                    print(Fore.LIGHTYELLOW_EX, end="")
+                case 'F':
+                    print(Fore.WHITE, end="")
+
+        case _:
+            print("Invalid color code")
 
 
 class Miscellaneous():
     @staticmethod
     def commands(cmd, current_dir):
-        args = cmd.split() 
+        args = cmd.split()
         if args[0] == 'inspace':
             Miscellaneous.emulation()
         else:
